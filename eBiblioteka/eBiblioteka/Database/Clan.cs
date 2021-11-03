@@ -17,6 +17,8 @@ namespace eBiblioteka.Database
         [DataType(DataType.Date)]
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
         public bool Aktivan { get; set; }
         [ForeignKey("Biblioteka")]
         public int BibliotekaID { get; set; }
