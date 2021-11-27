@@ -1,4 +1,5 @@
 using eBiblioteka.DB;
+using eBiblioteka.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,13 @@ namespace eBiblioteka
         {
             services.AddDbContext<MojDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("cs1")));
+
+            services.AddSwaggerGen();
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+            
+            services.AddScoped<IZaposlenikService, ZaposlenikService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +46,14 @@ namespace eBiblioteka
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
 
             app.UseHttpsRedirection();
 
