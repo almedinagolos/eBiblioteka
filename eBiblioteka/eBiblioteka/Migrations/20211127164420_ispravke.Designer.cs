@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eBiblioteka.DB;
 
 namespace eBiblioteka.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    partial class MojDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211127164420_ispravke")]
+    partial class ispravke
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,30 +56,6 @@ namespace eBiblioteka.Migrations
                     b.HasIndex("VrsteBibliotekaID");
 
                     b.ToTable("Biblioteka");
-
-                    b.HasData(
-                        new
-                        {
-                            BibliotekaID = 1,
-                            Adresa = "Branislava Nušića 95",
-                            Aktivan = true,
-                            BrojTelefona = "033/461-300",
-                            Email = "aleksa_santic@bih.net.ba",
-                            GradID = 1,
-                            Naziv = "Školska biblioteka Aleksa Šantić",
-                            VrsteBibliotekaID = 1
-                        },
-                        new
-                        {
-                            BibliotekaID = 2,
-                            Adresa = "Univerzitetski kampus",
-                            Aktivan = true,
-                            BrojTelefona = "036/571-543",
-                            Email = "biblioteka@unmo.ba",
-                            GradID = 2,
-                            Naziv = "Univerzitetska biblioteka Džemal Bijedić",
-                            VrsteBibliotekaID = 2
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Clan", b =>
@@ -175,28 +153,6 @@ namespace eBiblioteka.Migrations
                     b.HasKey("DrzavaID");
 
                     b.ToTable("Drzava");
-
-                    b.HasData(
-                        new
-                        {
-                            DrzavaID = 1,
-                            Naziv = "Bosna i Hercegovina"
-                        },
-                        new
-                        {
-                            DrzavaID = 2,
-                            Naziv = "Srbija"
-                        },
-                        new
-                        {
-                            DrzavaID = 3,
-                            Naziv = "Hrvatska"
-                        },
-                        new
-                        {
-                            DrzavaID = 4,
-                            Naziv = "Velika Britanija"
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Grad", b =>
@@ -217,62 +173,6 @@ namespace eBiblioteka.Migrations
                     b.HasIndex("DrzavaID");
 
                     b.ToTable("Grad");
-
-                    b.HasData(
-                        new
-                        {
-                            GradID = 1,
-                            DrzavaID = 1,
-                            Naziv = "Sarajevo"
-                        },
-                        new
-                        {
-                            GradID = 2,
-                            DrzavaID = 1,
-                            Naziv = "Mostar"
-                        },
-                        new
-                        {
-                            GradID = 3,
-                            DrzavaID = 1,
-                            Naziv = "Banja Luka"
-                        },
-                        new
-                        {
-                            GradID = 4,
-                            DrzavaID = 2,
-                            Naziv = "Beograd"
-                        },
-                        new
-                        {
-                            GradID = 5,
-                            DrzavaID = 3,
-                            Naziv = "Zagreb"
-                        },
-                        new
-                        {
-                            GradID = 6,
-                            DrzavaID = 4,
-                            Naziv = "London"
-                        },
-                        new
-                        {
-                            GradID = 7,
-                            DrzavaID = 4,
-                            Naziv = "Cardiff"
-                        },
-                        new
-                        {
-                            GradID = 8,
-                            DrzavaID = 4,
-                            Naziv = "Edinburgh"
-                        },
-                        new
-                        {
-                            GradID = 9,
-                            DrzavaID = 4,
-                            Naziv = "Belfast"
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Knjiga", b =>
@@ -436,18 +336,6 @@ namespace eBiblioteka.Migrations
                     b.HasKey("UlogaID");
 
                     b.ToTable("Uloga");
-
-                    b.HasData(
-                        new
-                        {
-                            UlogaID = 1,
-                            Naziv = "Admin"
-                        },
-                        new
-                        {
-                            UlogaID = 2,
-                            Naziv = "Zaposlenik"
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.VrsteBiblioteka", b =>
@@ -463,38 +351,6 @@ namespace eBiblioteka.Migrations
                     b.HasKey("VrsteBibliotekaID");
 
                     b.ToTable("VrsteBiblioteka");
-
-                    b.HasData(
-                        new
-                        {
-                            VrsteBibliotekaID = 1,
-                            Naziv = "Školska"
-                        },
-                        new
-                        {
-                            VrsteBibliotekaID = 2,
-                            Naziv = "Univerzitetska"
-                        },
-                        new
-                        {
-                            VrsteBibliotekaID = 3,
-                            Naziv = "Narodna"
-                        },
-                        new
-                        {
-                            VrsteBibliotekaID = 4,
-                            Naziv = "Internacionalna"
-                        },
-                        new
-                        {
-                            VrsteBibliotekaID = 5,
-                            Naziv = "Nacionalna"
-                        },
-                        new
-                        {
-                            VrsteBibliotekaID = 6,
-                            Naziv = "Dječija"
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Zanr", b =>
@@ -567,25 +423,6 @@ namespace eBiblioteka.Migrations
                     b.HasIndex("UlogaID");
 
                     b.ToTable("Zaposlenik");
-
-                    b.HasData(
-                        new
-                        {
-                            ZaposlenikID = 1,
-                            Adresa = "Mostar",
-                            Aktivan = true,
-                            BibliotekaID = 2,
-                            DatumRodjenja = new DateTime(1999, 11, 27, 17, 51, 38, 801, DateTimeKind.Local).AddTicks(4863),
-                            Email = "admin@mail.com",
-                            GradID = 2,
-                            Ime = "Admin",
-                            JMBG = "0101999155999",
-                            KorisnickoIme = "admin",
-                            LozinkaHash = "96EktwgZQyRuoc3k87hzWMb73W4=",
-                            LozinkaSalt = "iRzNjJfpeGm9ArHOh06CeQ==",
-                            Prezime = "Admin",
-                            UlogaID = 1
-                        });
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Biblioteka", b =>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.DB
 {
-    public class MojDbContext:DbContext
+    public partial class MojDbContext : DbContext
     {
         public MojDbContext(DbContextOptions<MojDbContext> options) : base(options)
         {
@@ -28,12 +28,11 @@ namespace eBiblioteka.DB
         public DbSet<VrsteBiblioteka> VrsteBiblioteka { get; set; }
         public DbSet<Zanr> Zanr { get; set; }
         public DbSet<Zaposlenik> Zaposlenik { get; set; }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(connectionString: @"    Server=localhost;
-        //                                                        Database=eBiblioteka;
-        //                                                        Trusted_Connection=true;
-        //                                                        MultipleActiveResultSets=true;");
-        //}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
+
     }
 }

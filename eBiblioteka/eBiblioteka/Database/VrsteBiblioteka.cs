@@ -8,6 +8,6 @@ namespace eBiblioteka.Database
     public class VrsteBiblioteka
     {
         public int VrsteBibliotekaID { get; set; }
-        public int Naziv { get; set; }
+        public string Naziv { get; set; }
     }
 }
