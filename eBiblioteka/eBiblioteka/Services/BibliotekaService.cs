@@ -2,6 +2,7 @@
 using eBiblioteka.Database;
 using eBiblioteka.DB;
 using eBiblioteka.Model.Requests;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,15 @@ namespace eBiblioteka.Services
                 if(search.Aktivan.HasValue)
                     query = query.Where(x => x.Aktivan == search.Aktivan.Value);
 
-                if (string.IsNullOrEmpty(search.Naziv))
+                if(search.Include != null)
+                {
+                    foreach (var item in search.Include)
+                    {
+                        query = query.Include(item);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(search.Naziv))
                     query = query.Where(x => x.Naziv.ToLower().Contains(search.Naziv.ToLower()));
             }
 

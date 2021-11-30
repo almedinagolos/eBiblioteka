@@ -33,6 +33,10 @@ namespace eBiblioteka.DB
         {
             modelBuilder.Seed();
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
 
     }
 }

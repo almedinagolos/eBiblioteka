@@ -36,6 +36,7 @@ namespace eBiblioteka
             services.AddAutoMapper(typeof(Startup));
             
             services.AddScoped<IZaposlenikService, ZaposlenikService>();
+            services.AddScoped<IBibliotekaService, BibliotekaService>();
 
         }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eBiblioteka.Model
 {
-    public class Zaposlenik
+    public class Zaposlenik: BaseEntity
     {
         public int ZaposlenikID { get; set; }
         public string Ime { get; set; }
@@ -16,6 +16,5 @@ namespace eBiblioteka.Model
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-        public bool Aktivan { get; set; }
     }
 }
