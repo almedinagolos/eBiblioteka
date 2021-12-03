@@ -34,9 +34,13 @@ namespace eBiblioteka
             services.AddSwaggerGen();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            
-            services.AddScoped<IZaposlenikService, ZaposlenikService>();
+
             services.AddScoped<IBibliotekaService, BibliotekaService>();
+            services.AddScoped<IZaposlenikService, ZaposlenikService>();
+            services.AddScoped<IClanService, ClanService>();
+            services.AddScoped<IGradService, GradService>();
+            services.AddScoped<IVrsteBibliotekaService, VrsteBibliotekaService>();
+            services.AddScoped<IDrzavaService, DrzavaService>();
 
         }
 

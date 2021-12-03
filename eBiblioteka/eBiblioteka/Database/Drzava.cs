@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Database
 {
-    public class Drzava
+    public class Drzava : BaseEntity
     {
         [Key]
         public int DrzavaID { get; set; }

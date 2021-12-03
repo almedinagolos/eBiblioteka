@@ -61,7 +61,12 @@
     <Compile Include="Pisac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\BaseSearchRequest.cs" />
+    <Compile Include="Requests\ClanInsertRequest.cs" />
     <Compile Include="Requests\BibliotekaInsertRequest.cs" />
+    <Compile Include="Requests\ClanSearchRequest.cs" />
+    <Compile Include="Requests\DrzavaSearchRequest.cs" />
+    <Compile Include="Requests\VrsteBibliotekaSearchRequest.cs" />
+    <Compile Include="Requests\GradSearchRequest.cs" />
     <Compile Include="Requests\BibliotekaSearchRequest.cs" />
     <Compile Include="Requests\ZaposlenikInsertRequest.cs" />
     <Compile Include="Requests\ZaposlenikSearchRequest.cs" />

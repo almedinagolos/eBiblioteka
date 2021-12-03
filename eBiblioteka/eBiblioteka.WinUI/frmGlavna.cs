@@ -71,15 +71,42 @@ namespace eBiblioteka.WinUI
             ActivateButton(sender);
             openChildForm(new frmBiblioteka());
         }
-
+        private void btnZaposlenik_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmZaposlenik());
+        }
         private void btnClan_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-
-            openChildForm(new frmClanUnos());
+            openChildForm(new frmClan());
 
         }
-
+        private void btnPisac_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmPisac());
+        }
+        private void btnZanr_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmZanr());
+        }
+        private void btnKnjige_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmKnjige());
+        }
+        private void btnRezervacije_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmRezervacija());
+        }
+        private void btnIzvjestaj_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            openChildForm(new frmIzvjestaj());
+        }
         private void btnOdjava_Click(object sender, EventArgs e)
         {
             //ActivateButton(sender);
@@ -88,6 +115,5 @@ namespace eBiblioteka.WinUI
             //Prijava prijava = new Prijava();
             //prijava.ShowDialog();
         }
-
     }
 }

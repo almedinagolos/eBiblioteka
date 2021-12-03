@@ -18,16 +18,14 @@ namespace eBiblioteka.Model
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-        public string Lozinka { get; set; }
+        public string LozinkaSalt { get; set; }
+        public string LozinkaHash { get; set; }
         public bool Aktivan { get; set; }
-        [ForeignKey("Biblioteka")]
+        [ForeignKey(nameof(Biblioteka))]
         public int BibliotekaID { get; set; }
         public Biblioteka Biblioteka { get; set; }
-        [ForeignKey("Grad")]
+        [ForeignKey(nameof(Grad))]
         public int GradID { get; set; }
         public Grad Grad { get; set; }
-        [ForeignKey("Uloga")]
-        public int UlogaID { get; set; }
-        public Uloga Uloga { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace eBiblioteka.Mapping
         public eBibliotekaProfile()
         {
             CreateMap<Database.Biblioteka, Model.Biblioteka>();
-            //CreateMap<Database.Biblioteka, Model.Requests.BibliotekaInsertRequest>().ReverseMap();
+            CreateMap<Database.Biblioteka, Model.Requests.BibliotekaInsertRequest>().ReverseMap();
 
             CreateMap<Database.Clan, Model.Clan>();
-            //CreateMap<Database.Clan, Model.Requests.ClanInsertRequest>().ReverseMap();
+            CreateMap<Database.Clan, Model.Requests.ClanInsertRequest>().ReverseMap();
 
             CreateMap<Database.Clanarina, Model.Clanarina>();
             //CreateMap<Database.Clanarina, Model.Requests.ClanarinaInsertRequest>().ReverseMap();

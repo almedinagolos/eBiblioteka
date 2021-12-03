@@ -120,16 +120,11 @@ namespace eBiblioteka.Migrations
                     b.Property<string>("Prezime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UlogaID")
-                        .HasColumnType("int");
-
                     b.HasKey("ClanID");
 
                     b.HasIndex("BibliotekaID");
 
                     b.HasIndex("GradID");
-
-                    b.HasIndex("UlogaID");
 
                     b.ToTable("Clan");
                 });
@@ -169,6 +164,9 @@ namespace eBiblioteka.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Aktivan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Naziv")
                         .HasColumnType("nvarchar(max)");
 
@@ -180,21 +178,25 @@ namespace eBiblioteka.Migrations
                         new
                         {
                             DrzavaID = 1,
+                            Aktivan = true,
                             Naziv = "Bosna i Hercegovina"
                         },
                         new
                         {
                             DrzavaID = 2,
+                            Aktivan = true,
                             Naziv = "Srbija"
                         },
                         new
                         {
                             DrzavaID = 3,
+                            Aktivan = true,
                             Naziv = "Hrvatska"
                         },
                         new
                         {
                             DrzavaID = 4,
+                            Aktivan = true,
                             Naziv = "Velika Britanija"
                         });
                 });
@@ -205,6 +207,9 @@ namespace eBiblioteka.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Aktivan")
+                        .HasColumnType("bit");
 
                     b.Property<int>("DrzavaID")
                         .HasColumnType("int");
@@ -222,54 +227,63 @@ namespace eBiblioteka.Migrations
                         new
                         {
                             GradID = 1,
+                            Aktivan = true,
                             DrzavaID = 1,
                             Naziv = "Sarajevo"
                         },
                         new
                         {
                             GradID = 2,
+                            Aktivan = true,
                             DrzavaID = 1,
                             Naziv = "Mostar"
                         },
                         new
                         {
                             GradID = 3,
+                            Aktivan = true,
                             DrzavaID = 1,
                             Naziv = "Banja Luka"
                         },
                         new
                         {
                             GradID = 4,
+                            Aktivan = true,
                             DrzavaID = 2,
                             Naziv = "Beograd"
                         },
                         new
                         {
                             GradID = 5,
+                            Aktivan = true,
                             DrzavaID = 3,
                             Naziv = "Zagreb"
                         },
                         new
                         {
                             GradID = 6,
+                            Aktivan = true,
                             DrzavaID = 4,
                             Naziv = "London"
                         },
                         new
                         {
                             GradID = 7,
+                            Aktivan = true,
                             DrzavaID = 4,
                             Naziv = "Cardiff"
                         },
                         new
                         {
                             GradID = 8,
+                            Aktivan = true,
                             DrzavaID = 4,
                             Naziv = "Edinburgh"
                         },
                         new
                         {
                             GradID = 9,
+                            Aktivan = true,
                             DrzavaID = 4,
                             Naziv = "Belfast"
                         });
@@ -281,6 +295,9 @@ namespace eBiblioteka.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Aktivan")
+                        .HasColumnType("bit");
 
                     b.Property<int>("BibliotekaID")
                         .HasColumnType("int");
@@ -457,6 +474,9 @@ namespace eBiblioteka.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Aktivan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Naziv")
                         .HasColumnType("nvarchar(max)");
 
@@ -468,31 +488,37 @@ namespace eBiblioteka.Migrations
                         new
                         {
                             VrsteBibliotekaID = 1,
+                            Aktivan = true,
                             Naziv = "Školska"
                         },
                         new
                         {
                             VrsteBibliotekaID = 2,
+                            Aktivan = true,
                             Naziv = "Univerzitetska"
                         },
                         new
                         {
                             VrsteBibliotekaID = 3,
+                            Aktivan = true,
                             Naziv = "Narodna"
                         },
                         new
                         {
                             VrsteBibliotekaID = 4,
+                            Aktivan = true,
                             Naziv = "Internacionalna"
                         },
                         new
                         {
                             VrsteBibliotekaID = 5,
+                            Aktivan = true,
                             Naziv = "Nacionalna"
                         },
                         new
                         {
                             VrsteBibliotekaID = 6,
+                            Aktivan = true,
                             Naziv = "Dječija"
                         });
                 });
@@ -575,14 +601,14 @@ namespace eBiblioteka.Migrations
                             Adresa = "Mostar",
                             Aktivan = true,
                             BibliotekaID = 2,
-                            DatumRodjenja = new DateTime(1999, 11, 27, 17, 51, 38, 801, DateTimeKind.Local).AddTicks(4863),
+                            DatumRodjenja = new DateTime(1999, 12, 3, 22, 43, 34, 323, DateTimeKind.Local).AddTicks(3686),
                             Email = "admin@mail.com",
                             GradID = 2,
                             Ime = "Admin",
                             JMBG = "0101999155999",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "96EktwgZQyRuoc3k87hzWMb73W4=",
-                            LozinkaSalt = "iRzNjJfpeGm9ArHOh06CeQ==",
+                            LozinkaHash = "IyA+M3zcRo80kpwnqkwTwYwGeCI=",
+                            LozinkaSalt = "IbOPwWK610ML6boWaeFDng==",
                             Prezime = "Admin",
                             UlogaID = 1
                         });
@@ -621,17 +647,9 @@ namespace eBiblioteka.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("eBiblioteka.Database.Uloga", "Uloga")
-                        .WithMany()
-                        .HasForeignKey("UlogaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Biblioteka");
 
                     b.Navigation("Grad");
-
-                    b.Navigation("Uloga");
                 });
 
             modelBuilder.Entity("eBiblioteka.Database.Clanarina", b =>

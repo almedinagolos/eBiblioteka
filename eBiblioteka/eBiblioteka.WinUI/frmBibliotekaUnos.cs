@@ -23,7 +23,7 @@ namespace eBiblioteka.WinUI
             InitializeComponent();
         }
 
-        public frmBibliotekaUnos(Biblioteka row): this()
+        public frmBibliotekaUnos(Biblioteka row) : this()
         {
             this.row = row;
         }
@@ -40,13 +40,13 @@ namespace eBiblioteka.WinUI
                 VrsteBibliotekaID = (vrstaCombo.SelectedItem as VrsteBiblioteka).VrsteBibliotekaID
             };
 
-            if(row != null)
+            if (row != null)
             {
                 var entity = await _serviceBiblioteka.Update<Biblioteka>(row.BibliotekaID, request);
                 if (entity != null)
                 {
                     MessageBox.Show("Uspješno ste uredili biblioteku!");
-                    DialogResult = DialogResult.OK;
+                    frmGlavna.openChildForm(new frmBiblioteka());
                 }
             }
             else
@@ -55,49 +55,57 @@ namespace eBiblioteka.WinUI
                 if (entity != null)
                 {
                     MessageBox.Show("Uspješno ste unijeli biblioteku!");
-                    DialogResult = DialogResult.OK;
+                    frmGlavna.openChildForm(new frmBiblioteka());
                 }
             }
         }
 
+
         private async void frmBibliotekaUnos_Load(object sender, EventArgs e)
         {
-            if(row != null)
+            Biblioteka entity = null;
+            if (row != null)
             {
-                await UcitajBiblioteku();
+                entity = await _serviceBiblioteka.GetById<Biblioteka>(row.BibliotekaID);
+                UcitajBiblioteku(entity);
             }
 
-            await UcitajGradove();
-            await UcitajVrste();
+
+            await Task.WhenAll(
+                UcitajGradove(entity),
+                UcitajVrste(entity)
+            );
         }
 
-        private async Task UcitajBiblioteku()
+        private void UcitajBiblioteku(Biblioteka entity)
         {
-            var entity = await _serviceBiblioteka.GetById<Biblioteka>(row.BibliotekaID);
-
             nazivTextBox.Text = entity.Naziv;
             adresaTextBox.Text = entity.Adresa;
             emailTextBox.Text = entity.Email;
             brojTelTextBox.Text = entity.BrojTelefona;
 
-            vrstaCombo.SelectedValue = entity.VrsteBibliotekaID;
-            gradCombo.SelectedValue = entity.GradID;
         }
 
-        private async Task UcitajVrste()
+        private async Task UcitajVrste(Biblioteka entity)
         {
             var list = await _serviceVrsteBiblioteka.GetAll<List<VrsteBiblioteka>>(null);
             vrstaCombo.DataSource = list;
             vrstaCombo.ValueMember = "VrsteBibliotekaID";
             vrstaCombo.DisplayMember = "Naziv";
+
+            if (entity != null)
+                vrstaCombo.SelectedValue = entity.VrsteBibliotekaID;
         }
 
-        private async Task UcitajGradove()
+        private async Task UcitajGradove(Biblioteka entity)
         {
             var list = await _serviceGrad.GetAll<List<Grad>>(null);
             gradCombo.DataSource = list;
             gradCombo.ValueMember = "GradID";
             gradCombo.DisplayMember = "Naziv";
+
+            if (entity != null)
+                gradCombo.SelectedValue = entity.GradID;
         }
     }
 }

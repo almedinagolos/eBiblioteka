@@ -8,6 +8,7 @@ using eBiblioteka.Model;
 using Flurl.Http;
 using Flurl;
 using eBiblioteka.WinUI.Properties;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eBiblioteka.WinUI
 {
@@ -55,15 +56,25 @@ namespace eBiblioteka.WinUI
             }
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
                 var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
+                try
                 {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
+                    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    foreach (var error in errors)
+                    {
+                        stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                    }
+                }
+                catch (Exception)
+                {
+                    var errors = await ex.GetResponseStringAsync();
+
+                    stringBuilder.AppendLine(errors);
+                }
+                if (stringBuilder.Length > 0)
+                    MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return default(T);
             }
 
@@ -79,15 +90,25 @@ namespace eBiblioteka.WinUI
             }
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
                 var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
+                try
                 {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
+                    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
-                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    foreach (var error in errors)
+                    {
+                        stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                    }
+                }
+                catch (Exception)
+                {
+                    var errors = await ex.GetResponseStringAsync();
+
+                    stringBuilder.AppendLine(errors);
+                }
+                if (stringBuilder.Length > 0)
+                    MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return default(T);
             }
 
