@@ -12,28 +12,26 @@ using System.Windows.Forms;
 
 namespace eBiblioteka.WinUI
 {
-    public partial class frmClanUnos : Form
+    public partial class frmZaposlenikUnos : Form
     {
-        private readonly Clan row;
-        private readonly APIService _serviceClan = new APIService("Clan");
+        private readonly Zaposlenik row;
+        private readonly APIService _serviceZaposlenik = new APIService("Zaposlenik");
         private readonly APIService _serviceGrad = new APIService("Grad");
         private readonly APIService _serviceBiblioteka = new APIService("Biblioteka");
-
-
-        public frmClanUnos()
+        private readonly APIService _serviceUloga = new APIService("Uloga");
+        public frmZaposlenikUnos()
         {
             InitializeComponent();
         }
-        public frmClanUnos(Clan row) : this()
+        public frmZaposlenikUnos(Zaposlenik row) : this()
         {
             this.row = row;
         }
-
         private async void potvrdaUnosaButton_Click(object sender, EventArgs e)
         {
             if (Validiraj())
             {
-                var request = new Model.Requests.ClanInsertRequest
+                var request = new Model.Requests.ZaposlenikInsertRequest
                 {
                     Ime = imeTextBox.Text,
                     Prezime = prezimeTextBox.Text,
@@ -42,31 +40,33 @@ namespace eBiblioteka.WinUI
                     DatumRodjenja = DatumRodjenjaDtp.Value,
                     GradID = int.Parse(gradCombo.SelectedValue.ToString()),
                     BibliotekaID = int.Parse(bibliotekaCombo.SelectedValue.ToString()),
-                    Email = emailTextBox.Text
-
+                    Email = emailTextBox.Text,
+                    KorisnickoIme = korisnickoImeTextBox.Text,
+                    Lozinka = lozinkaTextBox.Text,
+                    UlogaID = int.Parse(ulogaCombo.SelectedValue.ToString())
                 };
 
                 if (row != null)
                 {
-                    var entity = await _serviceClan.Update<Clan>(row.ClanID, request);
+                    var entity = await _serviceZaposlenik.Update<Zaposlenik>(row.ZaposlenikID, request);
                     if (entity != null)
                     {
-                        MessageBox.Show("Uspješno ste uredili Člana!");
+                        MessageBox.Show("Uspješno ste uredili Zaposlenika!");
                         DialogResult = DialogResult.OK;
                     }
                 }
                 else
                 {
-                    var entity = await _serviceClan.Insert<Clan>(request);
+                    var entity = await _serviceZaposlenik.Insert<Zaposlenik>(request);
                     if (entity != null)
                     {
-                        MessageBox.Show("Uspješno ste unijeli Člana!");
+                        MessageBox.Show("Uspješno ste unijeli Zaposlenika!");
                         DialogResult = DialogResult.OK;
                     }
                 }
             }
         }
-        private void UcitajClanove(Clan entity)
+        private void UcitajZaposlenike(Zaposlenik entity)
         {
             imeTextBox.Text = entity.Ime;
             prezimeTextBox.Text = entity.Prezime;
@@ -76,25 +76,36 @@ namespace eBiblioteka.WinUI
             DatumRodjenjaDtp.Text = entity.DatumRodjenja.ToString();
             emailTextBox.Text = entity.Email;
             adresaTextBox.Text = entity.Adresa;
-
+            korisnickoImeTextBox.Text = entity.KorisnickoIme;
         }
-        private async void frmClanUnos_Load(object sender, EventArgs e)
+       
+        private async void frmZaposlenikUnos_Load(object sender, EventArgs e)
         {
-            Clan entity = null;
+            Zaposlenik entity = null;
             if (row != null)
             {
-                entity = await _serviceClan.GetById<Clan>(row.ClanID);
-                UcitajClanove(entity);
+                entity = await _serviceZaposlenik.GetById<Zaposlenik>(row.ZaposlenikID);
+                UcitajZaposlenike(entity);
             }
 
 
             await Task.WhenAll(
                 UcitajGradove(entity),
-                UcitajBiblioteke(entity)
+                UcitajBiblioteke(entity),
+                UcitajUloge(entity)
             );
         }
-       
-        private async Task UcitajBiblioteke(Clan entity)
+        private async Task UcitajUloge(Zaposlenik entity)
+        {
+            var list = await _serviceUloga.GetAll<List<Uloga>>(null);
+            gradCombo.DataSource = list;
+            gradCombo.ValueMember = "UlogaID";
+            gradCombo.DisplayMember = "Naziv";
+
+            if (entity != null)
+                ulogaCombo.SelectedValue = entity.UlogaID;
+        }
+        private async Task UcitajBiblioteke(Zaposlenik entity)
         {
             var list = await _serviceBiblioteka.GetAll<List<Biblioteka>>(null);
             bibliotekaCombo.DataSource = list;
@@ -104,7 +115,7 @@ namespace eBiblioteka.WinUI
             if (entity != null)
                 bibliotekaCombo.SelectedValue = entity.BibliotekaID;
         }
-        private async Task UcitajGradove(Clan entity)
+        private async Task UcitajGradove(Zaposlenik entity)
         {
             var list = await _serviceGrad.GetAll<List<Grad>>(null);
             gradCombo.DataSource = list;
@@ -123,8 +134,9 @@ namespace eBiblioteka.WinUI
                    Validator.ValidirajKontrolu(DatumRodjenjaDtp, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(emailTextBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(adresaTextBox, err, "Podaci nisu unešeni!") &&
-                   Validator.ValidirajKontrolu(bibliotekaCombo, err, "Podaci nisu unešeni!");
+                   Validator.ValidirajKontrolu(bibliotekaCombo, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(korisnickoImeTextBox, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(lozinkaTextBox, err, "Podaci nisu unešeni!");
         }
-
     }
 }

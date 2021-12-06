@@ -1,4 +1,5 @@
 ﻿using eBiblioteka.Model;
+using eBiblioteka.WinUI.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,36 +31,38 @@ namespace eBiblioteka.WinUI
 
         private async void potvrdaUnosaButton_Click(object sender, EventArgs e)
         {
-            var request = new Model.Requests.BibliotekaInsertRequest
+            if (Validiraj())
             {
-                Naziv = nazivTextBox.Text,
-                Adresa = adresaTextBox.Text,
-                BrojTelefona = brojTelTextBox.Text,
-                Email = emailTextBox.Text,
-                GradID = (gradCombo.SelectedItem as Grad).GradID,
-                VrsteBibliotekaID = (vrstaCombo.SelectedItem as VrsteBiblioteka).VrsteBibliotekaID
-            };
+                var request = new Model.Requests.BibliotekaInsertRequest
+                {
+                    Naziv = nazivTextBox.Text,
+                    Adresa = adresaTextBox.Text,
+                    BrojTelefona = brojTelTextBox.Text,
+                    Email = emailTextBox.Text,
+                    GradID = (gradCombo.SelectedItem as Grad).GradID,
+                    VrsteBibliotekaID = (vrstaCombo.SelectedItem as VrsteBiblioteka).VrsteBibliotekaID
+                };
 
-            if (row != null)
-            {
-                var entity = await _serviceBiblioteka.Update<Biblioteka>(row.BibliotekaID, request);
-                if (entity != null)
+                if (row != null)
                 {
-                    MessageBox.Show("Uspješno ste uredili biblioteku!");
-                    frmGlavna.openChildForm(new frmBiblioteka());
+                    var entity = await _serviceBiblioteka.Update<Biblioteka>(row.BibliotekaID, request);
+                    if (entity != null)
+                    {
+                        MessageBox.Show("Uspješno ste uredili biblioteku!");
+                        frmGlavna.openChildForm(new frmBiblioteka());
+                    }
                 }
-            }
-            else
-            {
-                var entity = await _serviceBiblioteka.Insert<Biblioteka>(request);
-                if (entity != null)
+                else
                 {
-                    MessageBox.Show("Uspješno ste unijeli biblioteku!");
-                    frmGlavna.openChildForm(new frmBiblioteka());
+                    var entity = await _serviceBiblioteka.Insert<Biblioteka>(request);
+                    if (entity != null)
+                    {
+                        MessageBox.Show("Uspješno ste unijeli biblioteku!");
+                        frmGlavna.openChildForm(new frmBiblioteka());
+                    }
                 }
             }
         }
-
 
         private async void frmBibliotekaUnos_Load(object sender, EventArgs e)
         {
@@ -106,6 +109,15 @@ namespace eBiblioteka.WinUI
 
             if (entity != null)
                 gradCombo.SelectedValue = entity.GradID;
+        }
+        private bool Validiraj()
+        {
+            return Validator.ValidirajKontrolu(nazivTextBox, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(brojTelTextBox, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(gradCombo, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(adresaTextBox, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(emailTextBox, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(vrstaCombo, err, "Podaci nisu unešeni!");
         }
     }
 }

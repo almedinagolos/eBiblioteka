@@ -32,17 +32,17 @@ namespace eBiblioteka.WinUI
             this.btnDodaj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nazivText = new System.Windows.Forms.TextBox();
-            this.dgvClanovi = new System.Windows.Forms.DataGridView();
+            this.dgvZaposlenik = new System.Windows.Forms.DataGridView();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JMGB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JMBG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Obriši = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClanovi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenik)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodaj
@@ -53,6 +53,7 @@ namespace eBiblioteka.WinUI
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // label1
             // 
@@ -69,28 +70,30 @@ namespace eBiblioteka.WinUI
             this.nazivText.Name = "nazivText";
             this.nazivText.Size = new System.Drawing.Size(163, 20);
             this.nazivText.TabIndex = 8;
+            this.nazivText.TextChanged += new System.EventHandler(this.nazivText_TextChanged);
             // 
-            // dgvClanovi
+            // dgvZaposlenik
             // 
-            this.dgvClanovi.AllowUserToAddRows = false;
-            this.dgvClanovi.AllowUserToDeleteRows = false;
-            this.dgvClanovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClanovi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvZaposlenik.AllowUserToAddRows = false;
+            this.dgvZaposlenik.AllowUserToDeleteRows = false;
+            this.dgvZaposlenik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZaposlenik.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ime,
             this.Prezime,
-            this.JMGB,
+            this.JMBG,
             this.Adresa,
             this.DatumRodjenja,
             this.Email,
             this.Uredi,
             this.Obriši,
             this.Aktivan});
-            this.dgvClanovi.Location = new System.Drawing.Point(12, 48);
-            this.dgvClanovi.Name = "dgvClanovi";
-            this.dgvClanovi.ReadOnly = true;
-            this.dgvClanovi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClanovi.Size = new System.Drawing.Size(719, 279);
-            this.dgvClanovi.TabIndex = 7;
+            this.dgvZaposlenik.Location = new System.Drawing.Point(12, 48);
+            this.dgvZaposlenik.Name = "dgvZaposlenik";
+            this.dgvZaposlenik.ReadOnly = true;
+            this.dgvZaposlenik.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvZaposlenik.Size = new System.Drawing.Size(719, 279);
+            this.dgvZaposlenik.TabIndex = 7;
+            this.dgvZaposlenik.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZaposlenici_CellContentClick);
             // 
             // Ime
             // 
@@ -108,13 +111,13 @@ namespace eBiblioteka.WinUI
             this.Prezime.Name = "Prezime";
             this.Prezime.ReadOnly = true;
             // 
-            // JMGB
+            // JMBG
             // 
-            this.JMGB.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.JMGB.DataPropertyName = "JMGB";
-            this.JMGB.HeaderText = "JMGB";
-            this.JMGB.Name = "JMGB";
-            this.JMGB.ReadOnly = true;
+            this.JMBG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.JMBG.DataPropertyName = "JMBG";
+            this.JMBG.HeaderText = "JMBG";
+            this.JMBG.Name = "JMBG";
+            this.JMBG.ReadOnly = true;
             // 
             // Adresa
             // 
@@ -127,7 +130,7 @@ namespace eBiblioteka.WinUI
             // DatumRodjenja
             // 
             this.DatumRodjenja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DatumRodjenja.DataPropertyName = "Datum rodjenja";
+            this.DatumRodjenja.DataPropertyName = "DatumRodjenja";
             this.DatumRodjenja.HeaderText = "Datum rođenja";
             this.DatumRodjenja.Name = "DatumRodjenja";
             this.DatumRodjenja.ReadOnly = true;
@@ -174,11 +177,12 @@ namespace eBiblioteka.WinUI
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nazivText);
-            this.Controls.Add(this.dgvClanovi);
+            this.Controls.Add(this.dgvZaposlenik);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmZaposlenik";
             this.Text = "frmZaposlenik";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClanovi)).EndInit();
+            this.Load += new System.EventHandler(this.frmClan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,10 +193,10 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nazivText;
-        private System.Windows.Forms.DataGridView dgvClanovi;
+        private System.Windows.Forms.DataGridView dgvZaposlenik;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn JMGB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn JMBG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumRodjenja;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;

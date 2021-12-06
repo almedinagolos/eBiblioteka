@@ -1,4 +1,5 @@
 using eBiblioteka.DB;
+using eBiblioteka.Filters;
 using eBiblioteka.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,11 @@ namespace eBiblioteka
             options.UseSqlServer(Configuration.GetConnectionString("cs1")));
 
             services.AddSwaggerGen();
-            services.AddControllers();
+            services.AddControllers(x =>
+            {
+                x.Filters.Add<ErrorFilter>();
+            });
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped<IBibliotekaService, BibliotekaService>();
@@ -41,6 +46,8 @@ namespace eBiblioteka
             services.AddScoped<IGradService, GradService>();
             services.AddScoped<IVrsteBibliotekaService, VrsteBibliotekaService>();
             services.AddScoped<IDrzavaService, DrzavaService>();
+            services.AddScoped<IPisacService, PisacService>();
+            services.AddScoped<IUlogaService, UlogaService>();
 
         }
 

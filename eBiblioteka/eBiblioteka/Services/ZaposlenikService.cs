@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eBiblioteka.Database;
 using eBiblioteka.DB;
+using eBiblioteka.Filters;
 using eBiblioteka.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,46 @@ namespace eBiblioteka.Services
     {
         public ZaposlenikService(MojDbContext context, IMapper mapper) : base(context, mapper)
         {
+        }
+
+        public override Model.Zaposlenik Insert(ZaposlenikInsertRequest request)
+        {
+            if (Context.Zaposlenik.Any(x => x.Email == request.Email))
+                throw new UserException("Email već postoji!");
+            if (Context.Zaposlenik.Any(x => x.KorisnickoIme == request.KorisnickoIme))
+                throw new UserException("Korisničko ime je već odabrano!");
+
+            var entity = _mapper.Map<Database.Zaposlenik>(request);
+            Context.Add(entity);
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash= GenerateHash(entity.LozinkaSalt, request.Lozinka);
+
+            Context.SaveChanges();
+
+            return _mapper.Map<Model.Zaposlenik>(entity);
+        }
+
+        public override Model.Zaposlenik Update(int id, ZaposlenikUpdateRequest request)
+        {
+            if (Context.Zaposlenik.Any(x => x.Email == request.Email && x.ZaposlenikID != id))
+                throw new UserException("Email već postoji!");
+            if (Context.Zaposlenik.Any(x => x.KorisnickoIme == request.KorisnickoIme && x.ZaposlenikID != id))
+                throw new UserException("Korisničko ime je već odabrano!");
+
+            var entity = Context.Zaposlenik.Where(x => x.ZaposlenikID == id)
+                .FirstOrDefault();
+
+            _mapper.Map(request, entity);
+
+            if (!string.IsNullOrEmpty(request.Lozinka))
+            {
+                entity.LozinkaSalt = GenerateSalt();
+                entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Lozinka);
+            }
+
+            Context.SaveChanges();
+            return _mapper.Map<Model.Zaposlenik>(entity);
         }
 
         public static string GenerateSalt()

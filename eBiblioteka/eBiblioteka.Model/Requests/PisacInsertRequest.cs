@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace eBiblioteka.Database
+namespace eBiblioteka.Model.Requests
 {
-    public class Pisac : BaseEntity
+    public class PisacInsertRequest
     {
-        public int PisacID { get; set; }
+        [Required]
         public string Ime { get; set; }
+        [Required]
         public string Prezime { get; set; }
+        [Required]
+        public string DatumRodjenja { get; set; }
+        [Required]
         public string Biografija { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime DatumRodjenja { get; set; }
     }
 }

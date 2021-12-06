@@ -29,6 +29,7 @@ namespace eBiblioteka.WinUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@ namespace eBiblioteka.WinUI
             this.vrstaCombo = new System.Windows.Forms.ComboBox();
             this.potvrdaUnosaButton = new System.Windows.Forms.Button();
             this.gradCombo = new System.Windows.Forms.ComboBox();
+            this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -152,6 +155,10 @@ namespace eBiblioteka.WinUI
             this.gradCombo.Size = new System.Drawing.Size(218, 21);
             this.gradCombo.TabIndex = 13;
             // 
+            // err
+            // 
+            this.err.ContainerControl = this;
+            // 
             // frmBibliotekaUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +182,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmBibliotekaUnos";
             this.Text = "frmBiblioteka";
             this.Load += new System.EventHandler(this.frmBibliotekaUnos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +203,6 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.ComboBox vrstaCombo;
         private System.Windows.Forms.Button potvrdaUnosaButton;
         private System.Windows.Forms.ComboBox gradCombo;
+        private System.Windows.Forms.ErrorProvider err;
     }
 }

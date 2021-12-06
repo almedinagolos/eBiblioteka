@@ -35,7 +35,7 @@ namespace eBiblioteka.Mapping
             //CreateMap<Database.KnjigaZanr, Model.Requests.KnjigaZanrInsertRequest>().ReverseMap();
 
             CreateMap<Database.Pisac, Model.Pisac>();
-            //CreateMap<Database.Pisac, Model.Requests.PisacInsertRequest>().ReverseMap();
+            CreateMap<Database.Pisac, Model.Requests.PisacInsertRequest>().ReverseMap();
 
             CreateMap<Database.RezervacijaKnjige, Model.RezervacijaKnjige>();
             //CreateMap<Database.RezervacijaKnjige, Model.Requests.RezervacijaKnjigeInsertRequest>().ReverseMap();
@@ -50,7 +50,7 @@ namespace eBiblioteka.Mapping
             //CreateMap<Database.VrsteBiblioteka, Model.Requests.VrsteBibliotekaInsertRequest>().ReverseMap();
 
             CreateMap<Database.Zanr, Model.Zanr>();
-            //CreateMap<Database.Zanr, Model.Requests.ZanrInsertRequest>().ReverseMap();
+            CreateMap<Database.Zanr, Model.Requests.ZanrInsertRequest>().ReverseMap();
 
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, Model.Requests.ZaposlenikInsertRequest>().ReverseMap();
