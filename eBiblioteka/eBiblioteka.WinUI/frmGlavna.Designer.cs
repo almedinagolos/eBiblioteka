@@ -41,10 +41,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnOdjava = new System.Windows.Forms.Button();
             this.txtDobrodosli = new System.Windows.Forms.TextBox();
             this.panelChild = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnOdjava = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -259,6 +259,16 @@
             this.panelTop.Size = new System.Drawing.Size(806, 51);
             this.panelTop.TabIndex = 1;
             // 
+            // btnOdjava
+            // 
+            this.btnOdjava.Location = new System.Drawing.Point(642, 21);
+            this.btnOdjava.Name = "btnOdjava";
+            this.btnOdjava.Size = new System.Drawing.Size(75, 23);
+            this.btnOdjava.TabIndex = 2;
+            this.btnOdjava.Text = "Odjava";
+            this.btnOdjava.UseVisualStyleBackColor = true;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
+            // 
             // txtDobrodosli
             // 
             this.txtDobrodosli.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -268,9 +278,10 @@
             this.txtDobrodosli.ForeColor = System.Drawing.SystemColors.Menu;
             this.txtDobrodosli.Location = new System.Drawing.Point(642, 0);
             this.txtDobrodosli.Name = "txtDobrodosli";
+            this.txtDobrodosli.ReadOnly = true;
             this.txtDobrodosli.Size = new System.Drawing.Size(164, 14);
             this.txtDobrodosli.TabIndex = 1;
-            this.txtDobrodosli.Text = "Dobrodošli Admin";
+            this.txtDobrodosli.Text = "Dobrodošli ";
             // 
             // panelChild
             // 
@@ -292,15 +303,6 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // btnOdjava
-            // 
-            this.btnOdjava.Location = new System.Drawing.Point(642, 21);
-            this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Size = new System.Drawing.Size(75, 23);
-            this.btnOdjava.TabIndex = 2;
-            this.btnOdjava.Text = "Odjava";
-            this.btnOdjava.UseVisualStyleBackColor = true;
-            // 
             // frmGlavna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +315,7 @@
             this.Name = "frmGlavna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "eBiblioteka";
+            this.Load += new System.EventHandler(this.frmGlavna_Load);
             this.panelSideMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

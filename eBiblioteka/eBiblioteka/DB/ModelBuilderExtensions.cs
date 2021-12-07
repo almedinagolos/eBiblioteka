@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using eBiblioteka.Helper;
 
 namespace eBiblioteka.DB
 {
@@ -15,7 +16,7 @@ namespace eBiblioteka.DB
             List<string> Salt = new List<string>();
             for (int i = 0; i < 5; i++)
             {
-                Salt.Add(ZaposlenikService.GenerateSalt());
+                Salt.Add(PasswordHelper.GenerateSalt());
             }
 
             #region Dodavanje korisnickih uloga
@@ -187,7 +188,7 @@ namespace eBiblioteka.DB
                     Email = "admin@mail.com",
                     KorisnickoIme = "admin",
                     LozinkaSalt = Salt[0],
-                    LozinkaHash = ZaposlenikService.GenerateHash(Salt[0], "Admin123!"),
+                    LozinkaHash = PasswordHelper.GenerateHash(Salt[0], "Admin123!"),
                     Adresa = "Mostar",
                     Aktivan = true,
                     DatumRodjenja = DateTime.Now.AddYears(-22),

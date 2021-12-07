@@ -38,14 +38,14 @@ namespace eBiblioteka.WinUI
                     JMBG = JMBGTextBox.Text,
                     Adresa = adresaTextBox.Text,
                     DatumRodjenja = DatumRodjenjaDtp.Value,
-                    GradID = int.Parse(gradCombo.SelectedValue.ToString()),
-                    BibliotekaID = int.Parse(bibliotekaCombo.SelectedValue.ToString()),
+                    GradID = (gradCombo.SelectedItem as Grad).GradID,
+                    BibliotekaID = (bibliotekaCombo.SelectedItem as Biblioteka).BibliotekaID,
                     Email = emailTextBox.Text,
                     KorisnickoIme = korisnickoImeTextBox.Text,
                     Lozinka = lozinkaTextBox.Text,
-                    UlogaID = int.Parse(ulogaCombo.SelectedValue.ToString())
+                    UlogaID = (ulogaCombo.SelectedItem as Uloga).UlogaID
                 };
-
+        
                 if (row != null)
                 {
                     var entity = await _serviceZaposlenik.Update<Zaposlenik>(row.ZaposlenikID, request);
@@ -73,10 +73,11 @@ namespace eBiblioteka.WinUI
             JMBGTextBox.Text = entity.JMBG;
             gradCombo.SelectedValue = entity.GradID;
             bibliotekaCombo.SelectedValue = entity.BibliotekaID;
-            DatumRodjenjaDtp.Text = entity.DatumRodjenja.ToString();
+            DatumRodjenjaDtp.Value = entity.DatumRodjenja;
             emailTextBox.Text = entity.Email;
             adresaTextBox.Text = entity.Adresa;
             korisnickoImeTextBox.Text = entity.KorisnickoIme;
+            ulogaCombo.SelectedValue = entity.UlogaID;
         }
        
         private async void frmZaposlenikUnos_Load(object sender, EventArgs e)
@@ -85,22 +86,23 @@ namespace eBiblioteka.WinUI
             if (row != null)
             {
                 entity = await _serviceZaposlenik.GetById<Zaposlenik>(row.ZaposlenikID);
-                UcitajZaposlenike(entity);
             }
-
 
             await Task.WhenAll(
                 UcitajGradove(entity),
                 UcitajBiblioteke(entity),
                 UcitajUloge(entity)
             );
+
+            if(row != null)
+                UcitajZaposlenike(entity);
         }
         private async Task UcitajUloge(Zaposlenik entity)
         {
             var list = await _serviceUloga.GetAll<List<Uloga>>(null);
-            gradCombo.DataSource = list;
-            gradCombo.ValueMember = "UlogaID";
-            gradCombo.DisplayMember = "Naziv";
+            ulogaCombo.DataSource = list;
+            ulogaCombo.ValueMember = "UlogaID";
+            ulogaCombo.DisplayMember = "Naziv";
 
             if (entity != null)
                 ulogaCombo.SelectedValue = entity.UlogaID;
@@ -127,6 +129,8 @@ namespace eBiblioteka.WinUI
         }
         private bool Validiraj()
         {
+            bool isEdit = row != null;
+
             return Validator.ValidirajKontrolu(imeTextBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(prezimeTextBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(JMBGTextBox, err, "Podaci nisu unešeni!") &&
@@ -136,7 +140,7 @@ namespace eBiblioteka.WinUI
                    Validator.ValidirajKontrolu(adresaTextBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(bibliotekaCombo, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(korisnickoImeTextBox, err, "Podaci nisu unešeni!") &&
-                   Validator.ValidirajKontrolu(lozinkaTextBox, err, "Podaci nisu unešeni!");
+                   (isEdit || Validator.ValidirajKontrolu(lozinkaTextBox, err, "Podaci nisu unešeni!"));
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eBiblioteka.DB;
 
 namespace eBiblioteka.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    partial class MojDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211207190128_uloga")]
+    partial class uloga
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,10 +116,7 @@ namespace eBiblioteka.Migrations
                     b.Property<string>("KorisnickoIme")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LozinkaHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LozinkaSalt")
+                    b.Property<string>("Lozinka")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prezime")
@@ -615,14 +614,14 @@ namespace eBiblioteka.Migrations
                             Adresa = "Mostar",
                             Aktivan = true,
                             BibliotekaID = 2,
-                            DatumRodjenja = new DateTime(1999, 12, 7, 21, 39, 6, 387, DateTimeKind.Local).AddTicks(864),
+                            DatumRodjenja = new DateTime(1999, 12, 7, 20, 1, 27, 21, DateTimeKind.Local).AddTicks(2439),
                             Email = "admin@mail.com",
                             GradID = 2,
                             Ime = "Admin",
                             JMBG = "0101999155999",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "4ReZxrrvRUNRxNZB2fWMbiqJ5Ks=",
-                            LozinkaSalt = "b6ACuH3gF9VLtOHvHEeGRg==",
+                            LozinkaHash = "B12DnBwiIW8s7IVNrbsuwrtTbxw=",
+                            LozinkaSalt = "9i7Dv4gf7rbzNvjpa/JM4g==",
                             Prezime = "Admin",
                             UlogaID = 1
                         });

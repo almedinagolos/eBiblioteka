@@ -15,6 +15,7 @@ namespace eBiblioteka.Mapping
 
             CreateMap<Database.Clan, Model.Clan>();
             CreateMap<Database.Clan, Model.Requests.ClanInsertRequest>().ReverseMap();
+            CreateMap<Database.Clan, Model.Requests.ClanUpdateRequest>().ReverseMap();
 
             CreateMap<Database.Clanarina, Model.Clanarina>();
             //CreateMap<Database.Clanarina, Model.Requests.ClanarinaInsertRequest>().ReverseMap();
@@ -54,6 +55,7 @@ namespace eBiblioteka.Mapping
 
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, Model.Requests.ZaposlenikInsertRequest>().ReverseMap();
+            CreateMap<Database.Zaposlenik, Model.Requests.ZaposlenikUpdateRequest>().ReverseMap();
         }
     }
 }

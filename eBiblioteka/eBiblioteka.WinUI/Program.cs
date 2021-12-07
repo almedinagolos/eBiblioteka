@@ -16,7 +16,10 @@ namespace eBiblioteka.WinUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGlavna());
+
+            var login = new Login();
+            if(login.ShowDialog() == DialogResult.OK)
+                Application.Run(new frmGlavna());
         }
     }
 }

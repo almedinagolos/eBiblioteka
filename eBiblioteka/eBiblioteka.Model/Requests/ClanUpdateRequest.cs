@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eBiblioteka.Model.Requests
 {
-    public class ClanInsertRequest
+    public class ClanUpdateRequest
     {
         [Required]
         public string Ime { get; set; }
@@ -25,7 +25,6 @@ namespace eBiblioteka.Model.Requests
         public int BibliotekaID { get; set; }
         [Required]
         public string KorisnickoIme { get; set; }
-        [Required]
         public string Lozinka { get; set; }
     }
 }

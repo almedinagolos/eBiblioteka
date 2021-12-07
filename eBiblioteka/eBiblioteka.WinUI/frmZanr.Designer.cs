@@ -82,6 +82,7 @@ namespace eBiblioteka.WinUI
             this.dgvZanr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvZanr.Size = new System.Drawing.Size(349, 144);
             this.dgvZanr.TabIndex = 11;
+            this.dgvZanr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZanr_CellContentClick);
             // 
             // Naziv
             // 

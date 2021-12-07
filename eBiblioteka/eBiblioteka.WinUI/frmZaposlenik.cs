@@ -13,13 +13,12 @@ namespace eBiblioteka.WinUI
 {
     public partial class frmZaposlenik : Form
     {
-        private APIService _serviceClan = new APIService("Zaposlenik");
+        private APIService _serviceZaposlenik = new APIService("Zaposlenik");
 
         public frmZaposlenik()
         {
             InitializeComponent();
             dgvZaposlenik.AutoGenerateColumns = false;
-
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
@@ -37,14 +36,14 @@ namespace eBiblioteka.WinUI
                 ImePrezime = nazivText.Text
             };
 
-            var list = await _serviceClan.GetAll<List<Zaposlenik>>(request);
+            var list = await _serviceZaposlenik.GetAll<List<Zaposlenik>>(request);
             dgvZaposlenik.DataSource = list;
         }
         private async void dgvZaposlenici_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 7)
             {
-                var row = dgvZaposlenik.SelectedRows[0].DataBoundItem as Clan;
+                var row = dgvZaposlenik.SelectedRows[0].DataBoundItem as Zaposlenik;
 
                 await ObrisiZaposlenika(row);
 
@@ -60,9 +59,9 @@ namespace eBiblioteka.WinUI
                 await UcitajDataGrid();
             }
         }
-        private async Task ObrisiZaposlenika(Clan row)
+        private async Task ObrisiZaposlenika(Zaposlenik row)
         {
-            await _serviceClan.Delete<Clan>(row.ClanID);
+            await _serviceZaposlenik.Delete<Zaposlenik>(row.ZaposlenikID);
         }
         private async void nazivText_TextChanged(object sender, EventArgs e)
         {

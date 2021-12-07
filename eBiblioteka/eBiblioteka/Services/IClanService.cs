@@ -7,7 +7,10 @@ using eBiblioteka.Model.Requests;
 
 namespace eBiblioteka.Services
 {
-    public interface IClanService: ICRUDService<Clan, ClanSearchRequest, ClanInsertRequest, ClanInsertRequest>
+    public interface IClanService: ICRUDService<Clan, ClanSearchRequest, ClanInsertRequest, ClanUpdateRequest>
     {
+        public void SetLogiraniKorisnik(Clan user);
+        public Task<Model.Clan> Login(string username, string password);
+        public Model.Clan Profil();
     }
 }

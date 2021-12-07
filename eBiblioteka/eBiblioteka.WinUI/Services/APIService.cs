@@ -9,6 +9,7 @@ using Flurl.Http;
 using Flurl;
 using eBiblioteka.WinUI.Properties;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace eBiblioteka.WinUI
 {
@@ -56,10 +57,24 @@ namespace eBiblioteka.WinUI
             }
             catch (FlurlHttpException ex)
             {
+                if (ex.StatusCode == StatusCodes.Status401Unauthorized)
+                {
+                    MessageBox.Show("Niste prijavljeni.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+                if (ex.StatusCode == StatusCodes.Status403Forbidden)
+                {
+                    MessageBox.Show("Nemate dozvolu pristupa.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+
                 var stringBuilder = new StringBuilder();
                 try
                 {
                     var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                    if (errors is null)
+                        throw;
 
                     foreach (var error in errors)
                     {
@@ -75,7 +90,7 @@ namespace eBiblioteka.WinUI
                 if (stringBuilder.Length > 0)
                     MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return default(T);
+                return default;
             }
 
         }
@@ -90,10 +105,24 @@ namespace eBiblioteka.WinUI
             }
             catch (FlurlHttpException ex)
             {
+                if (ex.StatusCode == StatusCodes.Status401Unauthorized)
+                {
+                    MessageBox.Show("Niste prijavljeni.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+                if (ex.StatusCode == StatusCodes.Status403Forbidden)
+                {
+                    MessageBox.Show("Nemate dozvolu pristupa.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+
                 var stringBuilder = new StringBuilder();
                 try
                 {
                     var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                    if (errors is null)
+                        throw;
 
                     foreach (var error in errors)
                     {
@@ -109,7 +138,7 @@ namespace eBiblioteka.WinUI
                 if (stringBuilder.Length > 0)
                     MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return default(T);
+                return default;
             }
 
         }
@@ -118,7 +147,47 @@ namespace eBiblioteka.WinUI
         {
             var url = $"{endpoint}{_resource}/{id}";
 
-            return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
+            try
+            {
+                return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.StatusCode == StatusCodes.Status401Unauthorized)
+                {
+                    MessageBox.Show("Niste prijavljeni.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+                if (ex.StatusCode == StatusCodes.Status403Forbidden)
+                {
+                    MessageBox.Show("Nemate dozvolu pristupa.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return default;
+                }
+
+                var stringBuilder = new StringBuilder();
+                try
+                {
+                    var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                    if (errors is null)
+                        throw;
+
+                    foreach (var error in errors)
+                    {
+                        stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                    }
+                }
+                catch (Exception)
+                {
+                    var errors = await ex.GetResponseStringAsync();
+
+                    stringBuilder.AppendLine(errors);
+                }
+                if (stringBuilder.Length > 0)
+                    MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return default;
+            }
         }
     }
 

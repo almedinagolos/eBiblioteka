@@ -1,6 +1,8 @@
 using eBiblioteka.DB;
 using eBiblioteka.Filters;
+using eBiblioteka.Security;
 using eBiblioteka.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +43,27 @@ namespace eBiblioteka
 
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "eBiblioteka API", Version = "v1" });
+
+                c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "basic"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
+            });
             services.AddScoped<IBibliotekaService, BibliotekaService>();
             services.AddScoped<IZaposlenikService, ZaposlenikService>();
             services.AddScoped<IClanService, ClanService>();
@@ -48,7 +72,10 @@ namespace eBiblioteka
             services.AddScoped<IDrzavaService, DrzavaService>();
             services.AddScoped<IPisacService, PisacService>();
             services.AddScoped<IUlogaService, UlogaService>();
+            services.AddScoped<IZanrService, ZanrService>();
 
+            services.AddAuthentication("BasicAuthentication")
+               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +98,7 @@ namespace eBiblioteka
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

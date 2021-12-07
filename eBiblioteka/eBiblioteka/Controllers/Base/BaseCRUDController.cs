@@ -17,19 +17,19 @@ namespace eBiblioteka.Controllers
         }
 
         [HttpPost]
-        public T Insert([FromBody] TInsert request)
+        public virtual T Insert([FromBody] TInsert request)
         {
             return _crudService.Insert(request);
         }
 
         [HttpPut("{id}")]
-        public T Update(int id, [FromBody] TUpdate request)
+        public virtual T Update(int id, [FromBody] TUpdate request)
         {
             return _crudService.Update(id, request);
         }
 
         [HttpDelete("{id}")]
-        public T Delete(int id)
+        public virtual T Delete(int id)
         {
             return _crudService.Delete(id);
         }

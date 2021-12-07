@@ -109,11 +109,29 @@ namespace eBiblioteka.WinUI
         }
         private void btnOdjava_Click(object sender, EventArgs e)
         {
-            //ActivateButton(sender);
+            ActivateButton(sender);
 
             this.Hide();
-            //Prijava prijava = new Prijava();
-            //prijava.ShowDialog();
+            Login prijava = new Login();
+            if (prijava.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+                PrikaziPodatke();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void frmGlavna_Load(object sender, EventArgs e)
+        {
+            PrikaziPodatke();
+        }
+
+        private void PrikaziPodatke()
+        {
+            txtDobrodosli.Text = $"Dobrodošli {APIService.CurrentUser.Ime} {APIService.CurrentUser.Prezime}";
         }
     }
 }
