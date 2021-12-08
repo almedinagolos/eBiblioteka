@@ -1,4 +1,5 @@
 ﻿using eBiblioteka.Model;
+using eBiblioteka.WinUI.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace eBiblioteka.WinUI
 {
     public partial class frmZanr : Form
     {
+        private Zanr row;
         private APIService _serviceZanr = new APIService("Zanr");
         public frmZanr()
         {
@@ -20,10 +22,38 @@ namespace eBiblioteka.WinUI
             dgvZanr.AutoGenerateColumns = false;
         }
 
-        private void btnDodaj_Click(object sender, EventArgs e)
+        private async void btnDodaj_Click(object sender, EventArgs e)
         {
-            Form frm = new frmZanrUnos();
-            frmGlavna.openChildForm(frm);
+            if (Validiraj())
+            {
+                var request = new Model.Requests.ZanrInsertRequest
+                {
+                    Naziv = nazivText.Text,
+                };
+
+                if (row != null)
+                {
+                    var entity = await _serviceZanr.Update<Zanr>(row.ZanrID, request);
+                    if (entity != null)
+                    {
+                        
+                        MessageBox.Show("Uspješno ste uredili Žanr!");
+                        await UcitajDataGrid();
+
+                    }
+                }
+                else
+                {
+                    var entity = await _serviceZanr.Insert<Zanr>(request);
+                    if (entity != null)
+                    {
+                        MessageBox.Show("Uspješno ste dodali Žanr!");
+                        await UcitajDataGrid();
+
+                    }
+                }
+            }
+
         }
 
         private async void frmZanr_Load(object sender, EventArgs e)
@@ -54,8 +84,8 @@ namespace eBiblioteka.WinUI
             {
                 var row = dgvZanr.SelectedRows[0].DataBoundItem as Zanr;
 
-                Form frm = new frmZanrUnos(row);
-                frmGlavna.openChildForm(frm);
+                //Form frm = new frmZanrUnos(row);
+                //frmGlavna.openChildForm(frm);
 
                 await UcitajDataGrid();
             }
@@ -68,6 +98,11 @@ namespace eBiblioteka.WinUI
         private async void nazivText_TextChanged(object sender, EventArgs e)
         {
             await UcitajDataGrid();
+        }
+
+        private bool Validiraj()
+        {
+            return Validator.ValidirajKontrolu(zanrTextBox, err, "Podaci nisu unešeni!");
         }
     }
 }

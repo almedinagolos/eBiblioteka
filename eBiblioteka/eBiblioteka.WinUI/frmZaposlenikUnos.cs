@@ -52,7 +52,8 @@ namespace eBiblioteka.WinUI
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste uredili Zaposlenika!");
-                        DialogResult = DialogResult.OK;
+                        frmGlavna.openChildForm(new frmZaposlenik());
+
                     }
                 }
                 else
@@ -61,7 +62,8 @@ namespace eBiblioteka.WinUI
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste unijeli Zaposlenika!");
-                        DialogResult = DialogResult.OK;
+                        frmGlavna.openChildForm(new frmZaposlenik());
+
                     }
                 }
             }

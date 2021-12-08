@@ -33,7 +33,7 @@ namespace eBiblioteka.WinUI
         {
             var request = new Model.Requests.ZaposlenikSearchRequest
             {
-                ImePrezime = nazivText.Text
+                Ime = nazivText.Text
             };
 
             var list = await _serviceZaposlenik.GetAll<List<Zaposlenik>>(request);

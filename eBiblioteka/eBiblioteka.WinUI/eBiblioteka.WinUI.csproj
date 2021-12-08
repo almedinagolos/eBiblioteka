@@ -245,12 +245,6 @@
     <Compile Include="frmZanr.Designer.cs">
       <DependentUpon>frmZanr.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmZanrUnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmZanrUnos.Designer.cs">
-      <DependentUpon>frmZanrUnos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmZaposlenik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,9 +302,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmZanr.resx">
       <DependentUpon>frmZanr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmZanrUnos.resx">
-      <DependentUpon>frmZanrUnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmZaposlenik.resx">
       <DependentUpon>frmZaposlenik.cs</DependentUpon>

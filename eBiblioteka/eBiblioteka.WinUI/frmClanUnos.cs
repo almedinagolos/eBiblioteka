@@ -42,7 +42,9 @@ namespace eBiblioteka.WinUI
                     DatumRodjenja = DatumRodjenjaDtp.Value,
                     GradID = int.Parse(gradCombo.SelectedValue.ToString()),
                     BibliotekaID = int.Parse(bibliotekaCombo.SelectedValue.ToString()),
-                    Email = emailTextBox.Text
+                    Email = emailTextBox.Text,
+                    KorisnickoIme = korisnickoImeTextBox.Text,
+                    Lozinka = lozinkaTextBox.Text
 
                 };
 
@@ -52,7 +54,8 @@ namespace eBiblioteka.WinUI
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste uredili Člana!");
-                        DialogResult = DialogResult.OK;
+                        frmGlavna.openChildForm(new frmClan());
+
                     }
                 }
                 else
@@ -61,7 +64,7 @@ namespace eBiblioteka.WinUI
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste unijeli Člana!");
-                        DialogResult = DialogResult.OK;
+                        frmGlavna.openChildForm(new frmClan());
                     }
                 }
             }
@@ -76,7 +79,8 @@ namespace eBiblioteka.WinUI
             DatumRodjenjaDtp.Text = entity.DatumRodjenja.ToString();
             emailTextBox.Text = entity.Email;
             adresaTextBox.Text = entity.Adresa;
-
+            korisnickoImeTextBox.Text = entity.KorisnickoIme;
+            //lozinkaTextBox.Text = entity.Lozinka;
         }
         private async void frmClanUnos_Load(object sender, EventArgs e)
         {

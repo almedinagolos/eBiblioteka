@@ -6,6 +6,6 @@ namespace eBiblioteka.Model.Requests
 {
     public class ZaposlenikSearchRequest: BaseSearchRequest
     {
-        public string ImePrezime { get; set; }
+        public string Ime { get; set; }
     }
 }

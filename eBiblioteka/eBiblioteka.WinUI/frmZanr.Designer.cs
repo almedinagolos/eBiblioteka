@@ -29,6 +29,7 @@ namespace eBiblioteka.WinUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nazivText = new System.Windows.Forms.TextBox();
@@ -37,12 +38,16 @@ namespace eBiblioteka.WinUI
             this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Obriši = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.zanrTextBox = new System.Windows.Forms.TextBox();
+            this.err = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(262, 194);
+            this.btnDodaj.Location = new System.Drawing.Point(398, 228);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(99, 33);
             this.btnDodaj.TabIndex = 14;
@@ -53,17 +58,17 @@ namespace eBiblioteka.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 12);
+            this.label1.Location = new System.Drawing.Point(18, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Naziv:";
+            this.label1.Text = "Pretraga:";
             // 
             // nazivText
             // 
-            this.nazivText.Location = new System.Drawing.Point(78, 9);
+            this.nazivText.Location = new System.Drawing.Point(85, 11);
             this.nazivText.Name = "nazivText";
-            this.nazivText.Size = new System.Drawing.Size(283, 20);
+            this.nazivText.Size = new System.Drawing.Size(412, 20);
             this.nazivText.TabIndex = 12;
             // 
             // dgvZanr
@@ -76,11 +81,11 @@ namespace eBiblioteka.WinUI
             this.Uredi,
             this.Obriši,
             this.Aktivan});
-            this.dgvZanr.Location = new System.Drawing.Point(12, 44);
+            this.dgvZanr.Location = new System.Drawing.Point(21, 46);
             this.dgvZanr.Name = "dgvZanr";
             this.dgvZanr.ReadOnly = true;
             this.dgvZanr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZanr.Size = new System.Drawing.Size(349, 144);
+            this.dgvZanr.Size = new System.Drawing.Size(476, 144);
             this.dgvZanr.TabIndex = 11;
             this.dgvZanr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZanr_CellContentClick);
             // 
@@ -118,11 +123,33 @@ namespace eBiblioteka.WinUI
             this.Aktivan.ReadOnly = true;
             this.Aktivan.Width = 50;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 205);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Dodaj žanr:";
+            // 
+            // zanrTextBox
+            // 
+            this.zanrTextBox.Location = new System.Drawing.Point(85, 202);
+            this.zanrTextBox.Name = "zanrTextBox";
+            this.zanrTextBox.Size = new System.Drawing.Size(412, 20);
+            this.zanrTextBox.TabIndex = 15;
+            // 
+            // err
+            // 
+            this.err.ContainerControl = this;
+            // 
             // frmZanr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 245);
+            this.ClientSize = new System.Drawing.Size(655, 321);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.zanrTextBox);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nazivText);
@@ -132,6 +159,7 @@ namespace eBiblioteka.WinUI
             this.Text = "frmZanr";
             this.Load += new System.EventHandler(this.frmZanr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +175,8 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.DataGridViewButtonColumn Uredi;
         private System.Windows.Forms.DataGridViewButtonColumn Obriši;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox zanrTextBox;
+        private System.Windows.Forms.ErrorProvider err;
     }
 }
