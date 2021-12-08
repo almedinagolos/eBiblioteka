@@ -32,15 +32,15 @@ namespace eBiblioteka.WinUI
             this.label1 = new System.Windows.Forms.Label();
             this.nazivText = new System.Windows.Forms.TextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
-            this.dgvBiblioteke = new System.Windows.Forms.DataGridView();
+            this.dgvKnjige = new System.Windows.Forms.DataGridView();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BrojTelefona = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GodinaIzdavanja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Slika = new System.Windows.Forms.DataGridViewImageColumn();
             this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Obriši = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBiblioteke)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,26 +67,28 @@ namespace eBiblioteka.WinUI
             this.btnDodaj.TabIndex = 5;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
-            // dgvBiblioteke
+            // dgvKnjige
             // 
-            this.dgvBiblioteke.AllowUserToAddRows = false;
-            this.dgvBiblioteke.AllowUserToDeleteRows = false;
-            this.dgvBiblioteke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBiblioteke.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvKnjige.AllowUserToAddRows = false;
+            this.dgvKnjige.AllowUserToDeleteRows = false;
+            this.dgvKnjige.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKnjige.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Naziv,
-            this.Adresa,
-            this.Email,
-            this.BrojTelefona,
+            this.Opis,
+            this.GodinaIzdavanja,
+            this.Slika,
             this.Uredi,
             this.Obriši,
             this.Aktivan});
-            this.dgvBiblioteke.Location = new System.Drawing.Point(12, 44);
-            this.dgvBiblioteke.Name = "dgvBiblioteke";
-            this.dgvBiblioteke.ReadOnly = true;
-            this.dgvBiblioteke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBiblioteke.Size = new System.Drawing.Size(719, 278);
-            this.dgvBiblioteke.TabIndex = 4;
+            this.dgvKnjige.Location = new System.Drawing.Point(12, 44);
+            this.dgvKnjige.Name = "dgvKnjige";
+            this.dgvKnjige.ReadOnly = true;
+            this.dgvKnjige.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKnjige.Size = new System.Drawing.Size(719, 278);
+            this.dgvKnjige.TabIndex = 4;
+            this.dgvKnjige.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKnjige_CellContentClick);
             // 
             // Naziv
             // 
@@ -96,29 +98,31 @@ namespace eBiblioteka.WinUI
             this.Naziv.Name = "Naziv";
             this.Naziv.ReadOnly = true;
             // 
-            // Adresa
+            // Opis
             // 
-            this.Adresa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Adresa.DataPropertyName = "Adresa";
-            this.Adresa.HeaderText = "Adresa";
-            this.Adresa.Name = "Adresa";
-            this.Adresa.ReadOnly = true;
+            this.Opis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Opis.DataPropertyName = "Opis";
+            this.Opis.HeaderText = "Opis";
+            this.Opis.Name = "Opis";
+            this.Opis.ReadOnly = true;
             // 
-            // Email
+            // GodinaIzdavanja
             // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
+            this.GodinaIzdavanja.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GodinaIzdavanja.DataPropertyName = "GodinaIzdavanja";
+            this.GodinaIzdavanja.HeaderText = "Godina izdavanja";
+            this.GodinaIzdavanja.Name = "GodinaIzdavanja";
+            this.GodinaIzdavanja.ReadOnly = true;
             // 
-            // BrojTelefona
+            // Slika
             // 
-            this.BrojTelefona.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.BrojTelefona.DataPropertyName = "BrojTelefona";
-            this.BrojTelefona.HeaderText = "Broj Telefona";
-            this.BrojTelefona.Name = "BrojTelefona";
-            this.BrojTelefona.ReadOnly = true;
+            this.Slika.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Slika.DataPropertyName = "Slika";
+            this.Slika.HeaderText = "Slika";
+            this.Slika.Name = "Slika";
+            this.Slika.ReadOnly = true;
+            this.Slika.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Slika.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Uredi
             // 
@@ -154,11 +158,12 @@ namespace eBiblioteka.WinUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nazivText);
             this.Controls.Add(this.btnDodaj);
-            this.Controls.Add(this.dgvBiblioteke);
+            this.Controls.Add(this.dgvKnjige);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmKnjige";
             this.Text = "frmKnjige";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBiblioteke)).EndInit();
+            this.Load += new System.EventHandler(this.frmKnjige_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKnjige)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,11 +174,11 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nazivText;
         private System.Windows.Forms.Button btnDodaj;
-        private System.Windows.Forms.DataGridView dgvBiblioteke;
+        private System.Windows.Forms.DataGridView dgvKnjige;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BrojTelefona;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GodinaIzdavanja;
+        private System.Windows.Forms.DataGridViewImageColumn Slika;
         private System.Windows.Forms.DataGridViewButtonColumn Uredi;
         private System.Windows.Forms.DataGridViewButtonColumn Obriši;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;

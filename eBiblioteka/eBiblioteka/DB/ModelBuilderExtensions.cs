@@ -288,6 +288,25 @@ namespace eBiblioteka.DB
                 }
                );
             #endregion
+            #region Dodavanje knjiga
+            modelBuilder.Entity<Knjiga>().HasData(
+                new Knjiga()
+                {
+                   KnjigaID = 1,
+                   Aktivan = true,
+                   BibliotekaID = 1,
+                   GodinaIzdavanja = DateTime.Now.AddYears(-50),
+                   Naziv="Derviš i smrt",
+                   Opis = "",
+                   ZanrID = 1
+                 //  Slika = 
+                },
+                new Knjiga()
+                {
+                   
+                }
+               );
+            #endregion
         }
     }
 }

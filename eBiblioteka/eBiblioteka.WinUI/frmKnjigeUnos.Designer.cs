@@ -29,29 +29,29 @@ namespace eBiblioteka.WinUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nazivTextBox = new System.Windows.Forms.TextBox();
-            this.izdavacTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pisacTextBox = new System.Windows.Forms.TextBox();
+            this.opisTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.brojStranicaTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.jezikTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.serijskiBrojTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dostupnoCheckBox = new System.Windows.Forms.CheckBox();
             this.unesiButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.bibliotekaCombo = new System.Windows.Forms.ComboBox();
+            this.zanrCombo = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpGodIzdavanja = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.err = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(23, 21);
+            this.pictureBox.Location = new System.Drawing.Point(12, 21);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(135, 234);
+            this.pictureBox.Size = new System.Drawing.Size(148, 245);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
@@ -71,129 +71,109 @@ namespace eBiblioteka.WinUI
             this.nazivTextBox.Size = new System.Drawing.Size(204, 20);
             this.nazivTextBox.TabIndex = 3;
             // 
-            // izdavacTextBox
+            // opisTextBox
             // 
-            this.izdavacTextBox.Location = new System.Drawing.Point(180, 113);
-            this.izdavacTextBox.Name = "izdavacTextBox";
-            this.izdavacTextBox.Size = new System.Drawing.Size(204, 20);
-            this.izdavacTextBox.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(177, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Izdavač";
-            // 
-            // pisacTextBox
-            // 
-            this.pisacTextBox.Location = new System.Drawing.Point(180, 172);
-            this.pisacTextBox.Name = "pisacTextBox";
-            this.pisacTextBox.Size = new System.Drawing.Size(204, 20);
-            this.pisacTextBox.TabIndex = 7;
+            this.opisTextBox.Location = new System.Drawing.Point(181, 167);
+            this.opisTextBox.Multiline = true;
+            this.opisTextBox.Name = "opisTextBox";
+            this.opisTextBox.Size = new System.Drawing.Size(204, 99);
+            this.opisTextBox.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(177, 143);
+            this.label3.Location = new System.Drawing.Point(179, 142);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Pisac";
+            this.label3.Text = "Opis";
             // 
-            // brojStranicaTextBox
+            // unesiButton
             // 
-            this.brojStranicaTextBox.Location = new System.Drawing.Point(180, 235);
-            this.brojStranicaTextBox.Name = "brojStranicaTextBox";
-            this.brojStranicaTextBox.Size = new System.Drawing.Size(204, 20);
-            this.brojStranicaTextBox.TabIndex = 9;
+            this.unesiButton.Location = new System.Drawing.Point(516, 233);
+            this.unesiButton.Name = "unesiButton";
+            this.unesiButton.Size = new System.Drawing.Size(134, 33);
+            this.unesiButton.TabIndex = 0;
+            this.unesiButton.Text = "Potvrda unosa";
+            this.unesiButton.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(177, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Broj stranica";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(456, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Biblioteka";
             // 
-            // jezikTextBox
+            // bibliotekaCombo
             // 
-            this.jezikTextBox.Location = new System.Drawing.Point(442, 50);
-            this.jezikTextBox.Name = "jezikTextBox";
-            this.jezikTextBox.Size = new System.Drawing.Size(204, 20);
-            this.jezikTextBox.TabIndex = 11;
+            this.bibliotekaCombo.FormattingEnabled = true;
+            this.bibliotekaCombo.Location = new System.Drawing.Point(459, 50);
+            this.bibliotekaCombo.Name = "bibliotekaCombo";
+            this.bibliotekaCombo.Size = new System.Drawing.Size(191, 21);
+            this.bibliotekaCombo.TabIndex = 13;
             // 
-            // label5
+            // zanrCombo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(439, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Jezik";
-            // 
-            // serijskiBrojTextBox
-            // 
-            this.serijskiBrojTextBox.Location = new System.Drawing.Point(442, 113);
-            this.serijskiBrojTextBox.Name = "serijskiBrojTextBox";
-            this.serijskiBrojTextBox.Size = new System.Drawing.Size(204, 20);
-            this.serijskiBrojTextBox.TabIndex = 13;
+            this.zanrCombo.FormattingEnabled = true;
+            this.zanrCombo.Location = new System.Drawing.Point(459, 107);
+            this.zanrCombo.Name = "zanrCombo";
+            this.zanrCombo.Size = new System.Drawing.Size(191, 21);
+            this.zanrCombo.TabIndex = 15;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(439, 84);
+            this.label6.Location = new System.Drawing.Point(456, 84);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Serijski broj";
+            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Žanr";
             // 
-            // dostupnoCheckBox
+            // dtpGodIzdavanja
             // 
-            this.dostupnoCheckBox.AutoSize = true;
-            this.dostupnoCheckBox.Location = new System.Drawing.Point(561, 172);
-            this.dostupnoCheckBox.Name = "dostupnoCheckBox";
-            this.dostupnoCheckBox.Size = new System.Drawing.Size(72, 17);
-            this.dostupnoCheckBox.TabIndex = 14;
-            this.dostupnoCheckBox.Text = "Dostupno";
-            this.dostupnoCheckBox.UseVisualStyleBackColor = true;
+            this.dtpGodIzdavanja.Location = new System.Drawing.Point(181, 108);
+            this.dtpGodIzdavanja.Name = "dtpGodIzdavanja";
+            this.dtpGodIzdavanja.Size = new System.Drawing.Size(200, 20);
+            this.dtpGodIzdavanja.TabIndex = 16;
             // 
-            // unesiButton
+            // label4
             // 
-            this.unesiButton.Location = new System.Drawing.Point(515, 232);
-            this.unesiButton.Name = "unesiButton";
-            this.unesiButton.Size = new System.Drawing.Size(126, 23);
-            this.unesiButton.TabIndex = 0;
-            this.unesiButton.Text = "Potvrda unosa";
-            this.unesiButton.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(178, 84);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Godina izdavanja";
+            // 
+            // err
+            // 
+            this.err.ContainerControl = this;
             // 
             // frmKnjigeUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 334);
-            this.Controls.Add(this.unesiButton);
-            this.Controls.Add(this.dostupnoCheckBox);
-            this.Controls.Add(this.serijskiBrojTextBox);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.jezikTextBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.brojStranicaTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pisacTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.izdavacTextBox);
+            this.Controls.Add(this.dtpGodIzdavanja);
+            this.Controls.Add(this.zanrCombo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.bibliotekaCombo);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.unesiButton);
+            this.Controls.Add(this.opisTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.nazivTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmKnjigeUnos";
             this.Text = "frmKnjigeUnos";
+            this.Load += new System.EventHandler(this.frmKnjigeUnos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,17 +184,15 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nazivTextBox;
-        private System.Windows.Forms.TextBox izdavacTextBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox pisacTextBox;
+        private System.Windows.Forms.TextBox opisTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox brojStranicaTextBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox jezikTextBox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox serijskiBrojTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox dostupnoCheckBox;
         private System.Windows.Forms.Button unesiButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox bibliotekaCombo;
+        private System.Windows.Forms.ComboBox zanrCombo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpGodIzdavanja;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ErrorProvider err;
     }
 }
