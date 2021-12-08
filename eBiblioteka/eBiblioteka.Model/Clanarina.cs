@@ -11,13 +11,13 @@ namespace eBiblioteka.Model
     {
         [Key]
         public int ClanarinaID { get; set; }
-        [ForeignKey("TipClanarine")]
+        [ForeignKey(nameof(TipClanarine))]
         public int TipClanarineID { get; set; }
         public TipClanarine TipClanarine { get; set; }
         [DataType(DataType.Date)]
         public DateTime DatumUplate { get; set; }
         public string Iznos { get; set; }
-        [ForeignKey("Clan")]
+        [ForeignKey(nameof(Clan))]
         public int ClanID { get; set; }
         public Clan Clan { get; set; }
     }

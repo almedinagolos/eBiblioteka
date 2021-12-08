@@ -75,7 +75,7 @@ namespace eBiblioteka.WinUI
             this.PrijavaButton.Location = new System.Drawing.Point(171, 161);
             this.PrijavaButton.Name = "PrijavaButton";
             this.PrijavaButton.Size = new System.Drawing.Size(75, 23);
-            this.PrijavaButton.TabIndex = 4;
+            this.PrijavaButton.TabIndex = 2;
             this.PrijavaButton.Text = "Prijava";
             this.PrijavaButton.UseVisualStyleBackColor = true;
             this.PrijavaButton.Click += new System.EventHandler(this.PrijavaButton_Click);
@@ -99,6 +99,7 @@ namespace eBiblioteka.WinUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

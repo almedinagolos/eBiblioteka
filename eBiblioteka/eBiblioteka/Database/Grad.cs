@@ -10,7 +10,7 @@ namespace eBiblioteka.Database
     {
         public int GradID { get; set; }
         public string Naziv { get; set; }
-        [ForeignKey("Drzava")]
+        [ForeignKey(nameof(Drzava))]
         public int DrzavaID { get; set; }
         public Drzava Drzava { get; set; }
     }

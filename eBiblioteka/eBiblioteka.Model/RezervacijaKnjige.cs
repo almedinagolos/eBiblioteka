@@ -13,10 +13,10 @@ namespace eBiblioteka.Model
         public int RezervacijaKnjigeID { get; set; }
         [DataType(DataType.Date)]
         public DateTime DatumRezervacije { get; set; }
-        [ForeignKey("Clan")]
+        [ForeignKey(nameof(Clan))]
         public int ClanID { get; set; }
         public Clan Clan { get; set; }
-        [ForeignKey("Knjiga")]
+        [ForeignKey(nameof(Knjiga))]
         public int KnjigaID { get; set; }
         public Knjiga Knjiga { get; set; }
     }

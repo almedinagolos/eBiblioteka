@@ -13,10 +13,10 @@ namespace eBiblioteka.Database
         public string Adresa { get; set; }
         public string Email { get; set; }
         public string BrojTelefona { get; set; }
-        [ForeignKey("Grad")]
+        [ForeignKey(nameof(Grad))]
         public int GradID { get; set; }
         public Grad Grad { get; set; }
-        [ForeignKey("VrsteBiblioteka")]
+        [ForeignKey(nameof(VrsteBiblioteka))]
         public int VrsteBibliotekaID { get; set; }
         public VrsteBiblioteka VrsteBiblioteka { get; set; }
     }

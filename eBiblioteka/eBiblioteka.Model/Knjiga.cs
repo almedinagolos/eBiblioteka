@@ -16,11 +16,10 @@ namespace eBiblioteka.Model
         [DataType(DataType.Date)]
         public DateTime GodinaIzdavanja { get; set; }
         public byte[] Slika { get; set; }
-        public bool Dostupna { get; set; }
-        [ForeignKey("Biblioteka")]
+        [ForeignKey(nameof(Biblioteka))]
         public int BibliotekaID { get; set; }
         public Biblioteka Biblioteka { get; set; }
-        [ForeignKey("Zanr")]
+        [ForeignKey(nameof(Zanr))]
         public int ZanrID { get; set; }
         public Zanr Zanr { get; set; }
     }

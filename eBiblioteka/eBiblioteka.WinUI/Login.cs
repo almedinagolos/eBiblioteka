@@ -34,5 +34,10 @@ namespace eBiblioteka.WinUI
                 MessageBox.Show("Neispravni podaci za prijavu.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = korisnickoImeTextBox;
+        }
     }
 }

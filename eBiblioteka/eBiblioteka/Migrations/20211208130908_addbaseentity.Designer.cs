@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eBiblioteka.DB;
 
 namespace eBiblioteka.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    partial class MojDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211208130908_addbaseentity")]
+    partial class addbaseentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -308,6 +310,9 @@ namespace eBiblioteka.Migrations
                     b.Property<int>("BibliotekaID")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Dostupna")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("GodinaIzdavanja")
                         .HasColumnType("datetime2");
 
@@ -411,7 +416,7 @@ namespace eBiblioteka.Migrations
                             PisacID = 1,
                             Aktivan = true,
                             Biografija = "Ivo Andrić se rodio u Travniku, u hrvatskoj obitelji Antuna Andrića, sudskoga podvornika i Katarine Pejić. Mjesec dana po rođenju, dana 9. studenog 1892. godine, u Crkvi sv. Ivana Krstitelja u rodnom mjestu kršten je u katolika. U dobi od dvije godine ostaje bez oca i uskoro se s majkom seli u Višegrad kod očeve sestre Ane i njezinog muža Ivana Matkovšika, graničnog policajca.",
-                            DatumRodjenja = new DateTime(1921, 12, 8, 14, 28, 23, 615, DateTimeKind.Local).AddTicks(1386),
+                            DatumRodjenja = new DateTime(1921, 12, 8, 14, 9, 6, 961, DateTimeKind.Local).AddTicks(7562),
                             Ime = "Ivo",
                             Prezime = "Andrić"
                         },
@@ -420,7 +425,7 @@ namespace eBiblioteka.Migrations
                             PisacID = 2,
                             Aktivan = true,
                             Biografija = "Rodio se u uglednoj muslimanskoj porodici iz Bileće, od oca Alije i majke Paše. Njegov otac Alija rodio se u Visokom, prilikom selidbe njegove porodice iz Bileće prema sjeveroistoku Bosne gdje su imali znatna imanja. Meša je rođen u Tuzli, gdje je završio osnovnu školu i gimnaziju. ",
-                            DatumRodjenja = new DateTime(1921, 12, 8, 14, 28, 23, 615, DateTimeKind.Local).AddTicks(2697),
+                            DatumRodjenja = new DateTime(1921, 12, 8, 14, 9, 6, 961, DateTimeKind.Local).AddTicks(8155),
                             Ime = "Meša",
                             Prezime = "Selimović"
                         });
@@ -684,14 +689,14 @@ namespace eBiblioteka.Migrations
                             Adresa = "Mostar",
                             Aktivan = true,
                             BibliotekaID = 2,
-                            DatumRodjenja = new DateTime(1999, 12, 8, 14, 28, 23, 607, DateTimeKind.Local).AddTicks(3505),
+                            DatumRodjenja = new DateTime(1999, 12, 8, 14, 9, 6, 954, DateTimeKind.Local).AddTicks(9617),
                             Email = "admin@mail.com",
                             GradID = 2,
                             Ime = "Admin",
                             JMBG = "0101999155999",
                             KorisnickoIme = "admin",
-                            LozinkaHash = "zxcJ1ONroGftFKWOcQdM/i/gWcc=",
-                            LozinkaSalt = "Lw60CcnFsn1kR9dIB6iO/w==",
+                            LozinkaHash = "mbN4r02QUI3uePWgZ+J99GmSNQo=",
+                            LozinkaSalt = "SlZ2FLg++xqEtquwESAYFw==",
                             Prezime = "Admin",
                             UlogaID = 1
                         },
@@ -701,14 +706,14 @@ namespace eBiblioteka.Migrations
                             Adresa = "BP bb",
                             Aktivan = true,
                             BibliotekaID = 1,
-                            DatumRodjenja = new DateTime(1999, 12, 8, 14, 28, 23, 613, DateTimeKind.Local).AddTicks(9630),
+                            DatumRodjenja = new DateTime(1999, 12, 8, 14, 9, 6, 961, DateTimeKind.Local).AddTicks(795),
                             Email = "almedina.golos@mail.com",
                             GradID = 1,
                             Ime = "Almedina",
                             JMBG = "0101111111001",
                             KorisnickoIme = "almedina.golos",
-                            LozinkaHash = "8mZic30UnX0byOOlST264JDEZa8=",
-                            LozinkaSalt = "Lw60CcnFsn1kR9dIB6iO/w==",
+                            LozinkaHash = "ms6+zoOTYKCVIhPvBhL7NXsp4GM=",
+                            LozinkaSalt = "SlZ2FLg++xqEtquwESAYFw==",
                             Prezime = "Gološ",
                             UlogaID = 2
                         });

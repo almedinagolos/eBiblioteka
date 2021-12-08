@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Database
 {
-    public class TipClanarine
+    public class TipClanarine : BaseEntity
     {
         public int TipClanarineID { get; set; }
         public string Naziv { get; set; }

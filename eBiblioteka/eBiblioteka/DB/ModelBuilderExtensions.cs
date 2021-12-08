@@ -196,10 +196,98 @@ namespace eBiblioteka.DB
                     UlogaID = 1,
                     BibliotekaID = 2,
                     GradID = 2
+                },
+                new Zaposlenik()
+                {
+                    ZaposlenikID = 2,
+                    Ime = "Almedina",
+                    Prezime = "Gološ",
+                    Email = "almedina.golos@mail.com",
+                    KorisnickoIme = "almedina.golos",
+                    LozinkaSalt = Salt[0],
+                    LozinkaHash = PasswordHelper.GenerateHash(Salt[0], "Almedina123!"),
+                    Adresa = "BP bb",
+                    Aktivan = true,
+                    DatumRodjenja = DateTime.Now.AddYears(-22),
+                    JMBG = "0101111111001",
+                    UlogaID = 2,
+                    BibliotekaID = 1,
+                    GradID = 1
                 }
                );
             #endregion
-           
+            #region Dodavanje žanra
+            modelBuilder.Entity<Zanr>().HasData(
+                new Zanr()
+                {
+                    ZanrID = 1,
+                    Naziv = "Dramski romani",
+                    Aktivan = true
+                },
+                new Zanr()
+                {
+                    ZanrID = 2,
+                    Naziv = "Enciklopedistika",
+                    Aktivan = true
+                },
+                 new Zanr()
+                 {
+                     ZanrID = 3,
+                     Naziv = "Fantastika",
+                     Aktivan = true
+                 },
+                  new Zanr()
+                  {
+                      ZanrID = 4,
+                      Naziv = "Putopis",
+                      Aktivan = true
+                  },
+                   new Zanr()
+                   {
+                       ZanrID = 5,
+                       Naziv = "Naučni",
+                       Aktivan = true
+                   }
+               );
+            #endregion
+            #region Dodavanje tipa članarine
+            modelBuilder.Entity<TipClanarine>().HasData(
+                new TipClanarine()
+                {
+                    TipClanarineID = 1,
+                    Naziv = "Mjesečna",
+                    Aktivan = true
+                },
+                new TipClanarine()
+                {
+                    TipClanarineID = 2,
+                    Naziv = "Godišnja",
+                    Aktivan = true
+                }
+               );
+            #endregion
+            #region Dodavanje žanra
+            modelBuilder.Entity<Pisac>().HasData(
+                new Pisac()
+                {
+                    PisacID = 1,
+                    Ime = "Ivo",
+                    Prezime="Andrić",
+                    Biografija= "Ivo Andrić se rodio u Travniku, u hrvatskoj obitelji Antuna Andrića, sudskoga podvornika i Katarine Pejić. Mjesec dana po rođenju, dana 9. studenog 1892. godine, u Crkvi sv. Ivana Krstitelja u rodnom mjestu kršten je u katolika. U dobi od dvije godine ostaje bez oca i uskoro se s majkom seli u Višegrad kod očeve sestre Ane i njezinog muža Ivana Matkovšika, graničnog policajca.",
+                    DatumRodjenja = DateTime.Now.AddYears(-100),
+                    Aktivan = true
+                },
+                new Pisac()
+                {
+                    PisacID = 2,
+                    Ime = "Meša",
+                    Prezime= "Selimović",
+                    Biografija = "Rodio se u uglednoj muslimanskoj porodici iz Bileće, od oca Alije i majke Paše. Njegov otac Alija rodio se u Visokom, prilikom selidbe njegove porodice iz Bileće prema sjeveroistoku Bosne gdje su imali znatna imanja. Meša je rođen u Tuzli, gdje je završio osnovnu školu i gimnaziju. ",
+                    DatumRodjenja = DateTime.Now.AddYears(-100),
+                    Aktivan = true
+                }
+               );
+            #endregion
         }
     }
 }

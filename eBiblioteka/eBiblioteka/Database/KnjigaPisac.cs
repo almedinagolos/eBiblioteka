@@ -11,10 +11,10 @@ namespace eBiblioteka.Database
     {
         [Key]
         public int KnjigaPisacID { get; set; }
-        [ForeignKey("Knjiga")]
+        [ForeignKey(nameof(Knjiga))]
         public int KnjigaID { get; set; }
         public Knjiga Knjiga { get; set; }
-        [ForeignKey("Pisac")]
+        [ForeignKey(nameof(Pisac))]
         public int PisacID { get; set; }
         public Pisac Pisac { get; set; }
     }
