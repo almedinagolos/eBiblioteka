@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eBiblioteka.Helper;
+using System.IO;
 
 namespace eBiblioteka.DB
 {
@@ -298,13 +299,20 @@ namespace eBiblioteka.DB
                    GodinaIzdavanja = DateTime.Now.AddYears(-50),
                    Naziv="Derviš i smrt",
                    Opis = "",
-                   ZanrID = 1
-                 //  Slika = 
-                },
-                new Knjiga()
+                   ZanrID = 1,
+                   Slika = File.ReadAllBytes("Pictures/dervis_i_smrt_nova_knjiga.jpg")
+                }, new Knjiga()
                 {
-                   
+                    KnjigaID = 2,
+                    Aktivan = true,
+                    BibliotekaID = 1,
+                    GodinaIzdavanja = DateTime.Now.AddYears(-120),
+                    Naziv = "Mali princ",
+                    Opis = "",
+                    ZanrID = 2,
+                    Slika = File.ReadAllBytes("Pictures/mali_princ_novo.jpg")
                 }
+
                );
             #endregion
         }

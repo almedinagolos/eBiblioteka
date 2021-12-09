@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,7 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
         }
-        public frmKnjigeUnos(Knjiga row):this()
+        public frmKnjigeUnos(Knjiga row) : this()
         {
             this.row = row;
         }
@@ -31,13 +33,18 @@ namespace eBiblioteka.WinUI
         {
             if (Validiraj())
             {
+                var stream = new MemoryStream();
+                if (pictureBox.Image != null)
+                    pictureBox.Image.Save(stream, ImageFormat.Jpeg);
+
                 var request = new Model.Requests.KnjigaInsertRequest
                 {
                     Naziv = nazivTextBox.Text,
                     Opis = opisTextBox.Text,
                     GodinaIzdavanja = dtpGodIzdavanja.Value,
                     ZanrID = (zanrCombo.SelectedItem as Zanr).ZanrID,
-                    BibliotekaID = (bibliotekaCombo.SelectedItem as Biblioteka).BibliotekaID
+                    BibliotekaID = (bibliotekaCombo.SelectedItem as Biblioteka).BibliotekaID,
+                    Slika = (stream != null && stream.Length > 0) ? stream.ToArray() : new byte[0]
                 };
 
                 if (row != null)
@@ -51,7 +58,7 @@ namespace eBiblioteka.WinUI
                 }
                 else
                 {
-                    var entity = await _serviceBiblioteka.Insert<Knjiga>(request);
+                    var entity = await _serviceKnjige.Insert<Knjiga>(request);
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste unijeli Knjigu!");
@@ -67,6 +74,7 @@ namespace eBiblioteka.WinUI
                    Validator.ValidirajKontrolu(dtpGodIzdavanja, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(opisTextBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(bibliotekaCombo, err, "Podaci nisu unešeni!") &&
+                   Validator.ValidirajKontrolu(pictureBox, err, "Podaci nisu unešeni!") &&
                    Validator.ValidirajKontrolu(zanrCombo, err, "Podaci nisu unešeni!");
         }
         private void UcitajKnjigu(Knjiga entity)
@@ -75,6 +83,12 @@ namespace eBiblioteka.WinUI
             opisTextBox.Text = entity.Opis;
             dtpGodIzdavanja.Text = entity.GodinaIzdavanja.ToString();
 
+            if (entity.Slika != null && entity.Slika.Length > 0)
+            {
+                MemoryStream ms = new MemoryStream(entity.Slika);
+                pictureBox.Image = Image.FromStream(ms);
+            }
+
         }
         private async void frmKnjigeUnos_Load(object sender, EventArgs e)
         {
@@ -82,7 +96,6 @@ namespace eBiblioteka.WinUI
             if (row != null)
             {
                 entity = await _serviceKnjige.GetById<Knjiga>(row.KnjigaID);
-                UcitajKnjigu(entity);
             }
 
 
@@ -90,6 +103,9 @@ namespace eBiblioteka.WinUI
                 UcitajZanrove(entity),
                 UcitajBiblioteke(entity)
             );
+
+            if (row != null)
+                UcitajKnjigu(entity);
         }
         private async Task UcitajZanrove(Knjiga entity)
         {
@@ -110,6 +126,14 @@ namespace eBiblioteka.WinUI
 
             if (entity != null)
                 bibliotekaCombo.SelectedValue = entity.BibliotekaID;
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
+            }
         }
     }
 }

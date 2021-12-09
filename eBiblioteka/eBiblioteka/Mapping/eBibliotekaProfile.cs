@@ -27,7 +27,7 @@ namespace eBiblioteka.Mapping
             //CreateMap<Database.Grad, Model.Requests.GradInsertRequest>().ReverseMap();
 
             CreateMap<Database.Knjiga, Model.Knjiga>();
-            //CreateMap<Database.Knjiga, Model.Requests.KnjigaInsertRequest>().ReverseMap();
+            CreateMap<Database.Knjiga, Model.Requests.KnjigaInsertRequest>().ReverseMap();
 
             CreateMap<Database.KnjigaPisac, Model.KnjigaPisac>();
             //CreateMap<Database.KnjigaPisac, Model.Requests.KnjigaPisacInsertRequest>().ReverseMap();

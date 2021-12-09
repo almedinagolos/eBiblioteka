@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Model
 {
-    public class Pisac
+    public class Pisac : BaseEntity
     {
         public int PisacID { get; set; }
         public string Ime { get; set; }

@@ -85,6 +85,7 @@ namespace eBiblioteka.WinUI
             this.dgvKnjige.Location = new System.Drawing.Point(12, 44);
             this.dgvKnjige.Name = "dgvKnjige";
             this.dgvKnjige.ReadOnly = true;
+            this.dgvKnjige.RowTemplate.Height = 100;
             this.dgvKnjige.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKnjige.Size = new System.Drawing.Size(719, 278);
             this.dgvKnjige.TabIndex = 4;
@@ -116,13 +117,14 @@ namespace eBiblioteka.WinUI
             // 
             // Slika
             // 
-            this.Slika.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Slika.DataPropertyName = "Slika";
             this.Slika.HeaderText = "Slika";
+            this.Slika.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.Slika.Name = "Slika";
             this.Slika.ReadOnly = true;
             this.Slika.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Slika.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Slika.Width = 126;
             // 
             // Uredi
             // 

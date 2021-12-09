@@ -28,7 +28,7 @@ namespace eBiblioteka.WinUI
             {
                 var request = new Model.Requests.ZanrInsertRequest
                 {
-                    Naziv = nazivText.Text,
+                    Naziv = zanrTextBox.Text,
                 };
 
                 if (row != null)
@@ -38,6 +38,12 @@ namespace eBiblioteka.WinUI
                     {
                         
                         MessageBox.Show("Uspješno ste uredili Žanr!");
+
+                        zanrTextBox.Text = "";
+                        dodajZanrLabel.Text = "Dodaj";
+                        btnDodaj.Text = "Dodaj";
+                        row = null;
+
                         await UcitajDataGrid();
 
                     }
@@ -48,6 +54,9 @@ namespace eBiblioteka.WinUI
                     if (entity != null)
                     {
                         MessageBox.Show("Uspješno ste dodali Žanr!");
+
+                        zanrTextBox.Text = "";
+
                         await UcitajDataGrid();
 
                     }
@@ -82,12 +91,11 @@ namespace eBiblioteka.WinUI
             }
             else if (e.ColumnIndex == 1)
             {
-                var row = dgvZanr.SelectedRows[0].DataBoundItem as Zanr;
+                row = dgvZanr.SelectedRows[0].DataBoundItem as Zanr;
 
-                //Form frm = new frmZanrUnos(row);
-                //frmGlavna.openChildForm(frm);
-
-                await UcitajDataGrid();
+                dodajZanrLabel.Text = "Uredi žanr:";
+                btnDodaj.Text = "Uredi";
+                zanrTextBox.Text = row.Naziv;
             }
         }
         private async Task ObrisiZanr(Zanr row)

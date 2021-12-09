@@ -21,7 +21,32 @@ namespace eBiblioteka.Services
         public ZaposlenikService(MojDbContext context, IMapper mapper) : base(context, mapper)
         {
         }
+        public override IEnumerable<Model.Zaposlenik> Get(ZaposlenikSearchRequest search = null)
+        {
+            var entity = Context.Set<Zaposlenik>();
+            var query = entity.AsQueryable();
 
+            if (search != null)
+            {
+                if (search.Aktivan.HasValue)
+                    query = query.Where(x => x.Aktivan == search.Aktivan.Value);
+
+                if (search.Include != null)
+                {
+                    foreach (var item in search.Include)
+                    {
+                        query = query.Include(item);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(search.Ime))
+                    query = query.Where(x => (x.Ime + " " + x.Prezime).ToLower().Contains(search.Ime.ToLower()));
+            }
+
+
+            var list = query.ToList();
+            return _mapper.Map<List<Model.Zaposlenik>>(list);
+        }
         public override Model.Zaposlenik Insert(ZaposlenikInsertRequest request)
         {
             if (Context.Zaposlenik.Any(x => x.Email == request.Email) ||

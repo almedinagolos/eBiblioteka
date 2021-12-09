@@ -43,6 +43,7 @@ namespace eBiblioteka.WinUI
             this.dtpGodIzdavanja = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.SuspendLayout();
@@ -52,8 +53,10 @@ namespace eBiblioteka.WinUI
             this.pictureBox.Location = new System.Drawing.Point(12, 21);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(148, 245);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // label1
             // 
@@ -96,6 +99,7 @@ namespace eBiblioteka.WinUI
             this.unesiButton.TabIndex = 0;
             this.unesiButton.Text = "Potvrda unosa";
             this.unesiButton.UseVisualStyleBackColor = true;
+            this.unesiButton.Click += new System.EventHandler(this.unesiButton_Click);
             // 
             // label2
             // 
@@ -151,6 +155,10 @@ namespace eBiblioteka.WinUI
             // 
             this.err.ContainerControl = this;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmKnjigeUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +202,6 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.DateTimePicker dtpGodIzdavanja;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider err;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

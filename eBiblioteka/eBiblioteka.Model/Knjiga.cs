@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Model
 {
-    public class Knjiga
+    public class Knjiga : BaseEntity
     {
         [Key]
         public int KnjigaID { get; set; }

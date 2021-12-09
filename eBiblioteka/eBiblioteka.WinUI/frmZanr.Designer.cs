@@ -38,7 +38,7 @@ namespace eBiblioteka.WinUI
             this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Obriši = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dodajZanrLabel = new System.Windows.Forms.Label();
             this.zanrTextBox = new System.Windows.Forms.TextBox();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).BeginInit();
@@ -123,14 +123,14 @@ namespace eBiblioteka.WinUI
             this.Aktivan.ReadOnly = true;
             this.Aktivan.Width = 50;
             // 
-            // label2
+            // dodajZanrLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 205);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Dodaj žanr:";
+            this.dodajZanrLabel.AutoSize = true;
+            this.dodajZanrLabel.Location = new System.Drawing.Point(18, 205);
+            this.dodajZanrLabel.Name = "dodajZanrLabel";
+            this.dodajZanrLabel.Size = new System.Drawing.Size(61, 13);
+            this.dodajZanrLabel.TabIndex = 16;
+            this.dodajZanrLabel.Text = "Dodaj žanr:";
             // 
             // zanrTextBox
             // 
@@ -148,7 +148,7 @@ namespace eBiblioteka.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 321);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dodajZanrLabel);
             this.Controls.Add(this.zanrTextBox);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label1);
@@ -175,7 +175,7 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.DataGridViewButtonColumn Uredi;
         private System.Windows.Forms.DataGridViewButtonColumn Obriši;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label dodajZanrLabel;
         private System.Windows.Forms.TextBox zanrTextBox;
         private System.Windows.Forms.ErrorProvider err;
     }

@@ -16,6 +16,8 @@ namespace eBiblioteka.WinUI.Helper
                 _setError = true;
             else if (kontrola is TextBox txt && string.IsNullOrEmpty(txt.Text))
                 _setError = true;
+            else if (kontrola is PictureBox pb && pb.Image == null)
+                _setError = true;
 
             if (_setError)
             {
