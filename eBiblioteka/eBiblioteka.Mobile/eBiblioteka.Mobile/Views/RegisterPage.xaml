@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:control="clr-namespace:eBiblioteka.Mobile.Controls" xmlns:behaviour="clr-namespace:eBiblioteka.Mobile.Behaviors" xmlns:converter="clr-namespace:eBiblioteka.Mobile.Converters" xmlns:viewModel="clr-namespace:eBiblioteka.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBiblioteka.Mobile.Views.RegisterPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converter:NameValidationConverter x:Key="FirstValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+    <ContentPage.Content>
+        <ScrollView x:DataType="viewModel:RegisterViewModel">
+            <StackLayout Padding="30,20,30,0">
+                <Image Source="logo.png" HeightRequest="90"/>
+                <Label Text="eBiblioteka" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Margin="0,20,0,0" Text="Email"  TextColor="DarkOrange"/>
+
+                <control:BorderlessEntry
+                                        HeightRequest="35"
+                                        Placeholder="clan@email.com"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Email.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Email.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+                <Label
+                               
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding Email.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Email.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,20,0,0" Text="Korisnicko ime"  TextColor="DarkOrange"/>
+
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                       
+                                        Placeholder="username"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding KorisnickoIme.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding KorisnickoIme.IsValid}" />
+                    </Entry.Behaviors>
+
+
+
+                </control:BorderlessEntry>
+
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+
+                <Label
+                                
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding KorisnickoIme.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding KorisnickoIme.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,10,0,0" Text="Lozinka"  TextColor="DarkOrange"/>
+
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                        IsPassword="True"
+                                        Placeholder="Lozinka"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Password.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Password.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+                <Label
+                               
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding Password.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Password.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+
+                <Label Margin="0,10,0,0" Text="Ime"  TextColor="DarkOrange"/>
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                       
+                                        Placeholder="Ime"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Ime.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Ime.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+                <Label
+                               
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding Ime.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Ime.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,10,0,0" Text="Prezime"  TextColor="DarkOrange"/>
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                       
+                                        Placeholder="Prezime"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Prezime.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Prezime.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+                <Label
+                                
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding Prezime.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Prezime.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,20,0,0" Text="Grad" HorizontalTextAlignment="Center" TextColor="DarkOrange"/>
+
+
+                <combobox:SfComboBox DataSource="{Binding Gradovi}"  SelectedItem="{Binding OdabraniGrad}" BorderColor="DarkOrange" TextColor="DarkOrange" >
+                </combobox:SfComboBox>
+
+                <Label Margin="0,10,0,0" Text="Adresa"  TextColor="DarkOrange"/>
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                       
+                                        Placeholder="Adresa"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding Adresa.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Adresa.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+                <Label
+                                
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding Adresa.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding Adresa.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,10,0,0" Text="Broj telefona"  TextColor="DarkOrange"/>
+
+
+                <control:BorderlessEntry
+                                       
+                                       
+                                        HeightRequest="35"
+                                       
+                                        Placeholder="JMBG"
+                                        FontSize="15"
+                                        Style="{StaticResource BorderlessEntryStyle}"
+                                        Text="{Binding JMBG.Value}">
+                    <Entry.Behaviors>
+                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding JMBG.IsValid}" />
+                    </Entry.Behaviors>
+                </control:BorderlessEntry>
+
+
+
+                <BoxView Margin="0,-2,0,0" HeightRequest="1" BackgroundColor="LightGray" CornerRadius="10"/>
+
+                <Label
+                                
+                                Margin="0,-3,0,0"
+                                IsVisible="{Binding JMBG.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                                Style="{StaticResource SimpleLabelStyle}"
+                                Text="{Binding JMBG.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                TextColor="{DynamicResource Red}"
+                                VerticalOptions="FillAndExpand" />
+
+                <Label Margin="0,20,0,0" Text="Tip korisnika" HorizontalTextAlignment="Center" TextColor="DarkOrange"/>
+
+
+                <combobox:SfComboBox DataSource="{Binding Biblioteke}" SelectedItem="{Binding OdabranaBiblioteka}" BorderColor="DarkOrange" TextColor="DarkOrange" >
+                </combobox:SfComboBox>
+
+
+                <Button Margin="0,20,0,0" CornerRadius="4" BackgroundColor="DarkOrange" VerticalOptions="Center" Text="Registruj se" Command="{Binding RegisterCommand}"/>
+                <Label Margin="0,20,0,0" Text="Imate račun?" HorizontalTextAlignment="Center" TextColor="Gray">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+        
+        

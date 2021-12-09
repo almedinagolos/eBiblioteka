@@ -30,7 +30,7 @@ namespace eBiblioteka.Security
                 return AuthenticateResult.Fail("Missing authorization header");
             }
 
-            Model.Zaposlenik zaposlenik;
+            Model.Zaposlenik zaposlenik = null;
             Model.Clan clan = null;
 
             try
@@ -41,9 +41,14 @@ namespace eBiblioteka.Security
                 var username = credentials[0];
                 var password = credentials[1];
 
-                zaposlenik = await _zaposlenikService.Login(username, password);
-                if (zaposlenik is null)
+                try
+                {
+                    zaposlenik = await _zaposlenikService.Login(username, password);
+                }
+                catch (Exception)
+                {
                     clan = await _clanService.Login(username, password);
+                }
             }
             catch (Exception ex)
             {
@@ -54,7 +59,7 @@ namespace eBiblioteka.Security
                 return AuthenticateResult.Fail("Invalid username or password");
 
             string korisnickoIme, ime, uloga;
-            if(zaposlenik != null)
+            if (zaposlenik != null)
             {
                 _zaposlenikService.SetLogiraniKorisnik(zaposlenik);
                 korisnickoIme = zaposlenik.KorisnickoIme;
