@@ -30,7 +30,7 @@ namespace eBiblioteka.Mobile.Validators.Rules
         {
             try
             {
-                string jmbg = value.ToString();
+                string jmbg = value?.ToString() ?? "";
                 return Regex.IsMatch(jmbg, "^[0-9]{13}$");
             }
             catch

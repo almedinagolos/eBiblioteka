@@ -1,12 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="eBiblioteka.Mobile.Views.KnjigePage">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:control="clr-namespace:eBiblioteka.Mobile.Controls" xmlns:behaviour="clr-namespace:eBiblioteka.Mobile.Behaviors" xmlns:converter="clr-namespace:eBiblioteka.Mobile.Converters" xmlns:viewModel="clr-namespace:eBiblioteka.Mobile.ViewModels" xmlns:model="clr-namespace:eBiblioteka.Model;assembly=eBiblioteka.Model"
+             mc:Ignorable="d"
+             x:Class="eBiblioteka.Mobile.Views.KnjigePage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converter:NameValidationConverter x:Key="FirstValidationErrorConverter" />
+            <converter:ImageConverter x:Key="imgConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModel:KnjigeViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to KnjigePage!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+
+        <ScrollView>
+            <StackLayout Padding="30,20,30,0">
+                <Label Text="eBiblioteka" HorizontalOptions="Center" TextColor="Gray"/>
+                <Label Margin="0,10,0,10" Text="Knjige" FontSize="30" HorizontalOptions="Center"/>
+
+                <SearchBar Text="{Binding Pretraga}" Margin="0,10,0,10" BackgroundColor="LightGray"  Placeholder="Pretraži knjige" HorizontalTextAlignment="Center"/>
+                <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding KnjigeList}"
+                ItemSizingStrategy="MeasureAllItems"
+                SelectionMode="None">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                        Span="3" />
+                    </CollectionView.ItemsLayout>
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid x:DataType="model:Knjiga" Padding="10">
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Orientation="Vertical">
+
+                                    <Image Source="{Binding Slika, Converter={StaticResource imgConv}}" />
+
+                                    <Label  Grid.Column="0" VerticalOptions="Center"
+                            LineBreakMode="NoWrap" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"       
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:KnjigeViewModel}}, Path=KnjigaCommand}"
+                                                              />
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
+        
+        

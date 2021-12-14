@@ -11,16 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace eBiblioteka.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class MojProfilPage : ContentPage
     {
-        private readonly RegisterViewModel model;
-
-        public RegisterPage()
+        private MojProfilViewModel model;
+        public MojProfilPage()
         {
-
             InitializeComponent();
-            this.BindingContext = model = new RegisterViewModel();
-
+            this.BindingContext = model = new MojProfilViewModel();
         }
 
         protected async override void OnAppearing()

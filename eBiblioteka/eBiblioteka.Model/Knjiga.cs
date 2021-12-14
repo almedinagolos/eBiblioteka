@@ -22,5 +22,9 @@ namespace eBiblioteka.Model
         [ForeignKey(nameof(Zanr))]
         public int ZanrID { get; set; }
         public Zanr Zanr { get; set; }
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 }

@@ -27,10 +27,10 @@ namespace eBiblioteka.Mobile.ViewModels
         private ValidatableObject<string> jmbg = new ValidatableObject<string>();
         private ValidatableObject<DateTime> datumRodjenja = new ValidatableObject<DateTime>();
 
-        private Model.Grad odabraniGrad;
+        private ValidatableObject<Model.Grad> odabraniGrad = new ValidatableObject<Model.Grad>();
         public ObservableCollection<Model.Grad> Gradovi { get; set; } = new ObservableCollection<Model.Grad>();
 
-        private Model.Biblioteka odabranaBiblioteka;
+        private ValidatableObject<Model.Biblioteka> odabranaBiblioteka = new ValidatableObject<Model.Biblioteka>();
         public ObservableCollection<Model.Biblioteka> Biblioteke { get; set; } = new ObservableCollection<Model.Biblioteka>();
 
         public RegisterViewModel()
@@ -49,7 +49,6 @@ namespace eBiblioteka.Mobile.ViewModels
             foreach (var item in listgradovi)
             {
                 Gradovi.Add(item);
-
             }
 
             var listbiblioteke = await _serviceBiblioteke.Get<List<Model.Biblioteka>>(null);
@@ -83,9 +82,9 @@ namespace eBiblioteka.Mobile.ViewModels
                 Adresa = adresa.Value,
                 Ime = ime.Value,
                 Prezime = prezime.Value,
-                GradID = odabraniGrad.GradID,
+                GradID = odabraniGrad.Value.GradID,
                 JMBG = jmbg.Value,
-                BibliotekaID = odabranaBiblioteka.BibliotekaID,
+                BibliotekaID = odabranaBiblioteka.Value.BibliotekaID,
                 DatumRodjenja = datumRodjenja.Value.Date
             };
 
@@ -111,9 +110,12 @@ namespace eBiblioteka.Mobile.ViewModels
             bool isAdresaValid = this.Adresa.Validate();
             bool isJMBGValid = this.JMBG.Validate();
             bool isImeValid = this.Ime.Validate();
-
+            bool isPrezimeValid = this.Prezime.Validate();
             bool isKImeValid = this.KorisnickoIme.Validate();
-            return isEmailValid && isPasswordValid && isAdresaValid && isJMBGValid && isImeValid && isKImeValid;
+            bool isGradValid = this.OdabraniGrad.Validate();
+            bool isBibliotekaValid = this.OdabranaBiblioteka.Validate();
+
+            return (isEmailValid && isPasswordValid && isAdresaValid && isJMBGValid && isImeValid && isPrezimeValid && isKImeValid && isGradValid && isBibliotekaValid);
         }
 
 
@@ -126,8 +128,11 @@ namespace eBiblioteka.Mobile.ViewModels
             this.JMBG.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "JMBG potreban" });
             this.JMBG.Validations.Add(new IsValidJMBGRule<string> { ValidationMessage = "JMBG nije ispravan" });
             this.Ime.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ime potrebno" });
+            this.Prezime.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Prezime potrebno" });
             this.KorisnickoIme.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Korisničko ime potrebno" });
             this.Password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Password potreban" });
+            this.OdabraniGrad.Validations.Add(new IsNotNullOrEmptyRule<Model.Grad> { ValidationMessage = "Grad potreban" });
+            this.OdabranaBiblioteka.Validations.Add(new IsNotNullOrEmptyRule<Model.Biblioteka> { ValidationMessage = "Biblioteka potrebna" });
 
         }
 
@@ -241,7 +246,7 @@ namespace eBiblioteka.Mobile.ViewModels
             }
         }
 
-        public Model.Grad OdabraniGrad
+        public ValidatableObject<Model.Grad> OdabraniGrad
         {
             get
             {
@@ -258,7 +263,7 @@ namespace eBiblioteka.Mobile.ViewModels
                 this.SetProperty(ref this.odabraniGrad, value);
             }
         }
-        public Model.Biblioteka OdabranaBiblioteka
+        public ValidatableObject<Model.Biblioteka> OdabranaBiblioteka
         {
             get
             {

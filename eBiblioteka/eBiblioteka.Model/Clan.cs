@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Model
 {
-    public class Clan
+    public class Clan: BaseEntity
     {
         public int ClanID { get; set; }
         public string Ime { get; set; }
@@ -18,12 +18,16 @@ namespace eBiblioteka.Model
         public DateTime DatumRodjenja { get; set; }
         public string Email { get; set; }
         public string KorisnickoIme { get; set; }
-        public bool Aktivan { get; set; }
         [ForeignKey(nameof(Biblioteka))]
         public int BibliotekaID { get; set; }
         public Biblioteka Biblioteka { get; set; }
         [ForeignKey(nameof(Grad))]
         public int GradID { get; set; }
         public Grad Grad { get; set; }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace eBiblioteka.Mobile
             {
                 if (ex.StatusCode == 401)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Niste autentificirani", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Prijava nije uspješna.", "OK");
                 }
                 throw;
             }

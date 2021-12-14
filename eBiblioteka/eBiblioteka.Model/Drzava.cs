@@ -11,5 +11,9 @@ namespace eBiblioteka.Model
         [Key]
         public int DrzavaID { get; set; }
         public string Naziv { get; set; }
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 }

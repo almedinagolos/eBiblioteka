@@ -101,6 +101,9 @@
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\MojProfilPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -108,5 +111,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\eBiblioteka.Model\eBiblioteka.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\MojProfilPage.xaml.cs">
+      <DependentUpon>MojProfilPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

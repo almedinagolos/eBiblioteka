@@ -14,5 +14,9 @@ namespace eBiblioteka.Model
         public string Biografija { get; set; }
         [DataType(DataType.Date)]
         public DateTime DatumRodjenja { get; set; }
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
     }
 }

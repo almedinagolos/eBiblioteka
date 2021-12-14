@@ -26,5 +26,9 @@ namespace eBiblioteka.Model
         [ForeignKey(nameof(Uloga))]
         public int UlogaID { get; set; }
         public Uloga Uloga { get; set; }
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
     }
 }
