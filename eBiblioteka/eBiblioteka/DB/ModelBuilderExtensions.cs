@@ -179,7 +179,7 @@ namespace eBiblioteka.DB
             );
             #endregion
 
-            #region Dodavanje korisnika
+            #region Dodavanje zaposlenika
             modelBuilder.Entity<Zaposlenik>().HasData(
                 new Zaposlenik()
                 {
@@ -212,6 +212,58 @@ namespace eBiblioteka.DB
                     DatumRodjenja = DateTime.Now.AddYears(-22),
                     JMBG = "0101111111001",
                     UlogaID = 2,
+                    BibliotekaID = 1,
+                    GradID = 1
+                }
+               );
+            #endregion
+            #region Dodavanje clanova
+            modelBuilder.Entity<Clan>().HasData(
+                new Clan()
+                {
+                    ClanID = 1,
+                    Ime = "Elvira",
+                    Prezime = "Ćurić",
+                    Email = "elvira@mail.com",
+                    KorisnickoIme = "elvira",
+                    LozinkaSalt = Salt[0],
+                    LozinkaHash = PasswordHelper.GenerateHash(Salt[0], "Elvira123!"),
+                    Adresa = "BP 3",
+                    Aktivan = true,
+                    DatumRodjenja = DateTime.Now.AddYears(-33),
+                    JMBG = "0101999155988",
+                    BibliotekaID = 2,
+                    GradID = 2
+                },
+                new Clan()
+                {
+                    ClanID = 2,
+                    Ime = "Harisa",
+                    Prezime = "Gološ",
+                    Email = "harisa@mail.com",
+                    KorisnickoIme = "harisa",
+                    LozinkaSalt = Salt[0],
+                    LozinkaHash = PasswordHelper.GenerateHash(Salt[0], "Harisa123!"),
+                    Adresa = "KL bb",
+                    Aktivan = true,
+                    DatumRodjenja = DateTime.Now.AddYears(-20),
+                    JMBG = "0101111111001",
+                    BibliotekaID = 1,
+                    GradID = 1
+                },
+                new Clan()
+                {
+                    ClanID = 3,
+                    Ime = "Erna",
+                    Prezime = "Ćurić",
+                    Email = "erna@mail.com",
+                    KorisnickoIme = "erna",
+                    LozinkaSalt = Salt[0],
+                    LozinkaHash = PasswordHelper.GenerateHash(Salt[0], "Erna123!"),
+                    Adresa = "BP 2",
+                    Aktivan = true,
+                    DatumRodjenja = DateTime.Now.AddYears(-35),
+                    JMBG = "01011111110022",
                     BibliotekaID = 1,
                     GradID = 1
                 }
@@ -267,7 +319,7 @@ namespace eBiblioteka.DB
                 }
                );
             #endregion
-            #region Dodavanje žanra
+            #region Dodavanje pisaca
             modelBuilder.Entity<Pisac>().HasData(
                 new Pisac()
                 {
@@ -282,9 +334,18 @@ namespace eBiblioteka.DB
                 {
                     PisacID = 2,
                     Ime = "Meša",
-                    Prezime= "Selimović",
+                    Prezime = "Selimović",
                     Biografija = "Rodio se u uglednoj muslimanskoj porodici iz Bileće, od oca Alije i majke Paše. Njegov otac Alija rodio se u Visokom, prilikom selidbe njegove porodice iz Bileće prema sjeveroistoku Bosne gdje su imali znatna imanja. Meša je rođen u Tuzli, gdje je završio osnovnu školu i gimnaziju. ",
                     DatumRodjenja = DateTime.Now.AddYears(-100),
+                    Aktivan = true
+                },
+                new Pisac()
+                {
+                    PisacID = 3,
+                    Ime = "Albert",
+                    Prezime = "Camus",
+                    Biografija = "Albert Kami, francuski romanopisac, u ovom djelu nam je prikazao otuđenost pojedinca u društvu , bavio se pitanjem egzistencije ljudi , te besmislom (apsurdnosti) življenja.To nam je predstavio kroz glavnog lika , Mersoa, koji je jedan običan bankovni činovnik i kojemu je sve svejedno.",
+                    DatumRodjenja = DateTime.Now.AddYears(-109),
                     Aktivan = true
                 }
                );
@@ -296,24 +357,108 @@ namespace eBiblioteka.DB
                    KnjigaID = 1,
                    Aktivan = true,
                    BibliotekaID = 1,
-                   GodinaIzdavanja = DateTime.Now.AddYears(-50),
+                   GodinaIzdavanja = DateTime.Now.AddYears(-56),
                    Naziv="Derviš i smrt",
-                   Opis = "",
+                   Opis = "Ahmed Nurudin govori da stvari postoje samo onda kada se kažu ili napišu, pa on tako započinje i svoju priču. Početak je pesimističan, gorki Kur'anski ajjeti uokviruju djelo i govore da je svaki čovjek na gubitku.",
                    ZanrID = 1,
                    Slika = File.ReadAllBytes("Pictures/dervis_i_smrt_nova_knjiga.jpg")
-                }, new Knjiga()
+                },
+                new Knjiga()
                 {
                     KnjigaID = 2,
                     Aktivan = true,
                     BibliotekaID = 1,
-                    GodinaIzdavanja = DateTime.Now.AddYears(-120),
+                    GodinaIzdavanja = DateTime.Now.AddYears(-79),
                     Naziv = "Mali princ",
-                    Opis = "",
+                    Opis = "Mali princ autora Antoinea de Saint-Exupéryja djelo je pisano prvenstveno za djecu, ali zahvaljujući izrazitoj slojevitosti samog djela ima što ponuditi i odraslima. Djelo je prožeto simbolikom i alegoričnim smjernicama. Biljke i životinje su u djelu personificirane i kompleksne, kao da se radi o ljudskim likovima.",
                     ZanrID = 2,
                     Slika = File.ReadAllBytes("Pictures/mali_princ_novo.jpg")
+                },
+                new Knjiga()
+                {
+                    KnjigaID = 3,
+                    Aktivan = true,
+                    BibliotekaID = 2,
+                    GodinaIzdavanja = DateTime.Now.AddYears(-80),
+                    Naziv = "Stranac",
+                    Opis = "Apsurdnost življenja u romanu 'Stranac' A.Kamija. Albert Kami, francuski romanopisac, u ovom djelu nam je prikazao otuđenost pojedinca u društvu, bavio se pitanjem egzistencije ljudi, te besmislom (apsurdnosti) življenja.",
+                    ZanrID = 4,
+                    Slika = File.ReadAllBytes("Pictures/stranac_strip.jpg")
                 }
 
                );
+            #endregion
+            #region Dodavanje clanova
+            modelBuilder.Entity<Clanarina>().HasData(
+               new Clanarina()
+               {
+                   ClanarinaID = 1,
+                   Aktivan = true,
+                   ClanID = 1,
+                   DatumUplate = DateTime.Now.AddMonths(-1),
+                   TipClanarineID = 2,
+                   Iznos = "100"
+               },
+               new Clanarina()
+               {
+                   ClanarinaID = 2,
+                   Aktivan = true,
+                   ClanID = 2,
+                   DatumUplate = DateTime.Now.AddMonths(-2),
+                   TipClanarineID = 2,
+                   Iznos = "100"
+               },
+               new Clanarina()
+               {
+                   ClanarinaID = 3,
+                   Aktivan = true,
+                   ClanID = 3,
+                   DatumUplate = DateTime.Now.AddMonths(-3),
+                   TipClanarineID = 2,
+                   Iznos = "100"
+               }
+               );
+            #endregion
+
+            #region Dodavanje pisaca za knjige
+            modelBuilder.Entity<KnjigaPisac>().HasData(
+               new KnjigaPisac()
+               {
+                  KnjigaPisacID = 1,
+                  KnjigaID = 1,
+                  PisacID = 1
+               },
+               new KnjigaPisac()
+               {
+                  KnjigaPisacID = 2,
+                  KnjigaID = 2,
+                  PisacID = 2
+               },
+               new KnjigaPisac()
+               {
+                  KnjigaPisacID = 3,
+                  KnjigaID = 3,
+                  PisacID = 3
+               });
+            #endregion
+
+            #region Dodavanje rezervacija
+            modelBuilder.Entity<RezervacijaKnjige>().HasData(
+               new RezervacijaKnjige()
+               {
+                   RezervacijaKnjigeID = 1,
+                   ClanID = 1,
+                   KnjigaID = 1,
+                   DatumRezervacije = DateTime.Now
+               },
+               new RezervacijaKnjige()
+               {
+                   RezervacijaKnjigeID = 2,
+                   ClanID = 2,
+                   KnjigaID = 2,
+                   DatumRezervacije = DateTime.Now.AddDays(-7)
+               }
+              );
             #endregion
         }
     }

@@ -26,5 +26,10 @@ namespace eBiblioteka.Model
         {
             return Naziv;
         }
+
+        public string AutoriStr { get; set; }
+
+        public int GodinaInt => GodinaIzdavanja.Year;
+        public bool IsDostupno { get; set; }
     }
 }

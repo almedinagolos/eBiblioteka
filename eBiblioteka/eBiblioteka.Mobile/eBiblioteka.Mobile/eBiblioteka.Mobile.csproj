@@ -114,6 +114,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\KnjigaDetailsPage.xaml.cs">
+      <DependentUpon>KnjigaDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MojProfilPage.xaml.cs">
       <DependentUpon>MojProfilPage.xaml</DependentUpon>
     </Compile>

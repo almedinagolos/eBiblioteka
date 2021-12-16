@@ -20,7 +20,6 @@ namespace eBiblioteka.DB
         public DbSet<Grad> Grad { get; set; }
         public DbSet<Knjiga> Knjiga { get; set; }
         public DbSet<KnjigaPisac> KnjigaPisac { get; set; }
-        public DbSet<KnjigaZanr> KnjigaZanr { get; set; }
         public DbSet<Pisac> Pisac { get; set; }
         public DbSet<RezervacijaKnjige> RezervacijaKnjige { get; set; }
         public DbSet<TipClanarine> TipClanarine { get; set; }

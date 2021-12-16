@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:control="clr-namespace:eBiblioteka.Mobile.Controls" xmlns:behaviour="clr-namespace:eBiblioteka.Mobile.Behaviors" xmlns:converter="clr-namespace:eBiblioteka.Mobile.Converters" xmlns:viewModel="clr-namespace:eBiblioteka.Mobile.ViewModels" xmlns:converter1="clr-namespace:eBiblioteka.Mobile.Converters"
              mc:Ignorable="d"
              x:Class="eBiblioteka.Mobile.Views.MojProfilPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             Title="eBiblioteka">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:BooleanToColorConverter x:Key="ColorConverter" />
@@ -20,7 +21,6 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="30,20,30,0">
-                <Label Text="eBiblioteka" HorizontalOptions="Center" TextColor="Gray"/>
                 <Label Text="Moj profil" FontSize="30"/>
 
                 <Label Margin="0,20,0,0" Text="Email"  TextColor="blue"/>

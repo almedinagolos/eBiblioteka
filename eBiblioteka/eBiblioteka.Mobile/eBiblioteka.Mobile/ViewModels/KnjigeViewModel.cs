@@ -42,7 +42,7 @@ namespace eBiblioteka.Mobile.ViewModels
             if (obj == null)
                 return;
 
-            //await Shell.Current.GoToAsync($"{nameof(KnjigaDetails)}?{nameof(KnjigaDetailsViewModel.KnjigaID)}={obj.KnjigaID}");
+            await Shell.Current.GoToAsync($"{nameof(KnjigaDetailsPage)}?{nameof(KnjigaDetailsViewModel.KnjigaID)}={obj.KnjigaID}");
         }
 
         public KnjigeViewModel()

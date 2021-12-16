@@ -32,9 +32,6 @@ namespace eBiblioteka.Mapping
             CreateMap<Database.KnjigaPisac, Model.KnjigaPisac>();
             //CreateMap<Database.KnjigaPisac, Model.Requests.KnjigaPisacInsertRequest>().ReverseMap();
 
-            CreateMap<Database.KnjigaZanr, Model.KnjigaZanr>();
-            //CreateMap<Database.KnjigaZanr, Model.Requests.KnjigaZanrInsertRequest>().ReverseMap();
-
             CreateMap<Database.Pisac, Model.Pisac>();
             CreateMap<Database.Pisac, Model.Requests.PisacInsertRequest>().ReverseMap();
 

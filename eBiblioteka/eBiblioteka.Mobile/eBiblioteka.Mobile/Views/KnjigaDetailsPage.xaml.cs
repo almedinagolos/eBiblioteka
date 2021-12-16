@@ -11,18 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace eBiblioteka.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class KnjigePage : ContentPage
+    public partial class KnjigaDetailsPage : ContentPage
     {
-        public KnjigeViewModel VM { get; }
-        public KnjigePage()
+        public KnjigaDetailsViewModel VM { get; }
+        public KnjigaDetailsPage()
         {
             InitializeComponent();
-            BindingContext = VM = new KnjigeViewModel();
+            BindingContext = VM = new KnjigaDetailsViewModel();
         }
 
-        protected async override void OnAppearing()
-        {
-            await VM.Init();
-        }
     }
 }

@@ -56,7 +56,6 @@
     <Compile Include="Grad.cs" />
     <Compile Include="Knjiga.cs" />
     <Compile Include="KnjigaPisac.cs" />
-    <Compile Include="KnjigaZanr.cs" />
     <Compile Include="ObjectExtension.cs" />
     <Compile Include="Pisac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
