@@ -18,7 +18,7 @@ namespace eBiblioteka.Mapping
             CreateMap<Database.Clan, Model.Requests.ClanUpdateRequest>().ReverseMap();
 
             CreateMap<Database.Clanarina, Model.Clanarina>();
-            //CreateMap<Database.Clanarina, Model.Requests.ClanarinaInsertRequest>().ReverseMap();
+            CreateMap<Database.Clanarina, Model.Requests.ClanarinaInsertRequest>().ReverseMap();
 
             CreateMap<Database.Drzava, Model.Drzava>();
             //CreateMap<Database.Drzava, Model.Requests.DrzavaInsertRequest>().ReverseMap();

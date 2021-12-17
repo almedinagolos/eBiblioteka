@@ -60,9 +60,11 @@
     <Compile Include="Pisac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\BaseSearchRequest.cs" />
+    <Compile Include="Requests\ClanarinaSearchRequest.cs" />
     <Compile Include="Requests\KnjigaInsertRequest.cs" />
     <Compile Include="Requests\KnjigaSearchRequest.cs" />
     <Compile Include="Requests\ClanUpdateRequest.cs" />
+    <Compile Include="Requests\ClanarinaInsertRequest.cs" />
     <Compile Include="Requests\UlogaSearchRequest.cs" />
     <Compile Include="Requests\ZanrInsertRequest.cs" />
     <Compile Include="Requests\PisacInsertRequest.cs" />

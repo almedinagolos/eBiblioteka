@@ -74,6 +74,7 @@ namespace eBiblioteka
             services.AddScoped<IUlogaService, UlogaService>();
             services.AddScoped<IZanrService, ZanrService>();
             services.AddScoped<IKnjigeService, KnjigeService>();
+            services.AddScoped<IClanarinaService, ClanarinaService>();
 
             services.AddAuthentication("BasicAuthentication")
                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);

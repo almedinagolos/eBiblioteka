@@ -117,6 +117,9 @@
     <Compile Update="Views\KnjigaDetailsPage.xaml.cs">
       <DependentUpon>KnjigaDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ClanarinePage.xaml.cs">
+      <DependentUpon>ClanarinePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MojProfilPage.xaml.cs">
       <DependentUpon>MojProfilPage.xaml</DependentUpon>
     </Compile>

@@ -9,7 +9,6 @@
              xmlns:viewModel="clr-namespace:eBiblioteka.Mobile.ViewModels"
              mc:Ignorable="d"
              x:Class="eBiblioteka.Mobile.Views.LoginPage"
-             Shell.NavBarIsVisible="False"
              Title="eBiblioteka">
     <ContentPage.Resources>
         <ResourceDictionary>

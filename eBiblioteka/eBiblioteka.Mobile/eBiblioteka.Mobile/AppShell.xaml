@@ -81,6 +81,9 @@
     <FlyoutItem Title="Pregled knjiga" Icon="icon_book.png">
         <ShellContent Route="KnjigePage" ContentTemplate="{DataTemplate local:KnjigePage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Članarine" Icon="icon_book.png">
+        <ShellContent Route="ClanarinePage" ContentTemplate="{DataTemplate local:ClanarinePage}" />
+    </FlyoutItem>
 
     <FlyoutItem Title="Moj profil" Icon="icon_user.png">
         <ShellContent Route="MojProfilPage" ContentTemplate="{DataTemplate local:MojProfilPage}" />
