@@ -9,5 +9,6 @@ namespace eBiblioteka.Database
     {
         public int TipClanarineID { get; set; }
         public string Naziv { get; set; }
+        public int Iznos { get; set; }
     }
 }

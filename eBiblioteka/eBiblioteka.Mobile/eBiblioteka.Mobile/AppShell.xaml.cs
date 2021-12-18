@@ -12,6 +12,7 @@ namespace eBiblioteka.Mobile
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(KnjigaDetailsPage), typeof(KnjigaDetailsPage));
+            Routing.RegisterRoute(nameof(UplatiClanarinuPage), typeof(UplatiClanarinuPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

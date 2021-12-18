@@ -309,12 +309,14 @@ namespace eBiblioteka.DB
                 {
                     TipClanarineID = 1,
                     Naziv = "Mjesečna",
+                    Iznos = 20,
                     Aktivan = true
                 },
                 new TipClanarine()
                 {
                     TipClanarineID = 2,
                     Naziv = "Godišnja",
+                    Iznos = 200,
                     Aktivan = true
                 }
                );
@@ -325,8 +327,8 @@ namespace eBiblioteka.DB
                 {
                     PisacID = 1,
                     Ime = "Ivo",
-                    Prezime="Andrić",
-                    Biografija= "Ivo Andrić se rodio u Travniku, u hrvatskoj obitelji Antuna Andrića, sudskoga podvornika i Katarine Pejić. Mjesec dana po rođenju, dana 9. studenog 1892. godine, u Crkvi sv. Ivana Krstitelja u rodnom mjestu kršten je u katolika. U dobi od dvije godine ostaje bez oca i uskoro se s majkom seli u Višegrad kod očeve sestre Ane i njezinog muža Ivana Matkovšika, graničnog policajca.",
+                    Prezime = "Andrić",
+                    Biografija = "Ivo Andrić se rodio u Travniku, u hrvatskoj obitelji Antuna Andrića, sudskoga podvornika i Katarine Pejić. Mjesec dana po rođenju, dana 9. studenog 1892. godine, u Crkvi sv. Ivana Krstitelja u rodnom mjestu kršten je u katolika. U dobi od dvije godine ostaje bez oca i uskoro se s majkom seli u Višegrad kod očeve sestre Ane i njezinog muža Ivana Matkovšika, graničnog policajca.",
                     DatumRodjenja = DateTime.Now.AddYears(-100),
                     Aktivan = true
                 },
@@ -354,14 +356,14 @@ namespace eBiblioteka.DB
             modelBuilder.Entity<Knjiga>().HasData(
                 new Knjiga()
                 {
-                   KnjigaID = 1,
-                   Aktivan = true,
-                   BibliotekaID = 1,
-                   GodinaIzdavanja = DateTime.Now.AddYears(-56),
-                   Naziv="Derviš i smrt",
-                   Opis = "Ahmed Nurudin govori da stvari postoje samo onda kada se kažu ili napišu, pa on tako započinje i svoju priču. Početak je pesimističan, gorki Kur'anski ajjeti uokviruju djelo i govore da je svaki čovjek na gubitku.",
-                   ZanrID = 1,
-                   Slika = File.ReadAllBytes("Pictures/dervis_i_smrt_nova_knjiga.jpg")
+                    KnjigaID = 1,
+                    Aktivan = true,
+                    BibliotekaID = 1,
+                    GodinaIzdavanja = DateTime.Now.AddYears(-56),
+                    Naziv = "Derviš i smrt",
+                    Opis = "Ahmed Nurudin govori da stvari postoje samo onda kada se kažu ili napišu, pa on tako započinje i svoju priču. Početak je pesimističan, gorki Kur'anski ajjeti uokviruju djelo i govore da je svaki čovjek na gubitku.",
+                    ZanrID = 1,
+                    Slika = File.ReadAllBytes("Pictures/dervis_i_smrt_nova_knjiga.jpg")
                 },
                 new Knjiga()
                 {
@@ -397,7 +399,7 @@ namespace eBiblioteka.DB
                    ClanID = 1,
                    DatumUplate = DateTime.Now.AddMonths(-1),
                    TipClanarineID = 2,
-                   Iznos = "100"
+                   Iznos = "200"
                },
                new Clanarina()
                {
@@ -406,7 +408,7 @@ namespace eBiblioteka.DB
                    ClanID = 2,
                    DatumUplate = DateTime.Now.AddMonths(-2),
                    TipClanarineID = 2,
-                   Iznos = "100"
+                   Iznos = "200"
                },
                new Clanarina()
                {
@@ -415,7 +417,7 @@ namespace eBiblioteka.DB
                    ClanID = 3,
                    DatumUplate = DateTime.Now.AddMonths(-3),
                    TipClanarineID = 2,
-                   Iznos = "100"
+                   Iznos = "200"
                }
                );
             #endregion
@@ -424,21 +426,21 @@ namespace eBiblioteka.DB
             modelBuilder.Entity<KnjigaPisac>().HasData(
                new KnjigaPisac()
                {
-                  KnjigaPisacID = 1,
-                  KnjigaID = 1,
-                  PisacID = 1
+                   KnjigaPisacID = 1,
+                   KnjigaID = 1,
+                   PisacID = 1
                },
                new KnjigaPisac()
                {
-                  KnjigaPisacID = 2,
-                  KnjigaID = 2,
-                  PisacID = 2
+                   KnjigaPisacID = 2,
+                   KnjigaID = 2,
+                   PisacID = 2
                },
                new KnjigaPisac()
                {
-                  KnjigaPisacID = 3,
-                  KnjigaID = 3,
-                  PisacID = 3
+                   KnjigaPisacID = 3,
+                   KnjigaID = 3,
+                   PisacID = 3
                });
             #endregion
 

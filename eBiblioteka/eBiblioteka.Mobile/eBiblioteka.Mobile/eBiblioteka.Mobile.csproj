@@ -22,14 +22,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.514" />
     <PackageReference Include="Flurl" Version="3.0.2" />
     <PackageReference Include="Flurl.Http" Version="3.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+    <PackageReference Include="Stripe.net" Version="39.83.0" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.3.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.3.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.3.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.3.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="19.3.0.57" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -105,6 +110,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UplatiClanarinuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

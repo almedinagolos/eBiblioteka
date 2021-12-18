@@ -1,5 +1,6 @@
 using eBiblioteka.Mobile.Services;
 using eBiblioteka.Mobile.Views;
+using Stripe;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ using Xamarin.Forms.Xaml;
      [assembly: ExportFont("UIFontIcons.ttf", Alias = "FontIcons")]
 namespace eBiblioteka.Mobile
 {
-    public partial class App : Application
+    public partial class App : Xamarin.Forms.Application
     {
 
         public App()
@@ -19,6 +20,8 @@ namespace eBiblioteka.Mobile
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+
+            StripeConfiguration.ApiKey = "sk_test_51K7QRVB9wKOklK0fgrILkQB9diRJIDepLbbmVFqQWjMyPjDxPbDbUvck3EHS7bxdx58w6aSuBsL99zBk4MDVj7HQ004nUfrTWZ";
             MainPage = new LoginPage();
         }
 

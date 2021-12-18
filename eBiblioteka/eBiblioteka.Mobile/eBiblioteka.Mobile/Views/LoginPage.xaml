@@ -24,6 +24,9 @@
 
     <ContentPage.Content>
         <StackLayout Padding="30,20,30,0">
+
+            <Label Text="Prijava na sistem" FontSize="30"/>
+                
             <Label Margin="0,20,0,0" Text="Korisničko ime"  TextColor="Blue"/>
 
             <Grid ColumnDefinitions="*, Auto">

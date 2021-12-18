@@ -45,5 +45,39 @@ namespace eBiblioteka.Mobile.ViewModels
 
         }
 
+        private Command onUplatiClanarinuClicked;
+
+        public ICommand OnUplatiClanarinuClicked
+        {
+            get
+            {
+                if (onUplatiClanarinuClicked == null)
+                {
+                    onUplatiClanarinuClicked = new Command(PerformOnUplatiClanarinuClicked);
+                }
+
+                return onUplatiClanarinuClicked;
+            }
+        }
+
+        private async void PerformOnUplatiClanarinuClicked()
+        {
+            foreach (var item in ClanarineList)
+            {
+                DateTime trajanje = item.DatumUplate;
+                if (item.TipClanarine.Naziv == "Mjesečna")
+                    trajanje = trajanje.AddMonths(1);
+                else if (item.TipClanarine.Naziv == "Godišnja")
+                    trajanje = trajanje.AddYears(1);
+
+                if(trajanje >= DateTime.Now)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", $"Prethodna uplata članarine nije istekla, te važi do {trajanje.ToShortDateString()} {trajanje.ToShortTimeString()}.", "OK");
+                    return;
+                }
+            }
+
+            await Shell.Current.GoToAsync($"{nameof(UplatiClanarinuPage)}");
+        }
     }
 }

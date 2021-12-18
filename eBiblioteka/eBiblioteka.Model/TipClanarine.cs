@@ -9,9 +9,10 @@ namespace eBiblioteka.Model
     {
         public int TipClanarineID { get; set; }
         public string Naziv { get; set; }
+        public int Iznos { get; set; }
         public override string ToString()
         {
-            return Naziv;
+            return Naziv + " - " + Iznos.ToString("0.00") + " KM";
         }
     }
 }
