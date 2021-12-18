@@ -67,7 +67,10 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <CheckBox  Grid.Column="1" Grid.Row="4"  IsChecked="{Binding Knjiga.IsDostupno}"/>
+                    <StackLayout Grid.Column="1" Grid.Row="4" Orientation="Horizontal" >
+                        <CheckBox IsChecked="{Binding Knjiga.Aktivan}" IsEnabled="False" />
+                        <Label Text="Dostupno" VerticalOptions="Center" Margin="-10,0,0,0"/>
+                    </StackLayout>
 
                     <Button Grid.Column="1" Grid.Row="6" Text="Rezerviši" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold"
                             Command="{Binding RezervišiCommand}"/>
