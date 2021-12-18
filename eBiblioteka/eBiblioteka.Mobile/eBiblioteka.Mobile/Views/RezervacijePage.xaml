@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:converter="clr-namespace:eBiblioteka.Mobile.Converters" xmlns:viewModel="clr-namespace:eBiblioteka.Mobile.ViewModels" xmlns:model="clr-namespace:eBiblioteka.Model;assembly=eBiblioteka.Model"
+             mc:Ignorable="d"
+             x:Class="eBiblioteka.Mobile.Views.RezervacijePage"
+             Shell.NavBarIsVisible="False"
+             Title="eBiblioteka"
+             x:DataType="viewModel:RezervacijeViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converter:NameValidationConverter x:Key="FirstValidationErrorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="30,20,30,0">
+                <Label Margin="0,10,0,10" Text="Aktivne rezervacije" FontSize="30" HorizontalOptions="Center"/>
+                
+                <ListView Header="" ItemsSource="{Binding AktivneRezervacijeList}" SelectionMode="None" RowHeight="40" HeightRequest="{Binding AktivneRezervacijeHeight}">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" FontAttributes="Bold" Text="Naziv knjige" />
+                                <Label Grid.Column="1" FontAttributes="Bold" Text="Akcija" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:RezervacijaKnjige">
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding Knjiga.Naziv}"/>
+                                    <Button Grid.Column="1" Text="Otkaži" BackgroundColor="Blue" 
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:RezervacijeViewModel}}, Path=OtkažiCommand}"
+                                         CommandParameter="{Binding .}"
+                                                              />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Label Text="Prošle rezervacije" FontSize="30" HorizontalOptions="Center"/>
+
+                <ListView Header="" ItemsSource="{Binding ProšleRezervacijeList}" SelectionMode="None" RowHeight="40" HeightRequest="{Binding ProšleRezervacijeHeight}">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" FontAttributes="Bold" Text="Naziv knjige" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:RezervacijaKnjige">
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding Knjiga.Naziv}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+        
+        

@@ -122,6 +122,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\RezervacijePage.xaml.cs">
+      <DependentUpon>RezervacijePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\KnjigaDetailsPage.xaml.cs">
       <DependentUpon>KnjigaDetailsPage.xaml</DependentUpon>
     </Compile>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace eBiblioteka.Database
 {
-    public class RezervacijaKnjige
+    public class RezervacijaKnjige: BaseEntity
     {
         [Key]
         public int RezervacijaKnjigeID { get; set; }

@@ -25,7 +25,7 @@
 
         <ScrollView>
             <StackLayout Padding="30,20,30,0">
-                <Label Margin="0,10,0,10" Text="" FontSize="30" HorizontalOptions="Center"/>
+                <Label Margin="0,10,0,10" Text="Odabrana knjiga" FontSize="30" HorizontalOptions="Center"/>
 
                 <Grid Padding="10">
                     <Grid.RowDefinitions>
@@ -45,7 +45,11 @@
 
                     <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="0" Grid.RowSpan="5">
 
-                        <Image Source="{Binding Knjiga.Slika, Converter={StaticResource imgConv}}" />
+                        <Image Source="{Binding Knjiga.Slika, Converter={StaticResource imgConv}}"
+                              Aspect="AspectFit"
+                               HeightRequest="300"
+                               WidthRequest="200"
+                               />
                     </StackLayout>
 
                     <Label Grid.Column="0" Grid.Row="6" Text="O knjizi" />
