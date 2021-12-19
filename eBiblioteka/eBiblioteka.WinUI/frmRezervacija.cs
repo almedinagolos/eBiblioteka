@@ -19,6 +19,7 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
             dgvRezervacije.AutoGenerateColumns = false;
+            UpdateVisibility();
 
         }
         private async Task UcitajDataGridView()
@@ -53,6 +54,17 @@ namespace eBiblioteka.WinUI
         private async void frmRezervacija_Load(object sender, EventArgs e)
         {
             await UcitajDataGridView();
+        }
+        private void UpdateVisibility()
+        {
+            if (APIService.CurrentUser.Uloga.Naziv == "Admin")
+            {
+                dgvRezervacije.Columns["Izdaj"].Visible = dgvRezervacije.Columns["Poništi"].Visible = false;
+            }
+            else
+            {
+                dgvRezervacije.Columns["Izdaj"].Visible = dgvRezervacije.Columns["Poništi"].Visible = true;
+            }
         }
 
         private async void dgvRezervacije_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -116,6 +128,11 @@ namespace eBiblioteka.WinUI
         private async void imePrezimeText_TextChanged(object sender, EventArgs e)
         {
             await UcitajDataGridView();
+        }
+
+        private void frmRezervacija_Layout(object sender, LayoutEventArgs e)
+        {
+            UpdateVisibility();
         }
     }
 }

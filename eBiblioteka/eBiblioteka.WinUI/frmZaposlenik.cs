@@ -19,6 +19,7 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
             dgvZaposlenik.AutoGenerateColumns = false;
+            UpdateVisibility();
         }
         private void btnDodaj_Click(object sender, EventArgs e)
         {
@@ -28,6 +29,17 @@ namespace eBiblioteka.WinUI
         private async void frmClan_Load(object sender, EventArgs e)
         {
             await UcitajDataGrid();
+        }
+        private void UpdateVisibility()
+        {
+            if (APIService.CurrentUser.Uloga.Naziv == "Zaposlenik")
+            {
+                btnDodaj.Visible = dgvZaposlenik.Columns["Uredi"].Visible = dgvZaposlenik.Columns["Obriši"].Visible = false;
+            }
+            else
+            {
+                btnDodaj.Visible = dgvZaposlenik.Columns["Uredi"].Visible = dgvZaposlenik.Columns["Obriši"].Visible = true;
+            }
         }
         private async Task UcitajDataGrid()
         {
@@ -66,6 +78,11 @@ namespace eBiblioteka.WinUI
         private async void nazivText_TextChanged(object sender, EventArgs e)
         {
             await UcitajDataGrid();
+        }
+
+        private void frmZaposlenik_Layout(object sender, LayoutEventArgs e)
+        {
+            UpdateVisibility();
         }
     }
 }

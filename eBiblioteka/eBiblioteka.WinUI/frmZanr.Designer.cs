@@ -70,6 +70,7 @@ namespace eBiblioteka.WinUI
             this.nazivText.Name = "nazivText";
             this.nazivText.Size = new System.Drawing.Size(412, 20);
             this.nazivText.TabIndex = 12;
+            this.nazivText.TextChanged += new System.EventHandler(this.nazivText_TextChanged);
             // 
             // dgvZanr
             // 
@@ -158,6 +159,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmZanr";
             this.Text = "frmZanr";
             this.Load += new System.EventHandler(this.frmZanr_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.frmZanr_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.ResumeLayout(false);

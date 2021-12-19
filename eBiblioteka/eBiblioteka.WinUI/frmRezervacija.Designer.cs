@@ -141,6 +141,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmRezervacija";
             this.Text = "frmRezervacija";
             this.Load += new System.EventHandler(this.frmRezervacija_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.frmRezervacija_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRezervacije)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

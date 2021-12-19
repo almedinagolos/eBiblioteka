@@ -19,6 +19,7 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
             dgvPisci.AutoGenerateColumns = false;
+            UpdateVisibility();
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -31,6 +32,18 @@ namespace eBiblioteka.WinUI
         {
             await UcitajDataGrid();
         }
+        private void UpdateVisibility()
+        {
+            if (APIService.CurrentUser.Uloga.Naziv == "Admin")
+            {
+                btnDodaj.Visible = dgvPisci.Columns["Uredi"].Visible = dgvPisci.Columns["Obriši"].Visible = false;
+            }
+            else
+            {
+                btnDodaj.Visible = dgvPisci.Columns["Uredi"].Visible = dgvPisci.Columns["Obriši"].Visible = true;
+            }
+        }
+
         private async Task UcitajDataGrid()
         {
             var request = new Model.Requests.PisacSearchRequest
@@ -69,6 +82,11 @@ namespace eBiblioteka.WinUI
         private async void nazivText_TextChanged(object sender, EventArgs e)
         {
             await UcitajDataGrid();
+        }
+
+        private void frmPisac_Layout(object sender, LayoutEventArgs e)
+        {
+            UpdateVisibility();
         }
     }
 }

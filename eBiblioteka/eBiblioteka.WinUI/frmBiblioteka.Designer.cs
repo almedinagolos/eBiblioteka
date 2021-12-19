@@ -162,6 +162,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmBiblioteka";
             this.Text = "frmBiblioteka";
             this.Load += new System.EventHandler(this.frmBiblioteka_Load);
+            this.VisibleChanged += new System.EventHandler(this.frmBiblioteka_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBiblioteke)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

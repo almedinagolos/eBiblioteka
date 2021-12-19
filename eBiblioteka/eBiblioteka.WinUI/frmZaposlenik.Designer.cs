@@ -182,6 +182,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmZaposlenik";
             this.Text = "frmZaposlenik";
             this.Load += new System.EventHandler(this.frmClan_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.frmZaposlenik_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

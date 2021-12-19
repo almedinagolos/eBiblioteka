@@ -12,12 +12,12 @@ namespace eBiblioteka.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class RezervacijaController : BaseCRUDController<Model.RezervacijaKnjige, RezervacijaSearchRequest, RezervacijaInsertRequest, RezervacijaInsertRequest>
     {
         public RezervacijaController(IRezervacijaService service): base(service)
         {
         }
-
 
     }
 }

@@ -39,5 +39,23 @@ namespace eBiblioteka.WinUI
         {
             this.ActiveControl = korisnickoImeTextBox;
         }
+
+        private void label2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                korisnickoImeTextBox.Text = "admin";
+                lozinkaTextBox.Text = "Admin123!";
+                PrijavaButton.PerformClick();
+            }
+            else
+            {
+                korisnickoImeTextBox.Text = "almedina.golos";
+                lozinkaTextBox.Text = "Almedina123!";
+                PrijavaButton.PerformClick();
+            }
+
+
+        }
     }
 }

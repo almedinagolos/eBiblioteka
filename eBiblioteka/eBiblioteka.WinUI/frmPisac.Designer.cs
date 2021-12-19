@@ -68,6 +68,7 @@ namespace eBiblioteka.WinUI
             this.nazivText.Name = "nazivText";
             this.nazivText.Size = new System.Drawing.Size(163, 20);
             this.nazivText.TabIndex = 8;
+            this.nazivText.TextChanged += new System.EventHandler(this.nazivText_TextChanged);
             // 
             // dgvPisci
             // 
@@ -160,6 +161,7 @@ namespace eBiblioteka.WinUI
             this.Name = "frmPisac";
             this.Text = "frmPisac";
             this.Load += new System.EventHandler(this.frmPisac_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.frmPisac_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPisci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

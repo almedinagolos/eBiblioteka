@@ -12,25 +12,26 @@ namespace eBiblioteka.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class KnjigeController : BaseCRUDController<Model.Knjiga, KnjigaSearchRequest, KnjigaInsertRequest, KnjigaInsertRequest>
     {
         public KnjigeController(IKnjigeService service): base(service)
         {
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin,Zaposlenik")]
         public override Knjiga Insert([FromBody] KnjigaInsertRequest request)
         {
             return base.Insert(request);
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin,Zaposlenik")]
         public override Knjiga Update(int id, [FromBody] KnjigaInsertRequest request)
         {
             return base.Update(id, request);
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin,Zaposlenik")]
         public override Knjiga Delete(int id)
         {
             return base.Delete(id);

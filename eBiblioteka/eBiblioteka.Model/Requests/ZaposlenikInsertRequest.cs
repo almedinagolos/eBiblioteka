@@ -25,7 +25,7 @@ namespace eBiblioteka.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string KorisnickoIme { get; set; }
         [Required(AllowEmptyStrings = false)]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Lozinka mora biti između 6 i 20 karaktera i sadržavati 1 veliko slovo, 1 malo slovo, 1 cifru i 1 specijalan znak.")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,50}$", ErrorMessage = "Lozinka mora biti između 8 i 50 karaktera i sadržavati 1 veliko slovo, 1 malo slovo, 1 cifru i 1 specijalan znak.")]
         public string Lozinka { get; set; }
 
         [Required]

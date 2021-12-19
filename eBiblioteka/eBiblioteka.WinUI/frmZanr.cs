@@ -20,6 +20,7 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
             dgvZanr.AutoGenerateColumns = false;
+            UpdateVisibility();
         }
 
         private async void btnDodaj_Click(object sender, EventArgs e)
@@ -69,6 +70,18 @@ namespace eBiblioteka.WinUI
         {
             await UcitajDataGrid();
         }
+
+        private void UpdateVisibility()
+        {
+            if (APIService.CurrentUser.Uloga.Naziv == "Admin")
+            {
+                btnDodaj.Visible = zanrTextBox.Visible = dodajZanrLabel.Visible = dgvZanr.Columns["Uredi"].Visible = dgvZanr.Columns["Obriši"].Visible = false;
+            }
+            else
+            {
+                btnDodaj.Visible = zanrTextBox.Visible = dodajZanrLabel.Visible = dgvZanr.Columns["Uredi"].Visible = dgvZanr.Columns["Obriši"].Visible = true;
+            }
+        }
         private async Task UcitajDataGrid()
         {
             var request = new Model.Requests.ZanrSearchRequest
@@ -111,6 +124,11 @@ namespace eBiblioteka.WinUI
         private bool Validiraj()
         {
             return Validator.ValidirajKontrolu(zanrTextBox, err, "Podaci nisu unešeni!");
+        }
+
+        private void frmZanr_Layout(object sender, LayoutEventArgs e)
+        {
+            UpdateVisibility();
         }
     }
 }

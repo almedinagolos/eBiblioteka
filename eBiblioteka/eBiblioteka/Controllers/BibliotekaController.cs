@@ -18,19 +18,19 @@ namespace eBiblioteka.Controllers
         {
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles =",Zaposlenik")]
         public override Biblioteka Insert([FromBody] BibliotekaInsertRequest request)
         {
             return base.Insert(request);
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Zaposlenik")]
         public override Biblioteka Update(int id, [FromBody] BibliotekaInsertRequest request)
         {
             return base.Update(id, request);
         }
 
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Zaposlenik")]
         public override Biblioteka Delete(int id)
         {
             return base.Delete(id);

@@ -32,6 +32,7 @@ namespace eBiblioteka.WinUI
         {
             await UcitajDataGrid();
         }
+
         private async Task UcitajDataGrid()
         {
             var request = new Model.Requests.ClanSearchRequest

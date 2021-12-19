@@ -58,6 +58,7 @@ namespace eBiblioteka.WinUI
             this.nazivText.Name = "nazivText";
             this.nazivText.Size = new System.Drawing.Size(163, 20);
             this.nazivText.TabIndex = 6;
+            this.nazivText.TextChanged += new System.EventHandler(this.nazivText_TextChanged);
             // 
             // btnDodaj
             // 

@@ -11,6 +11,7 @@ namespace eBiblioteka.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class ZaposlenikController : ControllerBase
     {
         private readonly IZaposlenikService _service;
@@ -21,24 +22,28 @@ namespace eBiblioteka.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Zaposlenik")]
         public IEnumerable<Model.Zaposlenik> GetAll([FromQuery] ZaposlenikSearchRequest request)
         {
             return _service.Get(request);
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Zaposlenik")]
         public Model.Zaposlenik GetById(int id)
         {
             return _service.GetById(id);
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public Model.Zaposlenik Insert(ZaposlenikInsertRequest Zaposlenik)
         {
             return _service.Insert(Zaposlenik);
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public Model.Zaposlenik Update(int id, [FromBody] ZaposlenikUpdateRequest request)
         {
             return _service.Update(id, request);
@@ -52,6 +57,7 @@ namespace eBiblioteka.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public Model.Zaposlenik Delete(int id)
         {
             return _service.Delete(id);

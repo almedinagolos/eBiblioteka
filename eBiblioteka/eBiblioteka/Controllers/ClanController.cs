@@ -11,6 +11,7 @@ namespace eBiblioteka.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class ClanController: ControllerBase
     {
         private readonly IClanService _service;
@@ -21,30 +22,34 @@ namespace eBiblioteka.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Model.Clan> GetAll([FromQuery] ClanSearchRequest request)
         {
             return _service.Get(request);
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public Model.Clan GetById(int id)
         {
             return _service.GetById(id);
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public Model.Clan Insert(ClanInsertRequest Clan)
         {
             return _service.Insert(Clan);
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public Model.Clan Update(int id, [FromBody] ClanUpdateRequest request)
         {
             return _service.Update(id, request);
         }
 
-        [HttpGet("Profil")]
+        [HttpGet("Profil")] 
         [Authorize(Roles = "Član")]
         public Model.Clan Profil()
         {
@@ -53,6 +58,7 @@ namespace eBiblioteka.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Zaposlenik")]
         public Model.Clan Delete(int id)
         {
             return _service.Delete(id);
