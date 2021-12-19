@@ -19,7 +19,6 @@ namespace eBiblioteka.WinUI
         {
             InitializeComponent();
             dgvKnjige.AutoGenerateColumns = false;
-
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

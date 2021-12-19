@@ -12,6 +12,6 @@ namespace eBiblioteka.Model.Requests
         public int ClanID { get; set; }
         public int KnjigaID { get; set; }
         public bool Aktivan { get; set; }
-
+        public bool Izdata { get; set; }
     }
 }

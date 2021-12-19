@@ -39,6 +39,11 @@ namespace eBiblioteka.Services
 
                 if (search.ClanID != 0)
                     query = query.Where(x => x.ClanID == search.ClanID);
+
+                if (!string.IsNullOrEmpty(search.ImePrezimeClana))
+                {
+                    query = query.Where(x => (x.Clan.Ime + " " + x.Clan.Prezime).ToLower().Contains(search.ImePrezimeClana));
+                }
             }
 
 

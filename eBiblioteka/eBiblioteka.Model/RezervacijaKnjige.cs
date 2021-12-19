@@ -19,5 +19,6 @@ namespace eBiblioteka.Model
         [ForeignKey(nameof(Knjiga))]
         public int KnjigaID { get; set; }
         public Knjiga Knjiga { get; set; }
+        public bool Izdata { get; set; }
     }
 }

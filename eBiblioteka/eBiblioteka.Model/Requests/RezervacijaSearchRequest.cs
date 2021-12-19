@@ -8,5 +8,6 @@ namespace eBiblioteka.Model.Requests
     {
         public int KnjigaID { get; set; }
         public int ClanID { get; set; }
+        public string ImePrezimeClana { get; set; }
     }
 }
