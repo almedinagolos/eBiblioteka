@@ -74,6 +74,17 @@ namespace eBiblioteka.WinUI
             await UcitajDataGrid();
         }
 
+        private void IzvjestajButton_Click(object sender, EventArgs e)
+        {
+            if(dgvClanovi.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Odaberite člana");
+                return;
+            }
 
+            var clan = dgvClanovi.SelectedRows[0].DataBoundItem as Clan;
+            Form frm = new frmClanIzvjestaj(clan.ClanID);
+            frm.ShowDialog();
+        }
     }
 }

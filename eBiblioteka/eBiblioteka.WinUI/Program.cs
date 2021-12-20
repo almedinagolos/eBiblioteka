@@ -17,6 +17,8 @@ namespace eBiblioteka.WinUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            SqlServerTypes.Utilities.LoadNativeAssemblies(AppDomain.CurrentDomain.BaseDirectory);
+
             var login = new Login();
             if(login.ShowDialog() == DialogResult.OK)
                 Application.Run(new frmGlavna());

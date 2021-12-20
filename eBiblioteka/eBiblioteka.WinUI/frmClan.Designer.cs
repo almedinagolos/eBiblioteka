@@ -42,6 +42,7 @@ namespace eBiblioteka.WinUI
             this.label1 = new System.Windows.Forms.Label();
             this.nazivText = new System.Windows.Forms.TextBox();
             this.btnDodaj = new System.Windows.Forms.Button();
+            this.IzvjestajButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClanovi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,11 +170,22 @@ namespace eBiblioteka.WinUI
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
+            // IzvjestajButton
+            // 
+            this.IzvjestajButton.Location = new System.Drawing.Point(12, 338);
+            this.IzvjestajButton.Name = "IzvjestajButton";
+            this.IzvjestajButton.Size = new System.Drawing.Size(124, 23);
+            this.IzvjestajButton.TabIndex = 7;
+            this.IzvjestajButton.Text = "Printaj izvještaj";
+            this.IzvjestajButton.UseVisualStyleBackColor = true;
+            this.IzvjestajButton.Click += new System.EventHandler(this.IzvjestajButton_Click);
+            // 
             // frmClan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 373);
+            this.Controls.Add(this.IzvjestajButton);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nazivText);
@@ -203,5 +215,6 @@ namespace eBiblioteka.WinUI
         private System.Windows.Forms.DataGridViewButtonColumn Uredi;
         private System.Windows.Forms.DataGridViewButtonColumn Obriši;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
+        private System.Windows.Forms.Button IzvjestajButton;
     }
 }

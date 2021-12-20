@@ -125,6 +125,24 @@
     <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -191,6 +209,12 @@
     <Compile Include="frmClan.Designer.cs">
       <DependentUpon>frmClan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmClanIzvjestaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClanIzvjestaj.Designer.cs">
+      <DependentUpon>frmClanIzvjestaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmClanUnos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,10 +227,15 @@
     <Compile Include="frmGlavna.Designer.cs">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmIzvjestaj.cs">
+    <Compile Include="ReportClanoviRezervacije\dsRezervacije.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRezervacije.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportClanoviRezervacije\frmIzvjestaj.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIzvjestaj.Designer.cs">
+    <Compile Include="ReportClanoviRezervacije\frmIzvjestaj.Designer.cs">
       <DependentUpon>frmIzvjestaj.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKnjige.cs">
@@ -267,6 +296,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\APIService.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmBiblioteka.resx">
       <DependentUpon>frmBiblioteka.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,13 +306,16 @@
     <EmbeddedResource Include="frmClan.resx">
       <DependentUpon>frmClan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmClanIzvjestaj.resx">
+      <DependentUpon>frmClanIzvjestaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmClanUnos.resx">
       <DependentUpon>frmClanUnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGlavna.resx">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmIzvjestaj.resx">
+    <EmbeddedResource Include="ReportClanoviRezervacije\frmIzvjestaj.resx">
       <DependentUpon>frmIzvjestaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKnjige.resx">
@@ -322,7 +355,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportClanoviRezervacije\rptClanRezervacije.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\eBiblioteka.Model.RezervacijaKnjige.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -332,6 +367,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReportClanoviRezervacije\dsRezervacije.xsc">
+      <DependentUpon>dsRezervacije.xsd</DependentUpon>
+    </None>
+    <None Include="ReportClanoviRezervacije\dsRezervacije.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRezervacije.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportClanoviRezervacije\dsRezervacije.xss">
+      <DependentUpon>dsRezervacije.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -341,6 +387,21 @@
       <Project>{7e4f7878-142d-454d-ad0d-73e6dd17139b}</Project>
       <Name>eBiblioteka.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
