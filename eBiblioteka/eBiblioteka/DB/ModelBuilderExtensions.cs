@@ -349,7 +349,16 @@ namespace eBiblioteka.DB
                     Biografija = "Albert Kami, francuski romanopisac, u ovom djelu nam je prikazao otuđenost pojedinca u društvu , bavio se pitanjem egzistencije ljudi , te besmislom (apsurdnosti) življenja.To nam je predstavio kroz glavnog lika , Mersoa, koji je jedan običan bankovni činovnik i kojemu je sve svejedno.",
                     DatumRodjenja = DateTime.Now.AddYears(-109),
                     Aktivan = true
-                }
+                },
+                 new Pisac()
+                 {
+                     PisacID = 4,
+                     Ime = "J. R. R.",
+                     Prezime = "Tolkien",
+                     Biografija = "He served as the Rawlinson and Bosworth Professor of Anglo-Saxon and Fellow of Pembroke College, Oxford from 1925 to 1945 and the Merton Professor of English Language and Literature and Fellow of Merton College,",
+                     DatumRodjenja = DateTime.Now.AddYears(-109),
+                     Aktivan = true
+                 }
                );
             #endregion
             #region Dodavanje knjiga
@@ -386,7 +395,41 @@ namespace eBiblioteka.DB
                     Opis = "Apsurdnost življenja u romanu 'Stranac' A.Kamija. Albert Kami, francuski romanopisac, u ovom djelu nam je prikazao otuđenost pojedinca u društvu, bavio se pitanjem egzistencije ljudi, te besmislom (apsurdnosti) življenja.",
                     ZanrID = 4,
                     Slika = File.ReadAllBytes("Pictures/stranac_strip.jpg")
-                }
+                },
+                new Knjiga()
+                {
+                    KnjigaID = 4,
+                    Aktivan = true,
+                    BibliotekaID = 2,
+                    GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                    Naziv = "The Hobbit",
+                    Opis = "The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien. It was published in 1937 to wide critical acclaim, being nominated for the Carnegie Medal and awarded a prize from the New York Herald Tribune for best juvenile fiction. The book remains popular and is recognized as a classic in children's literature. ",
+                    ZanrID = 3,
+                    Slika = File.ReadAllBytes("Pictures/hobbit.jpg")
+                },
+                  new Knjiga()
+                  {
+                      KnjigaID = 5,
+                      Aktivan = true,
+                      BibliotekaID = 2,
+                      GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                      Naziv = "A game of thrones",
+                      Opis = "A Game of Thrones is the first novel in A Song of Ice and Fire, a series of fantasy novels by the American author George R. R. Martin. It was first published on August 1, 1996. The novel won the 1997 Locus Award and was nominated for both the 1997 Nebula Award and the 1997 World Fantasy Award. ",
+                      ZanrID = 3,
+                      Slika = File.ReadAllBytes("Pictures/got.jpg")
+                  },
+
+                  new Knjiga()
+                  {
+                      KnjigaID = 6,
+                      Aktivan = true,
+                      BibliotekaID = 2,
+                      GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                      Naziv = "The Silmarillion",
+                      Opis = "The Silmarillion is a collection of mythopoeic stories by the English writer J. R. R. Tolkien, edited and published posthumously by his son Christopher Tolkien in 1977 with assistance from the fantasy author Guy Gavriel Kay. ",
+                      ZanrID = 3,
+                      Slika = File.ReadAllBytes("Pictures/silm.jpg")
+                  }
 
                );
             #endregion
@@ -441,7 +484,26 @@ namespace eBiblioteka.DB
                    KnjigaPisacID = 3,
                    KnjigaID = 3,
                    PisacID = 3
-               });
+               },
+                new KnjigaPisac()
+                {
+                    KnjigaPisacID = 4,
+                    KnjigaID = 4,
+                    PisacID = 4
+                },
+                 new KnjigaPisac()
+                 {
+                     KnjigaPisacID = 5,
+                     KnjigaID = 5,
+                     PisacID = 4
+                 },
+                  new KnjigaPisac()
+                  {
+                      KnjigaPisacID = 6,
+                      KnjigaID = 6,
+                      PisacID = 4
+                  }
+               );
             #endregion
 
             #region Dodavanje rezervacija

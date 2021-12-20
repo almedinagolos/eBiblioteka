@@ -40,7 +40,24 @@ namespace eBiblioteka.Services
 
 
             var list = query.ToList();
-            return _mapper.Map<List<Model.Knjiga>>(list);
+            var mappedList = _mapper.Map<List<Model.Knjiga>>(list);
+            foreach (var item in mappedList)
+            {
+                item.AutoriStr = string.Join(", ", Context.KnjigaPisac.Where(x => x.KnjigaID == item.KnjigaID).Select(x=>x.Pisac.Ime + " " + x.Pisac.Prezime).ToList());
+            }
+
+            return mappedList;
+        }
+
+        public override Model.Knjiga GetById(int id)
+        {
+            var set = Context.Set<Database.Knjiga>();
+            var entity = set.Find(id);
+            var mappedEntity = _mapper.Map<Model.Knjiga>(entity);
+
+            mappedEntity.AutoriStr = string.Join(", ", Context.KnjigaPisac.Where(x => x.KnjigaID == entity.KnjigaID).Select(x => x.Pisac.Ime + " " + x.Pisac.Prezime).ToList());
+
+            return mappedEntity;
         }
 
     }

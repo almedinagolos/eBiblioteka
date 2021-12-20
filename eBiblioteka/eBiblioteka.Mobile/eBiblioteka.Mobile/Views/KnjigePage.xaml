@@ -27,7 +27,70 @@
                 <Label Margin="0,10,0,10" Text="Knjige" FontSize="30" HorizontalOptions="Center"/>
 
                 <SearchBar Text="{Binding Pretraga}" Margin="0,10,0,10" BackgroundColor="LightGray"  Placeholder="Pretraži knjige" HorizontalTextAlignment="Center"/>
-                <CollectionView x:Name="ItemsListView"
+
+                <Grid IsVisible="{Binding ImaPreporucenihKnjiga}" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+
+                    <Label Margin="0,0,0,10" Text="Preporučene knjige" FontSize="24" Grid.ColumnSpan="3" HorizontalOptions="Center"/>
+
+                    <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical">
+
+                        <Image Source="{Binding PreporucenaKnjiga1.Slika, Converter={StaticResource imgConv}}" Aspect="AspectFit" HeightRequest="265"  />
+
+                        <Label  Grid.Column="0" VerticalOptions="Center"
+                            LineBreakMode="NoWrap" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"       
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:KnjigeViewModel}}, Path=KnjigaCommand}"
+                                         CommandParameter="{Binding PreporucenaKnjiga1}"
+                                                              />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+
+                        <Image Source="{Binding PreporucenaKnjiga2.Slika, Converter={StaticResource imgConv}}" Aspect="AspectFit" HeightRequest="265"  />
+
+                        <Label  Grid.Column="0" VerticalOptions="Center"
+                            LineBreakMode="NoWrap" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"       
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:KnjigeViewModel}}, Path=KnjigaCommand}"
+                                         CommandParameter="{Binding PreporucenaKnjiga2}"
+                                                              />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+
+                        <Image Source="{Binding PreporucenaKnjiga3.Slika, Converter={StaticResource imgConv}}" Aspect="AspectFit" HeightRequest="265"  />
+
+                        <Label  Grid.Column="0" VerticalOptions="Center"
+                            LineBreakMode="NoWrap" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"       
+                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:KnjigeViewModel}}, Path=KnjigaCommand}"
+                                         CommandParameter="{Binding PreporucenaKnjiga3}"
+                                                              />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+
+                </Grid>
+
+
+                <CollectionView 
                 ItemsSource="{Binding KnjigeList}"
                 ItemSizingStrategy="MeasureAllItems"
                 SelectionMode="None">
@@ -35,7 +98,7 @@
                         <GridItemsLayout Orientation="Vertical"
                         Span="3" />
                     </CollectionView.ItemsLayout>
-                    
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
 

@@ -131,5 +131,10 @@ namespace eBiblioteka.Services
 
             return _mapper.Map<Model.Clan>(query.FirstOrDefault(x => x.ClanID == LogiraniKorisnik.ClanID));
         }
+
+        public Model.Clan GetLogiraniKorisnik()
+        {
+            return LogiraniKorisnik;
+        }
     }
 }
