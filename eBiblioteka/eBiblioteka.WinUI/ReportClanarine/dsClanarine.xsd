@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsClanarine" targetNamespace="http://tempuri.org/dsClanarine.xsd" xmlns:mstns="http://tempuri.org/dsClanarine.xsd" xmlns="http://tempuri.org/dsClanarine.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsClanarine" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsClanarine" msprop:Generator_UserDSName="dsClanarine">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtClanarine" msprop:Generator_TableClassName="dtClanarineDataTable" msprop:Generator_TableVarName="tabledtClanarine" msprop:Generator_RowChangedName="dtClanarineRowChanged" msprop:Generator_TablePropName="dtClanarine" msprop:Generator_RowDeletingName="dtClanarineRowDeleting" msprop:Generator_RowChangingName="dtClanarineRowChanging" msprop:Generator_RowEvHandlerName="dtClanarineRowChangeEventHandler" msprop:Generator_RowDeletedName="dtClanarineRowDeleted" msprop:Generator_RowClassName="dtClanarineRow" msprop:Generator_UserTableName="dtClanarine" msprop:Generator_RowEvArgName="dtClanarineRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DatumUplate" msprop:Generator_ColumnVarNameInTable="columnDatumUplate" msprop:Generator_ColumnPropNameInRow="DatumUplate" msprop:Generator_ColumnPropNameInTable="DatumUplateColumn" msprop:Generator_UserColumnName="DatumUplate" type="xs:string" minOccurs="0" />
+              <xs:element name="TipClanarine" msprop:Generator_ColumnVarNameInTable="columnTipClanarine" msprop:Generator_ColumnPropNameInRow="TipClanarine" msprop:Generator_ColumnPropNameInTable="TipClanarineColumn" msprop:Generator_UserColumnName="TipClanarine" type="xs:string" minOccurs="0" />
+              <xs:element name="Iznos" msprop:Generator_ColumnVarNameInTable="columnIznos" msprop:Generator_ColumnPropNameInRow="Iznos" msprop:Generator_ColumnPropNameInTable="IznosColumn" msprop:Generator_UserColumnName="Iznos" type="xs:string" minOccurs="0" />
+              <xs:element name="Član" msprop:Generator_ColumnVarNameInTable="columnČlan" msprop:Generator_ColumnPropNameInRow="Član" msprop:Generator_ColumnPropNameInTable="ČlanColumn" msprop:Generator_UserColumnName="Član" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

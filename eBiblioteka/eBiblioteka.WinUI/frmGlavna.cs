@@ -105,7 +105,7 @@ namespace eBiblioteka.WinUI
         private void btnIzvjestaj_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
-            openChildForm(new frmIzvjestaj());
+            openChildForm(new frmClanarineIzvjestaj());
         }
         private void btnOdjava_Click(object sender, EventArgs e)
         {

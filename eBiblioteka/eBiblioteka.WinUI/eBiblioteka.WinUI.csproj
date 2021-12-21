@@ -209,10 +209,15 @@
     <Compile Include="frmClan.Designer.cs">
       <DependentUpon>frmClan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClanIzvjestaj.cs">
+    <Compile Include="ReportClanarine\dsClanarine.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClanarine.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportClanoviRezervacije\frmClanIzvjestaj.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClanIzvjestaj.Designer.cs">
+    <Compile Include="ReportClanoviRezervacije\frmClanIzvjestaj.Designer.cs">
       <DependentUpon>frmClanIzvjestaj.cs</DependentUpon>
     </Compile>
     <Compile Include="frmClanUnos.cs">
@@ -232,11 +237,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsRezervacije.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ReportClanoviRezervacije\frmIzvjestaj.cs">
+    <Compile Include="ReportClanarine\frmClanarineIzvjestaj.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportClanoviRezervacije\frmIzvjestaj.Designer.cs">
-      <DependentUpon>frmIzvjestaj.cs</DependentUpon>
+    <Compile Include="ReportClanarine\frmClanarineIzvjestaj.Designer.cs">
+      <DependentUpon>frmClanarineIzvjestaj.cs</DependentUpon>
     </Compile>
     <Compile Include="frmKnjige.cs">
       <SubType>Form</SubType>
@@ -306,7 +311,8 @@
     <EmbeddedResource Include="frmClan.resx">
       <DependentUpon>frmClan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClanIzvjestaj.resx">
+    <EmbeddedResource Include="ReportClanarine\rptClanarine.rdlc" />
+    <EmbeddedResource Include="ReportClanoviRezervacije\frmClanIzvjestaj.resx">
       <DependentUpon>frmClanIzvjestaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmClanUnos.resx">
@@ -315,8 +321,8 @@
     <EmbeddedResource Include="frmGlavna.resx">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportClanoviRezervacije\frmIzvjestaj.resx">
-      <DependentUpon>frmIzvjestaj.cs</DependentUpon>
+    <EmbeddedResource Include="ReportClanarine\frmClanarineIzvjestaj.resx">
+      <DependentUpon>frmClanarineIzvjestaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKnjige.resx">
       <DependentUpon>frmKnjige.cs</DependentUpon>
@@ -367,6 +373,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReportClanarine\dsClanarine.xsc">
+      <DependentUpon>dsClanarine.xsd</DependentUpon>
+    </None>
+    <None Include="ReportClanarine\dsClanarine.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClanarine.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportClanarine\dsClanarine.xss">
+      <DependentUpon>dsClanarine.xsd</DependentUpon>
+    </None>
     <None Include="ReportClanoviRezervacije\dsRezervacije.xsc">
       <DependentUpon>dsRezervacije.xsd</DependentUpon>
     </None>
@@ -403,5 +420,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
