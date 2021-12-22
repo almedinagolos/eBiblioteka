@@ -9,9 +9,12 @@ Seminarski rad iz predmeta Razvoj softvera 2
 ## Login podaci
 
 ### Desktop app
+
+#### Uloga Admin
 * Korisničko ime : **admin**
 * Lozinka : **Admin123!**
 
+#### Uloga Zaposlenik
 * Korisničko ime : **almedina.golos**
 * Lozinka : **Almedina123!**
 
