@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  ebiblioteka-sql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - ebibliotekanet
+
+  ebiblioteka-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=ebiblioteka-sql,1433;Database=170018;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 25001:80
+    networks:
+      - ebibliotekanet
+    links:
+      - ebiblioteka-sql
+    depends_on:
+      - ebiblioteka-sql
+
+networks:
+  ebibliotekanet:
+    driver: bridge

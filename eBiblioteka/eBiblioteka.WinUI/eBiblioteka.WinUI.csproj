@@ -400,12 +400,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eBiblioteka.Model\eBiblioteka.Model.csproj">
-      <Project>{7e4f7878-142d-454d-ad0d-73e6dd17139b}</Project>
-      <Name>eBiblioteka.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -420,6 +414,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\eBiblioteka.Model\eBiblioteka.Model.csproj">
+      <Project>{880c1bc7-c910-4fb0-9494-b0b21cc26a79}</Project>
+      <Name>eBiblioteka.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

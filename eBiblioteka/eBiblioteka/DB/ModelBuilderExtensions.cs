@@ -372,7 +372,7 @@ namespace eBiblioteka.DB
                     Naziv = "Derviš i smrt",
                     Opis = "Ahmed Nurudin govori da stvari postoje samo onda kada se kažu ili napišu, pa on tako započinje i svoju priču. Početak je pesimističan, gorki Kur'anski ajjeti uokviruju djelo i govore da je svaki čovjek na gubitku.",
                     ZanrID = 1,
-                    Slika = File.ReadAllBytes("Pictures/dervis_i_smrt_nova_knjiga.jpg")
+                    Slika = File.ReadAllBytes("dervis_i_smrt.jpg")
                 },
                 new Knjiga()
                 {
@@ -382,8 +382,8 @@ namespace eBiblioteka.DB
                     GodinaIzdavanja = DateTime.Now.AddYears(-79),
                     Naziv = "Mali princ",
                     Opis = "Mali princ autora Antoinea de Saint-Exupéryja djelo je pisano prvenstveno za djecu, ali zahvaljujući izrazitoj slojevitosti samog djela ima što ponuditi i odraslima. Djelo je prožeto simbolikom i alegoričnim smjernicama. Biljke i životinje su u djelu personificirane i kompleksne, kao da se radi o ljudskim likovima.",
-                    ZanrID = 2,
-                    Slika = File.ReadAllBytes("Pictures/mali_princ_novo.jpg")
+                    ZanrID = 1,
+                    Slika = File.ReadAllBytes("mali_princ_novo.jpg")
                 },
                 new Knjiga()
                 {
@@ -393,8 +393,8 @@ namespace eBiblioteka.DB
                     GodinaIzdavanja = DateTime.Now.AddYears(-80),
                     Naziv = "Stranac",
                     Opis = "Apsurdnost življenja u romanu 'Stranac' A.Kamija. Albert Kami, francuski romanopisac, u ovom djelu nam je prikazao otuđenost pojedinca u društvu, bavio se pitanjem egzistencije ljudi, te besmislom (apsurdnosti) življenja.",
-                    ZanrID = 4,
-                    Slika = File.ReadAllBytes("Pictures/stranac_strip.jpg")
+                    ZanrID = 1,
+                    Slika = File.ReadAllBytes("stranac_strip.jpg")
                 },
                 new Knjiga()
                 {
@@ -405,7 +405,7 @@ namespace eBiblioteka.DB
                     Naziv = "The Hobbit",
                     Opis = "The Hobbit, or There and Back Again is a children's fantasy novel by English author J. R. R. Tolkien. It was published in 1937 to wide critical acclaim, being nominated for the Carnegie Medal and awarded a prize from the New York Herald Tribune for best juvenile fiction. The book remains popular and is recognized as a classic in children's literature. ",
                     ZanrID = 3,
-                    Slika = File.ReadAllBytes("Pictures/hobbit.jpg")
+                    Slika = File.ReadAllBytes("hobbit.jpg")
                 },
                   new Knjiga()
                   {
@@ -416,7 +416,7 @@ namespace eBiblioteka.DB
                       Naziv = "A game of thrones",
                       Opis = "A Game of Thrones is the first novel in A Song of Ice and Fire, a series of fantasy novels by the American author George R. R. Martin. It was first published on August 1, 1996. The novel won the 1997 Locus Award and was nominated for both the 1997 Nebula Award and the 1997 World Fantasy Award. ",
                       ZanrID = 3,
-                      Slika = File.ReadAllBytes("Pictures/got.jpg")
+                      Slika = File.ReadAllBytes("got.jpg")
                   },
 
                   new Knjiga()
@@ -428,7 +428,7 @@ namespace eBiblioteka.DB
                       Naziv = "The Silmarillion",
                       Opis = "The Silmarillion is a collection of mythopoeic stories by the English writer J. R. R. Tolkien, edited and published posthumously by his son Christopher Tolkien in 1977 with assistance from the fantasy author Guy Gavriel Kay. ",
                       ZanrID = 3,
-                      Slika = File.ReadAllBytes("Pictures/silm.jpg")
+                      Slika = File.ReadAllBytes("silm.jpg")
                   }
 
                );

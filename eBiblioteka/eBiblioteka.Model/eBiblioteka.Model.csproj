@@ -1,96 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7E4F7878-142D-454D-AD0D-73E6DD17139B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eBiblioteka.Model</RootNamespace>
-    <AssemblyName>eBiblioteka.Model</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Biblioteka.cs" />
-    <Compile Include="Clan.cs" />
-    <Compile Include="Clanarina.cs" />
-    <Compile Include="Drzava.cs" />
-    <Compile Include="Grad.cs" />
-    <Compile Include="Knjiga.cs" />
-    <Compile Include="KnjigaPisac.cs" />
-    <Compile Include="ObjectExtension.cs" />
-    <Compile Include="Pisac.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\BaseSearchRequest.cs" />
-    <Compile Include="Requests\ClanarinaSearchRequest.cs" />
-    <Compile Include="Requests\RezervacijaInsertRequest.cs" />
-    <Compile Include="Requests\KnjigaInsertRequest.cs" />
-    <Compile Include="Requests\RezervacijaSearchRequest.cs" />
-    <Compile Include="Requests\KnjigaSearchRequest.cs" />
-    <Compile Include="Requests\ClanUpdateRequest.cs" />
-    <Compile Include="Requests\ClanarinaInsertRequest.cs" />
-    <Compile Include="Requests\UlogaSearchRequest.cs" />
-    <Compile Include="Requests\ZanrInsertRequest.cs" />
-    <Compile Include="Requests\PisacInsertRequest.cs" />
-    <Compile Include="Requests\ZanrSearchRequest.cs" />
-    <Compile Include="Requests\PisacSearchRequest.cs" />
-    <Compile Include="Requests\ClanInsertRequest.cs" />
-    <Compile Include="Requests\BibliotekaInsertRequest.cs" />
-    <Compile Include="Requests\ClanSearchRequest.cs" />
-    <Compile Include="Requests\DrzavaSearchRequest.cs" />
-    <Compile Include="Requests\VrsteBibliotekaSearchRequest.cs" />
-    <Compile Include="Requests\GradSearchRequest.cs" />
-    <Compile Include="Requests\BibliotekaSearchRequest.cs" />
-    <Compile Include="Requests\ZaposlenikInsertRequest.cs" />
-    <Compile Include="Requests\ZaposlenikSearchRequest.cs" />
-    <Compile Include="Requests\ZaposlenikUpdateRequest.cs" />
-    <Compile Include="RezervacijaKnjige.cs" />
-    <Compile Include="TipClanarine.cs" />
-    <Compile Include="Uloga.cs" />
-    <Compile Include="VrsteBiblioteka.cs" />
-    <Compile Include="Zanr.cs" />
-    <Compile Include="Zaposlenik.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

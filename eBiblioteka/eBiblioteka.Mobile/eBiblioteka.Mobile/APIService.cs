@@ -16,7 +16,7 @@ namespace eBiblioteka.Mobile
 
         private readonly string _route;
 
-        public static string ApiUrl = "http://localhost:49021";
+        public static string ApiUrl = "http://localhost:25001";
 
 
 
