@@ -36,6 +36,11 @@ namespace eBiblioteka.Services
 
                 if (!string.IsNullOrEmpty(search.Naziv))
                     query = query.Where(x => x.Naziv.ToLower().Contains(search.Naziv.ToLower()));
+
+                if (search.BibliotekaID != 0)
+                {
+                    query = query.Where(x => x.BibliotekaID == search.BibliotekaID);
+                }
             }
 
 
