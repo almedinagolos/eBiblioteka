@@ -45,14 +45,14 @@ namespace eBiblioteka.WinUI
             // 
             // DatumRodjenjaDtp
             // 
-            this.DatumRodjenjaDtp.Location = new System.Drawing.Point(33, 237);
+            this.DatumRodjenjaDtp.Location = new System.Drawing.Point(73, 288);
             this.DatumRodjenjaDtp.Name = "DatumRodjenjaDtp";
             this.DatumRodjenjaDtp.Size = new System.Drawing.Size(218, 20);
             this.DatumRodjenjaDtp.TabIndex = 33;
             // 
             // BiografijaTextBox
             // 
-            this.BiografijaTextBox.Location = new System.Drawing.Point(281, 50);
+            this.BiografijaTextBox.Location = new System.Drawing.Point(321, 101);
             this.BiografijaTextBox.Multiline = true;
             this.BiografijaTextBox.Name = "BiografijaTextBox";
             this.BiografijaTextBox.Size = new System.Drawing.Size(346, 253);
@@ -60,7 +60,7 @@ namespace eBiblioteka.WinUI
             // 
             // potvrdaUnosaButton
             // 
-            this.potvrdaUnosaButton.Location = new System.Drawing.Point(501, 316);
+            this.potvrdaUnosaButton.Location = new System.Drawing.Point(541, 367);
             this.potvrdaUnosaButton.Name = "potvrdaUnosaButton";
             this.potvrdaUnosaButton.Size = new System.Drawing.Size(126, 27);
             this.potvrdaUnosaButton.TabIndex = 29;
@@ -70,14 +70,14 @@ namespace eBiblioteka.WinUI
             // 
             // prezimeTextBox
             // 
-            this.prezimeTextBox.Location = new System.Drawing.Point(33, 142);
+            this.prezimeTextBox.Location = new System.Drawing.Point(73, 193);
             this.prezimeTextBox.Name = "prezimeTextBox";
             this.prezimeTextBox.Size = new System.Drawing.Size(218, 20);
             this.prezimeTextBox.TabIndex = 27;
             // 
             // imeTextBox
             // 
-            this.imeTextBox.Location = new System.Drawing.Point(33, 50);
+            this.imeTextBox.Location = new System.Drawing.Point(73, 101);
             this.imeTextBox.Name = "imeTextBox";
             this.imeTextBox.Size = new System.Drawing.Size(218, 20);
             this.imeTextBox.TabIndex = 26;
@@ -85,7 +85,7 @@ namespace eBiblioteka.WinUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 206);
+            this.label4.Location = new System.Drawing.Point(70, 257);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 24;
@@ -94,7 +94,7 @@ namespace eBiblioteka.WinUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(278, 17);
+            this.label3.Location = new System.Drawing.Point(318, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 23;
@@ -103,7 +103,7 @@ namespace eBiblioteka.WinUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 106);
+            this.label2.Location = new System.Drawing.Point(70, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 22;
@@ -112,7 +112,7 @@ namespace eBiblioteka.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 19);
+            this.label1.Location = new System.Drawing.Point(70, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 21;
@@ -126,7 +126,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 355);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.DatumRodjenjaDtp);
             this.Controls.Add(this.BiografijaTextBox);
             this.Controls.Add(this.potvrdaUnosaButton);

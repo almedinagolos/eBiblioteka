@@ -65,7 +65,7 @@ namespace eBiblioteka.WinUI
             this.dgvClanovi.Name = "dgvClanovi";
             this.dgvClanovi.ReadOnly = true;
             this.dgvClanovi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClanovi.Size = new System.Drawing.Size(719, 279);
+            this.dgvClanovi.Size = new System.Drawing.Size(782, 363);
             this.dgvClanovi.TabIndex = 1;
             this.dgvClanovi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClanovi_CellContentClick);
             // 
@@ -162,7 +162,7 @@ namespace eBiblioteka.WinUI
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(632, 332);
+            this.btnDodaj.Location = new System.Drawing.Point(695, 416);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(99, 33);
             this.btnDodaj.TabIndex = 6;
@@ -172,9 +172,9 @@ namespace eBiblioteka.WinUI
             // 
             // IzvjestajButton
             // 
-            this.IzvjestajButton.Location = new System.Drawing.Point(12, 338);
+            this.IzvjestajButton.Location = new System.Drawing.Point(12, 416);
             this.IzvjestajButton.Name = "IzvjestajButton";
-            this.IzvjestajButton.Size = new System.Drawing.Size(124, 23);
+            this.IzvjestajButton.Size = new System.Drawing.Size(143, 33);
             this.IzvjestajButton.TabIndex = 7;
             this.IzvjestajButton.Text = "Printaj izvještaj";
             this.IzvjestajButton.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 373);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.IzvjestajButton);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.label1);

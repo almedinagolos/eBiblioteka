@@ -58,7 +58,7 @@ namespace eBiblioteka.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 10);
+            this.label1.Location = new System.Drawing.Point(88, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace eBiblioteka.WinUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 76);
+            this.label2.Location = new System.Drawing.Point(88, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace eBiblioteka.WinUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 132);
+            this.label3.Location = new System.Drawing.Point(88, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace eBiblioteka.WinUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(389, 10);
+            this.label4.Location = new System.Drawing.Point(446, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 3;
@@ -94,7 +94,7 @@ namespace eBiblioteka.WinUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(389, 76);
+            this.label5.Location = new System.Drawing.Point(446, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 4;
@@ -102,28 +102,28 @@ namespace eBiblioteka.WinUI
             // 
             // imeTextBox
             // 
-            this.imeTextBox.Location = new System.Drawing.Point(34, 41);
+            this.imeTextBox.Location = new System.Drawing.Point(91, 93);
             this.imeTextBox.Name = "imeTextBox";
             this.imeTextBox.Size = new System.Drawing.Size(218, 20);
             this.imeTextBox.TabIndex = 6;
             // 
             // prezimeTextBox
             // 
-            this.prezimeTextBox.Location = new System.Drawing.Point(34, 102);
+            this.prezimeTextBox.Location = new System.Drawing.Point(91, 154);
             this.prezimeTextBox.Name = "prezimeTextBox";
             this.prezimeTextBox.Size = new System.Drawing.Size(218, 20);
             this.prezimeTextBox.TabIndex = 7;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(392, 102);
+            this.emailTextBox.Location = new System.Drawing.Point(449, 154);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(218, 20);
             this.emailTextBox.TabIndex = 10;
             // 
             // potvrdaUnosaButton
             // 
-            this.potvrdaUnosaButton.Location = new System.Drawing.Point(484, 313);
+            this.potvrdaUnosaButton.Location = new System.Drawing.Point(541, 365);
             this.potvrdaUnosaButton.Name = "potvrdaUnosaButton";
             this.potvrdaUnosaButton.Size = new System.Drawing.Size(126, 23);
             this.potvrdaUnosaButton.TabIndex = 12;
@@ -133,7 +133,7 @@ namespace eBiblioteka.WinUI
             // 
             // JMBGTextBox
             // 
-            this.JMBGTextBox.Location = new System.Drawing.Point(34, 165);
+            this.JMBGTextBox.Location = new System.Drawing.Point(91, 217);
             this.JMBGTextBox.Name = "JMBGTextBox";
             this.JMBGTextBox.Size = new System.Drawing.Size(218, 20);
             this.JMBGTextBox.TabIndex = 13;
@@ -141,7 +141,7 @@ namespace eBiblioteka.WinUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 129);
+            this.label7.Location = new System.Drawing.Point(446, 181);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 14;
@@ -149,14 +149,14 @@ namespace eBiblioteka.WinUI
             // 
             // adresaTextBox
             // 
-            this.adresaTextBox.Location = new System.Drawing.Point(392, 165);
+            this.adresaTextBox.Location = new System.Drawing.Point(449, 217);
             this.adresaTextBox.Name = "adresaTextBox";
             this.adresaTextBox.Size = new System.Drawing.Size(218, 20);
             this.adresaTextBox.TabIndex = 15;
             // 
             // DatumRodjenjaDtp
             // 
-            this.DatumRodjenjaDtp.Location = new System.Drawing.Point(392, 41);
+            this.DatumRodjenjaDtp.Location = new System.Drawing.Point(449, 93);
             this.DatumRodjenjaDtp.Name = "DatumRodjenjaDtp";
             this.DatumRodjenjaDtp.Size = new System.Drawing.Size(200, 20);
             this.DatumRodjenjaDtp.TabIndex = 16;
@@ -164,7 +164,7 @@ namespace eBiblioteka.WinUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 191);
+            this.label6.Location = new System.Drawing.Point(88, 243);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 17;
@@ -173,7 +173,7 @@ namespace eBiblioteka.WinUI
             // gradCombo
             // 
             this.gradCombo.FormattingEnabled = true;
-            this.gradCombo.Location = new System.Drawing.Point(34, 214);
+            this.gradCombo.Location = new System.Drawing.Point(91, 266);
             this.gradCombo.Name = "gradCombo";
             this.gradCombo.Size = new System.Drawing.Size(218, 21);
             this.gradCombo.TabIndex = 18;
@@ -181,7 +181,7 @@ namespace eBiblioteka.WinUI
             // bibliotekaCombo
             // 
             this.bibliotekaCombo.FormattingEnabled = true;
-            this.bibliotekaCombo.Location = new System.Drawing.Point(392, 214);
+            this.bibliotekaCombo.Location = new System.Drawing.Point(449, 266);
             this.bibliotekaCombo.Name = "bibliotekaCombo";
             this.bibliotekaCombo.Size = new System.Drawing.Size(218, 21);
             this.bibliotekaCombo.TabIndex = 20;
@@ -189,7 +189,7 @@ namespace eBiblioteka.WinUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(389, 191);
+            this.label8.Location = new System.Drawing.Point(446, 243);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 19;
@@ -201,14 +201,14 @@ namespace eBiblioteka.WinUI
             // 
             // lozinkaTextBox
             // 
-            this.lozinkaTextBox.Location = new System.Drawing.Point(392, 268);
+            this.lozinkaTextBox.Location = new System.Drawing.Point(449, 320);
             this.lozinkaTextBox.Name = "lozinkaTextBox";
             this.lozinkaTextBox.Size = new System.Drawing.Size(218, 20);
             this.lozinkaTextBox.TabIndex = 25;
             // 
             // korisnickoImeTextBox
             // 
-            this.korisnickoImeTextBox.Location = new System.Drawing.Point(34, 268);
+            this.korisnickoImeTextBox.Location = new System.Drawing.Point(91, 320);
             this.korisnickoImeTextBox.Name = "korisnickoImeTextBox";
             this.korisnickoImeTextBox.Size = new System.Drawing.Size(218, 20);
             this.korisnickoImeTextBox.TabIndex = 24;
@@ -216,7 +216,7 @@ namespace eBiblioteka.WinUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(389, 242);
+            this.label10.Location = new System.Drawing.Point(446, 294);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 23;
@@ -225,7 +225,7 @@ namespace eBiblioteka.WinUI
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(31, 242);
+            this.label12.Location = new System.Drawing.Point(88, 294);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 13);
             this.label12.TabIndex = 21;
@@ -235,7 +235,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 373);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.lozinkaTextBox);
             this.Controls.Add(this.korisnickoImeTextBox);
             this.Controls.Add(this.label10);
