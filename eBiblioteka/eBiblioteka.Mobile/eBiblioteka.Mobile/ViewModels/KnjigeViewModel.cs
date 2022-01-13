@@ -87,7 +87,7 @@ namespace eBiblioteka.Mobile.ViewModels
 
                 var listKnjige = await task1;
                 var listPreporuke = await task2;
-
+                listPreporuke = listPreporuke.Where(x => x.BibliotekaID == BibliotekaID).ToList();
                 ImaPreporucenihKnjiga = listPreporuke.Count > 0;
 
                 PreporucenaKnjiga1 = PreporucenaKnjiga2 = PreporucenaKnjiga3 = null;
