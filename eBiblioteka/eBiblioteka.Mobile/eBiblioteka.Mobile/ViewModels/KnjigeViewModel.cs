@@ -57,11 +57,13 @@ namespace eBiblioteka.Mobile.ViewModels
 
         private async Task UcitajKnjige()
         {
+            int BibliotekaID = APIService.Korisnik.BibliotekaID;
             if (!string.IsNullOrEmpty(Pretraga))
             {
                 var listKnjige = await _serviceKnjige.Get<List<Knjiga>>(new KnjigaSearchRequest
                 {
-                    Naziv = Pretraga
+                    Naziv = Pretraga,
+                    BibliotekaID = BibliotekaID
                 });
 
                 PreporucenaKnjiga1 = PreporucenaKnjiga2 = PreporucenaKnjiga3 = null;
@@ -76,7 +78,8 @@ namespace eBiblioteka.Mobile.ViewModels
             {
                 var task1 = _serviceKnjige.Get<List<Knjiga>>(new KnjigaSearchRequest
                 {
-                    Naziv = Pretraga
+                    Naziv = Pretraga,
+                    BibliotekaID = BibliotekaID
                 });
                 var task2 = _servicePreporuka.Get<List<Knjiga>>(null);
 
@@ -84,7 +87,7 @@ namespace eBiblioteka.Mobile.ViewModels
 
                 var listKnjige = await task1;
                 var listPreporuke = await task2;
-
+                listPreporuke = listPreporuke.Where(x => x.BibliotekaID == BibliotekaID).ToList();
                 ImaPreporucenihKnjiga = listPreporuke.Count > 0;
 
                 PreporucenaKnjiga1 = PreporucenaKnjiga2 = PreporucenaKnjiga3 = null;
@@ -105,7 +108,7 @@ namespace eBiblioteka.Mobile.ViewModels
 
                 foreach (var item in listKnjige)
                 {
-                    if (listPreporuke.Any(x => x.KnjigaID == item.KnjigaID))
+                    if (listPreporuke.Any(x => x.KnjigaID == item.KnjigaID && x.BibliotekaID == BibliotekaID))
                         continue;
 
                     KnjigeList.Add(item);

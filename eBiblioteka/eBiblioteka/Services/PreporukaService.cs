@@ -29,12 +29,13 @@ namespace eBiblioteka.Services
         public List<Knjiga> Get()
         {
             int ClanId = _clanService.GetLogiraniKorisnik().ClanID;
+            int BibliotekaId = _clanService.GetLogiraniKorisnik().BibliotekaID;
 
             List<Database.RezervacijaKnjige> listaRezervacija = Context.RezervacijaKnjige
                 .Include(x => x.Knjiga.Zanr)
                 .Where(x => x.ClanID == ClanId)
                 .ToList();
-            List<Database.Knjiga> preporucenaListaKnjiga = new List<Database.Knjiga>();
+            List<Database.Knjiga> preporucenaListaKnjiga = new List<Database.Knjiga>().Where(x=>x.BibliotekaID == BibliotekaId).ToList();
 
             if (listaRezervacija.Count() > 0)
             {
