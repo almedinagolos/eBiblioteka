@@ -54,7 +54,7 @@ namespace eBiblioteka.WinUI
             // 
             this.imePrezimeText.Location = new System.Drawing.Point(122, 12);
             this.imePrezimeText.Name = "imePrezimeText";
-            this.imePrezimeText.Size = new System.Drawing.Size(609, 20);
+            this.imePrezimeText.Size = new System.Drawing.Size(658, 20);
             this.imePrezimeText.TabIndex = 10;
             this.imePrezimeText.TextChanged += new System.EventHandler(this.imePrezimeText_TextChanged);
             // 
@@ -75,7 +75,7 @@ namespace eBiblioteka.WinUI
             this.dgvRezervacije.ReadOnly = true;
             this.dgvRezervacije.RowTemplate.Height = 25;
             this.dgvRezervacije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRezervacije.Size = new System.Drawing.Size(719, 278);
+            this.dgvRezervacije.Size = new System.Drawing.Size(768, 381);
             this.dgvRezervacije.TabIndex = 8;
             this.dgvRezervacije.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRezervacije_CellContentClick);
             // 
@@ -133,7 +133,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 361);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.imePrezimeText);
             this.Controls.Add(this.dgvRezervacije);

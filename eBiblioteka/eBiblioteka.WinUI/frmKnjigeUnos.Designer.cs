@@ -51,7 +51,7 @@ namespace eBiblioteka.WinUI
             // pictureBox
             // 
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox.Location = new System.Drawing.Point(43, 48);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(148, 245);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -62,7 +62,7 @@ namespace eBiblioteka.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(177, 21);
+            this.label1.Location = new System.Drawing.Point(208, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 1;
@@ -70,14 +70,14 @@ namespace eBiblioteka.WinUI
             // 
             // nazivTextBox
             // 
-            this.nazivTextBox.Location = new System.Drawing.Point(180, 50);
+            this.nazivTextBox.Location = new System.Drawing.Point(211, 77);
             this.nazivTextBox.Name = "nazivTextBox";
             this.nazivTextBox.Size = new System.Drawing.Size(204, 20);
             this.nazivTextBox.TabIndex = 3;
             // 
             // opisTextBox
             // 
-            this.opisTextBox.Location = new System.Drawing.Point(181, 167);
+            this.opisTextBox.Location = new System.Drawing.Point(212, 194);
             this.opisTextBox.Multiline = true;
             this.opisTextBox.Name = "opisTextBox";
             this.opisTextBox.Size = new System.Drawing.Size(204, 99);
@@ -86,7 +86,7 @@ namespace eBiblioteka.WinUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(179, 142);
+            this.label3.Location = new System.Drawing.Point(210, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 6;
@@ -94,7 +94,7 @@ namespace eBiblioteka.WinUI
             // 
             // unesiButton
             // 
-            this.unesiButton.Location = new System.Drawing.Point(516, 233);
+            this.unesiButton.Location = new System.Drawing.Point(547, 260);
             this.unesiButton.Name = "unesiButton";
             this.unesiButton.Size = new System.Drawing.Size(134, 33);
             this.unesiButton.TabIndex = 0;
@@ -105,7 +105,7 @@ namespace eBiblioteka.WinUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(456, 21);
+            this.label2.Location = new System.Drawing.Point(487, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 12;
@@ -114,7 +114,7 @@ namespace eBiblioteka.WinUI
             // bibliotekaCombo
             // 
             this.bibliotekaCombo.FormattingEnabled = true;
-            this.bibliotekaCombo.Location = new System.Drawing.Point(459, 50);
+            this.bibliotekaCombo.Location = new System.Drawing.Point(490, 77);
             this.bibliotekaCombo.Name = "bibliotekaCombo";
             this.bibliotekaCombo.Size = new System.Drawing.Size(191, 21);
             this.bibliotekaCombo.TabIndex = 13;
@@ -122,7 +122,7 @@ namespace eBiblioteka.WinUI
             // zanrCombo
             // 
             this.zanrCombo.FormattingEnabled = true;
-            this.zanrCombo.Location = new System.Drawing.Point(459, 107);
+            this.zanrCombo.Location = new System.Drawing.Point(490, 134);
             this.zanrCombo.Name = "zanrCombo";
             this.zanrCombo.Size = new System.Drawing.Size(191, 21);
             this.zanrCombo.TabIndex = 15;
@@ -130,7 +130,7 @@ namespace eBiblioteka.WinUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(456, 84);
+            this.label6.Location = new System.Drawing.Point(487, 111);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 14;
@@ -138,7 +138,7 @@ namespace eBiblioteka.WinUI
             // 
             // dtpGodIzdavanja
             // 
-            this.dtpGodIzdavanja.Location = new System.Drawing.Point(181, 108);
+            this.dtpGodIzdavanja.Location = new System.Drawing.Point(212, 135);
             this.dtpGodIzdavanja.Name = "dtpGodIzdavanja";
             this.dtpGodIzdavanja.Size = new System.Drawing.Size(200, 20);
             this.dtpGodIzdavanja.TabIndex = 16;
@@ -146,7 +146,7 @@ namespace eBiblioteka.WinUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(178, 84);
+            this.label4.Location = new System.Drawing.Point(209, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 17;
@@ -164,7 +164,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 334);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dtpGodIzdavanja);
             this.Controls.Add(this.zanrCombo);

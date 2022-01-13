@@ -50,7 +50,7 @@ namespace eBiblioteka.WinUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(98, 48);
+            this.label1.Location = new System.Drawing.Point(135, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace eBiblioteka.WinUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 132);
+            this.label2.Location = new System.Drawing.Point(135, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace eBiblioteka.WinUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(98, 212);
+            this.label3.Location = new System.Drawing.Point(135, 240);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 2;
@@ -77,7 +77,7 @@ namespace eBiblioteka.WinUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(434, 48);
+            this.label4.Location = new System.Drawing.Point(471, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 3;
@@ -86,7 +86,7 @@ namespace eBiblioteka.WinUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(434, 132);
+            this.label5.Location = new System.Drawing.Point(471, 160);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 4;
@@ -95,7 +95,7 @@ namespace eBiblioteka.WinUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(434, 212);
+            this.label6.Location = new System.Drawing.Point(471, 240);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 5;
@@ -103,28 +103,28 @@ namespace eBiblioteka.WinUI
             // 
             // nazivTextBox
             // 
-            this.nazivTextBox.Location = new System.Drawing.Point(101, 79);
+            this.nazivTextBox.Location = new System.Drawing.Point(138, 107);
             this.nazivTextBox.Name = "nazivTextBox";
             this.nazivTextBox.Size = new System.Drawing.Size(218, 20);
             this.nazivTextBox.TabIndex = 6;
             // 
             // brojTelTextBox
             // 
-            this.brojTelTextBox.Location = new System.Drawing.Point(101, 168);
+            this.brojTelTextBox.Location = new System.Drawing.Point(138, 196);
             this.brojTelTextBox.Name = "brojTelTextBox";
             this.brojTelTextBox.Size = new System.Drawing.Size(218, 20);
             this.brojTelTextBox.TabIndex = 7;
             // 
             // adresaTextBox
             // 
-            this.adresaTextBox.Location = new System.Drawing.Point(437, 79);
+            this.adresaTextBox.Location = new System.Drawing.Point(474, 107);
             this.adresaTextBox.Name = "adresaTextBox";
             this.adresaTextBox.Size = new System.Drawing.Size(218, 20);
             this.adresaTextBox.TabIndex = 9;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(437, 168);
+            this.emailTextBox.Location = new System.Drawing.Point(474, 196);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(218, 20);
             this.emailTextBox.TabIndex = 10;
@@ -132,14 +132,14 @@ namespace eBiblioteka.WinUI
             // vrstaCombo
             // 
             this.vrstaCombo.FormattingEnabled = true;
-            this.vrstaCombo.Location = new System.Drawing.Point(437, 245);
+            this.vrstaCombo.Location = new System.Drawing.Point(474, 273);
             this.vrstaCombo.Name = "vrstaCombo";
             this.vrstaCombo.Size = new System.Drawing.Size(218, 21);
             this.vrstaCombo.TabIndex = 11;
             // 
             // potvrdaUnosaButton
             // 
-            this.potvrdaUnosaButton.Location = new System.Drawing.Point(529, 310);
+            this.potvrdaUnosaButton.Location = new System.Drawing.Point(566, 338);
             this.potvrdaUnosaButton.Name = "potvrdaUnosaButton";
             this.potvrdaUnosaButton.Size = new System.Drawing.Size(126, 35);
             this.potvrdaUnosaButton.TabIndex = 12;
@@ -150,7 +150,7 @@ namespace eBiblioteka.WinUI
             // gradCombo
             // 
             this.gradCombo.FormattingEnabled = true;
-            this.gradCombo.Location = new System.Drawing.Point(101, 245);
+            this.gradCombo.Location = new System.Drawing.Point(138, 273);
             this.gradCombo.Name = "gradCombo";
             this.gradCombo.Size = new System.Drawing.Size(218, 21);
             this.gradCombo.TabIndex = 13;
@@ -164,7 +164,7 @@ namespace eBiblioteka.WinUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(759, 412);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.gradCombo);
             this.Controls.Add(this.potvrdaUnosaButton);
             this.Controls.Add(this.vrstaCombo);

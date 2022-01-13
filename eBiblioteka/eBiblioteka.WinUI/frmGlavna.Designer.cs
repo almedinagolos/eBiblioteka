@@ -240,6 +240,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::eBiblioteka.WinUI.Properties.Resources.icon;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(210, 100);

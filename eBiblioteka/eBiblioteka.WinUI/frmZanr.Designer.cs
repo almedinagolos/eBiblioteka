@@ -47,7 +47,7 @@ namespace eBiblioteka.WinUI
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(398, 228);
+            this.btnDodaj.Location = new System.Drawing.Point(398, 318);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(99, 33);
             this.btnDodaj.TabIndex = 14;
@@ -86,7 +86,7 @@ namespace eBiblioteka.WinUI
             this.dgvZanr.Name = "dgvZanr";
             this.dgvZanr.ReadOnly = true;
             this.dgvZanr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvZanr.Size = new System.Drawing.Size(476, 144);
+            this.dgvZanr.Size = new System.Drawing.Size(476, 240);
             this.dgvZanr.TabIndex = 11;
             this.dgvZanr.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZanr_CellContentClick);
             // 
@@ -127,7 +127,7 @@ namespace eBiblioteka.WinUI
             // dodajZanrLabel
             // 
             this.dodajZanrLabel.AutoSize = true;
-            this.dodajZanrLabel.Location = new System.Drawing.Point(18, 205);
+            this.dodajZanrLabel.Location = new System.Drawing.Point(18, 295);
             this.dodajZanrLabel.Name = "dodajZanrLabel";
             this.dodajZanrLabel.Size = new System.Drawing.Size(61, 13);
             this.dodajZanrLabel.TabIndex = 16;
@@ -135,7 +135,7 @@ namespace eBiblioteka.WinUI
             // 
             // zanrTextBox
             // 
-            this.zanrTextBox.Location = new System.Drawing.Point(85, 202);
+            this.zanrTextBox.Location = new System.Drawing.Point(85, 292);
             this.zanrTextBox.Name = "zanrTextBox";
             this.zanrTextBox.Size = new System.Drawing.Size(412, 20);
             this.zanrTextBox.TabIndex = 15;
@@ -148,7 +148,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 321);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.dodajZanrLabel);
             this.Controls.Add(this.zanrTextBox);
             this.Controls.Add(this.btnDodaj);

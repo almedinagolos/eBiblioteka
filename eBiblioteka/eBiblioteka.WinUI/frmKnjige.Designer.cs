@@ -62,7 +62,7 @@ namespace eBiblioteka.WinUI
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(632, 328);
+            this.btnDodaj.Location = new System.Drawing.Point(678, 415);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(99, 33);
             this.btnDodaj.TabIndex = 5;
@@ -88,7 +88,7 @@ namespace eBiblioteka.WinUI
             this.dgvKnjige.ReadOnly = true;
             this.dgvKnjige.RowTemplate.Height = 100;
             this.dgvKnjige.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKnjige.Size = new System.Drawing.Size(719, 278);
+            this.dgvKnjige.Size = new System.Drawing.Size(765, 365);
             this.dgvKnjige.TabIndex = 4;
             this.dgvKnjige.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKnjige_CellContentClick);
             // 
@@ -157,7 +157,7 @@ namespace eBiblioteka.WinUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 379);
+            this.ClientSize = new System.Drawing.Size(806, 460);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nazivText);
             this.Controls.Add(this.btnDodaj);
