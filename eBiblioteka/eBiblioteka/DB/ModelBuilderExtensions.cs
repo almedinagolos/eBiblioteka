@@ -429,18 +429,83 @@ namespace eBiblioteka.DB
                       Opis = "The Silmarillion is a collection of mythopoeic stories by the English writer J. R. R. Tolkien, edited and published posthumously by his son Christopher Tolkien in 1977 with assistance from the fantasy author Guy Gavriel Kay. ",
                       ZanrID = 3,
                       Slika = File.ReadAllBytes("silm.jpg")
-                  }
-
+                  },
+                      new Knjiga()
+                      {
+                          KnjigaID = 7,
+                          Aktivan = true,
+                          BibliotekaID = 2,
+                          GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                          Naziv = "Sjećanja",
+                          Opis = "Vraćajući se na početke i prve utiske o svijetu Meša Selimović u memoarskoj prozi Sjećanja piše o primarnim emocijama djetinstva, mladosti, ratu, književnim počecima, preminulim prijateljima. Pred očima čitalaca formira se osoben mikrokosmos životne odiseje čija neposrednost, iskustveno i jezičko bogastvo, od svakog segmenta ove knjige, formiraju male prozne medaljone koji nimalo ne zaostaju za najboljim stranicama grandioznog djela ovog velikog pisca.",
+                          ZanrID = 1,
+                          Slika = File.ReadAllBytes("sjecanja.jpg")
+                      },
+                       new Knjiga()
+                       {
+                           KnjigaID = 8,
+                           Aktivan = true,
+                           BibliotekaID = 2,
+                           GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                           Naziv = "Most od riječi",
+                           Opis = "Sva naša htenja započinju rečju. Jednom začeta - reč postaje neodložna - otkida se od čoveka i gradi most između njega i sveta koji ga okružuje. Tako daljine postaju blizine i tako svako od nas ostavlja trag na drugoj strani obale - u ljudima i u vremenu koje nam je dato.",
+                           ZanrID = 1,
+                           Slika = File.ReadAllBytes("most.jpg")
+                       },
+                       new Knjiga()
+                       {
+                           KnjigaID = 9,
+                           Aktivan= true,
+                           BibliotekaID = 2,
+                           GodinaIzdavanja = DateTime.Now.AddYears(-50),
+                           Naziv = "Magla i mjesečina",
+                           Opis= "Meša Selimović je, naravno, najpoznatiji po svojim romanima Derviš i smrt te Tvrđava. Često se kaže da njegov prethodni opus nije mogao nagovijestiti takva remek-djela. Postoji u tom opusu, međutim, svojevrsna umjetnička prethodnica njegovim velikim djelima: kratki roman Magla i mjesečina.",
+                           ZanrID=1,
+                           Slika = File.ReadAllBytes("magla.jpg")
+                       },
+                       new Knjiga()
+                       {
+                           KnjigaID = 10,
+                           Aktivan = true,
+                           BibliotekaID = 1,
+                           GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                           Naziv = "Susret",
+                           Opis = "Šta sve nije viđeno i rečeno i šta sve neće ostati zabilježeno? Šta sve nisu ljudi uspjeli da kažu jedan drugom i sačuvaju zauvijek? Znam, sunca su se rađala i kontinenti tonuli a da nikog nije bilo da to vidi i zabilježi... Zar da zaista potone u mom snu i zaboravu ? ",
+                           ZanrID = 1,
+                           Slika = File.ReadAllBytes("susret.jpg")
+                       },
+                       new Knjiga()
+                       {
+                           KnjigaID = 11,
+                           Aktivan = true,
+                           BibliotekaID = 2,
+                           GodinaIzdavanja = DateTime.Now.AddYears(-85),
+                           Naziv = "Omerpaša Latas",
+                           Opis = "Ovo djelo nije završeno kao roman, ali je cjelovito i zaokruženo kao romansijerska zamisao o gradu koji je, poput Travnika, scena za odigravanje ljudske drame...",
+                           ZanrID = 1,
+                           Slika = File.ReadAllBytes("omer.jpg")
+                       },
+                       new Knjiga()
+                       {
+                           KnjigaID = 12,
+                           Aktivan = true,
+                           BibliotekaID = 1,
+                           GodinaIzdavanja = DateTime.Now.AddYears(-50),
+                           Naziv = "Nemir od vijeka",
+                           Opis = "Sveučilišni profesor, književni povjesničar, esejist i kritičar Krešimir Nemec rođen je 1953. u Županji. Autor kapitalne književnopovijesne sinteze hrvatskoga romana i neprijeporni znalac novelistike za svoj znanstveni rad primio je ugledna naša i strana priznanja.",
+                           ZanrID = 1,
+                           Slika = File.ReadAllBytes("nemir.jpg")
+                       }
                );
             #endregion
-            #region Dodavanje clanova
+            #region Dodavanje clanarina
             modelBuilder.Entity<Clanarina>().HasData(
                new Clanarina()
                {
                    ClanarinaID = 1,
                    Aktivan = true,
                    ClanID = 1,
-                   DatumUplate = DateTime.Now.AddMonths(-1),
+                   DatumUplate = DateTime.Now.AddMonths(-13),
                    TipClanarineID = 2,
                    Iznos = "200"
                },
@@ -502,7 +567,43 @@ namespace eBiblioteka.DB
                       KnjigaPisacID = 6,
                       KnjigaID = 6,
                       PisacID = 4
-                  }
+                  },
+                  new KnjigaPisac()
+                  {
+                      KnjigaPisacID = 7,
+                      KnjigaID = 7,
+                      PisacID = 2
+                  },
+                   new KnjigaPisac()
+                   {
+                       KnjigaPisacID = 8,
+                       KnjigaID = 8,
+                       PisacID = 2
+                   },
+                      new KnjigaPisac()
+                      {
+                          KnjigaPisacID = 9,
+                          KnjigaID = 9,
+                          PisacID = 2
+                      },
+                         new KnjigaPisac()
+                         {
+                             KnjigaPisacID = 10,
+                             KnjigaID = 10,
+                             PisacID = 1
+                         },
+                            new KnjigaPisac()
+                            {
+                                KnjigaPisacID = 11,
+                                KnjigaID = 11,
+                                PisacID = 1
+                            },
+                               new KnjigaPisac()
+                               {
+                                   KnjigaPisacID = 12,
+                                   KnjigaID = 12,
+                                   PisacID = 1
+                               }
                );
             #endregion
 
@@ -512,7 +613,7 @@ namespace eBiblioteka.DB
                {
                    RezervacijaKnjigeID = 1,
                    ClanID = 1,
-                   KnjigaID = 1,
+                   KnjigaID = 4,
                    DatumRezervacije = DateTime.Now
                },
                new RezervacijaKnjige()
@@ -521,6 +622,37 @@ namespace eBiblioteka.DB
                    ClanID = 2,
                    KnjigaID = 2,
                    DatumRezervacije = DateTime.Now.AddDays(-7)
+               },
+               new RezervacijaKnjige()
+               {
+                   RezervacijaKnjigeID = 3,
+                   ClanID = 3,
+                   KnjigaID = 10,
+                   DatumRezervacije = DateTime.Now.AddDays(-7)
+               },
+               new RezervacijaKnjige()
+               {
+                   RezervacijaKnjigeID = 4,
+                   ClanID = 1,
+                   KnjigaID = 3,
+                   DatumRezervacije = DateTime.Now.AddDays(-50),
+                   Aktivan = false
+               },
+                new RezervacijaKnjige()
+                {
+                    RezervacijaKnjigeID = 5,
+                    ClanID = 2,
+                    KnjigaID = 1,
+                    DatumRezervacije = DateTime.Now.AddDays(-7),
+                    Aktivan=false
+                },
+               new RezervacijaKnjige()
+               {
+                   RezervacijaKnjigeID = 6,
+                   ClanID = 3,
+                   KnjigaID = 12,
+                   DatumRezervacije = DateTime.Now.AddDays(-7),
+                   Aktivan = false
                }
               );
             #endregion
